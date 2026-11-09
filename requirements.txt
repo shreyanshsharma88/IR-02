@@ -1,0 +1,11 @@
+# Text Mining & Document Intelligence System
+# NOTE: scikit-learn is intentionally NOT used - TF-IDF, Naive Bayes, K-Means,
+# Purity and Rand Index are implemented by hand in the textmining/ package.
+streamlit>=1.30
+pandas>=2.0
+numpy>=1.24
+nltk>=3.8
+plotly>=5.18
+matplotlib>=3.7
+reportlab>=4.0
+openpyxl>=3.1

@@ -1,0 +1,19 @@
+# environments / caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.streamlit/secrets.toml
+.DS_Store
+
+# build output (submission zip is built locally with ./make_zip.sh)
+dist/
+
+# raw download (prepared CSVs in data/ are committed; re-download from mlg.ucd.ie)
+data/raw_download/
+
+# course handout
+IR_Text_Mining_Assignment2.docx
+
+# local Claude Code state
+.claude/

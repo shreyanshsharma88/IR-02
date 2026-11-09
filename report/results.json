@@ -1,0 +1,3716 @@
+{
+ "seed": 42,
+ "categories": [
+  "business",
+  "entertainment",
+  "politics",
+  "sport",
+  "tech"
+ ],
+ "dataset": {
+  "n_docs": 2225,
+  "n_categories": 5,
+  "docs_per_category": {
+   "business": 510,
+   "entertainment": 386,
+   "politics": 417,
+   "sport": 511,
+   "tech": 401
+  },
+  "total_chars": 5033302,
+  "total_mb": 5.03,
+  "words_total": 842910,
+  "chars": {
+   "mean": 2230.8,
+   "median": 1934.0,
+   "min": 469,
+   "max": 25452,
+   "std": 1363.9
+  },
+  "words": {
+   "mean": 378.8,
+   "median": 326.0,
+   "min": 84,
+   "max": 4428,
+   "std": 238.2
+  },
+  "words_per_category_mean": {
+   "business": 323.5,
+   "entertainment": 325.2,
+   "politics": 448.9,
+   "sport": 324.4,
+   "tech": 497.4
+  },
+  "metadata_columns": [
+   "doc_id",
+   "title",
+   "category",
+   "source",
+   "period",
+   "filename",
+   "n_chars",
+   "n_words"
+  ],
+  "document_columns": [
+   "doc_id",
+   "text"
+  ],
+  "noise": {
+   "docs_with_digits": 2116,
+   "docs_with_currency_symbols": 771,
+   "docs_with_mojibake_A_circ": 0,
+   "docs_with_quotes": 1921,
+   "uppercase_token_share": 0.1572
+  },
+  "example_raw_snippet": "Quarterly profits at US media giant TimeWarner jumped 76% to $1.13bn (\u00a3600m) for the three months to December, from $639m year-earlier.\n\nThe firm, which is now one of the biggest investors in Google, benefited from sales of high-speed internet connections and "
+ },
+ "duplicates": {
+  "method": "exact = MD5 of lower-cased, whitespace-collapsed text; near = cosine(TF-IDF) >= 0.9, cross-checked with word 5-shingle Jaccard",
+  "exact_groups": 137,
+  "exact_group_sizes": {
+   "2": 137
+  },
+  "docs_in_exact_groups": 274,
+  "redundant_exact_copies": 137,
+  "exact_pairs": 137,
+  "pairs_cos_ge_0_9": 163,
+  "pairs_exact_type": 137,
+  "pairs_near_only": 26,
+  "near_only_jaccard_mean": 0.8867,
+  "near_only_jaccard_min": 0.6408,
+  "near_only_cos_min": 0.9083,
+  "cross_category_pairs": 0,
+  "cross_category_examples": [],
+  "docs_dropped_by_dedup": 162,
+  "dropped_by_category": {
+   "business": 12,
+   "entertainment": 24,
+   "politics": 25,
+   "sport": 22,
+   "tech": 79
+  },
+  "docs_after_dedup": 2063,
+  "examples_exact": [
+   {
+    "doc_a": "BUS-007",
+    "doc_b": "BUS-253",
+    "title_a": "Jobs growth still slow in the US",
+    "title_b": "Jobs growth still slow in the US",
+    "cat_a": "business",
+    "cat_b": "business",
+    "cosine": 1.0,
+    "jaccard_5shingle": 1.0,
+    "type": "exact"
+   },
+   {
+    "doc_a": "BUS-214",
+    "doc_b": "BUS-240",
+    "title_a": "Economy 'strong' in election year",
+    "title_b": "Economy 'strong' in election year",
+    "cat_a": "business",
+    "cat_b": "business",
+    "cosine": 1.0,
+    "jaccard_5shingle": 1.0,
+    "type": "exact"
+   },
+   {
+    "doc_a": "BUS-215",
+    "doc_b": "BUS-494",
+    "title_a": "SEC to rethink post-Enron rules",
+    "title_b": "SEC to rethink post-Enron rules",
+    "cat_a": "business",
+    "cat_b": "business",
+    "cosine": 1.0,
+    "jaccard_5shingle": 1.0,
+    "type": "exact"
+   },
+   {
+    "doc_a": "BUS-256",
+    "doc_b": "BUS-371",
+    "title_a": "Singapore growth at 8.1% in 2004",
+    "title_b": "Singapore growth at 8.1% in 2004",
+    "cat_a": "business",
+    "cat_b": "business",
+    "cosine": 1.0,
+    "jaccard_5shingle": 1.0,
+    "type": "exact"
+   }
+  ],
+  "examples_near": [
+   {
+    "doc_a": "BUS-260",
+    "doc_b": "BUS-354",
+    "title_a": "Asia shares defy post-quake gloom",
+    "title_b": "Asia shares defy post-quake gloom",
+    "cat_a": "business",
+    "cat_b": "business",
+    "cosine": 0.9083,
+    "jaccard_5shingle": 0.6683,
+    "type": "near"
+   },
+   {
+    "doc_a": "TEC-043",
+    "doc_b": "TEC-326",
+    "title_a": "DVD copy protection strengthened",
+    "title_b": "DVD copy protection strengthened",
+    "cat_a": "tech",
+    "cat_b": "tech",
+    "cosine": 0.9118,
+    "jaccard_5shingle": 0.7412,
+    "type": "near"
+   },
+   {
+    "doc_a": "BUS-209",
+    "doc_b": "BUS-229",
+    "title_a": "Mixed reaction to Man Utd offer",
+    "title_b": "Shares rise on new Man Utd offer",
+    "cat_a": "business",
+    "cat_b": "business",
+    "cosine": 0.9197,
+    "jaccard_5shingle": 0.6975,
+    "type": "near"
+   },
+   {
+    "doc_a": "TEC-064",
+    "doc_b": "TEC-338",
+    "title_a": "Looks and music to drive mobiles",
+    "title_b": "Looks and music to drive mobiles",
+    "cat_a": "tech",
+    "cat_b": "tech",
+    "cosine": 0.9945,
+    "jaccard_5shingle": 0.9686,
+    "type": "near"
+   },
+   {
+    "doc_a": "TEC-049",
+    "doc_b": "TEC-340",
+    "title_a": "Domain system scam fear",
+    "title_b": "Domain system opens door to scams",
+    "cat_a": "tech",
+    "cat_b": "tech",
+    "cosine": 0.9946,
+    "jaccard_5shingle": 0.9789,
+    "type": "near"
+   }
+  ]
+ },
+ "preprocessing": {
+  "baseline_config": {
+   "strip_markup": true,
+   "lowercase": true,
+   "remove_numbers": true,
+   "remove_punctuation": true,
+   "remove_stopwords": true,
+   "normalizer": "stem",
+   "min_token_len": 2,
+   "ngram_min": 1,
+   "ngram_max": 1,
+   "custom_stopwords": []
+  },
+  "baseline_label": "lower|stop|stem|ng1-1",
+  "raw": {
+   "documents": 2225,
+   "total_tokens": 961301,
+   "vocabulary_size": 37981,
+   "avg_tokens_per_doc": 432.0,
+   "min_tokens": 92,
+   "max_tokens": 4942,
+   "type_token_ratio": 0.0395,
+   "hapax_legomena": 14650
+  },
+  "lower_punct_only": {
+   "documents": 2225,
+   "total_tokens": 843375,
+   "vocabulary_size": 33096,
+   "avg_tokens_per_doc": 379.0,
+   "min_tokens": 84,
+   "max_tokens": 4420,
+   "type_token_ratio": 0.0392,
+   "hapax_legomena": 12266
+  },
+  "baseline": {
+   "documents": 2225,
+   "total_tokens": 451770,
+   "vocabulary_size": 21238,
+   "avg_tokens_per_doc": 203.0,
+   "min_tokens": 43,
+   "max_tokens": 2156,
+   "type_token_ratio": 0.047,
+   "hapax_legomena": 7560
+  },
+  "vocab_reduction_pct": 44.1,
+  "token_reduction_pct": 53.0,
+  "top20_raw": [
+   [
+    "the",
+    44534
+   ],
+   [
+    ".",
+    43698
+   ],
+   [
+    ",",
+    36560
+   ],
+   [
+    "to",
+    24546
+   ],
+   [
+    "\"",
+    20421
+   ],
+   [
+    "of",
+    19789
+   ],
+   [
+    "and",
+    17971
+   ],
+   [
+    "a",
+    17214
+   ],
+   [
+    "in",
+    16432
+   ],
+   [
+    "is",
+    8525
+   ],
+   [
+    "for",
+    8488
+   ],
+   [
+    "The",
+    8010
+   ],
+   [
+    "that",
+    7801
+   ],
+   [
+    "said",
+    7245
+   ],
+   [
+    "on",
+    7154
+   ],
+   [
+    "was",
+    6021
+   ],
+   [
+    "be",
+    5772
+   ],
+   [
+    "it",
+    5351
+   ],
+   [
+    "with",
+    5124
+   ],
+   [
+    "has",
+    4949
+   ]
+  ],
+  "top20_baseline": [
+   [
+    "year",
+    2813
+   ],
+   [
+    "peopl",
+    2042
+   ],
+   [
+    "new",
+    1901
+   ],
+   [
+    "one",
+    1803
+   ],
+   [
+    "us",
+    1802
+   ],
+   [
+    "game",
+    1611
+   ],
+   [
+    "use",
+    1559
+   ],
+   [
+    "time",
+    1480
+   ],
+   [
+    "last",
+    1397
+   ],
+   [
+    "make",
+    1347
+   ],
+   [
+    "first",
+    1274
+   ],
+   [
+    "govern",
+    1243
+   ],
+   [
+    "like",
+    1224
+   ],
+   [
+    "go",
+    1211
+   ],
+   [
+    "world",
+    1192
+   ],
+   [
+    "play",
+    1178
+   ],
+   [
+    "two",
+    1176
+   ],
+   [
+    "get",
+    1158
+   ],
+   [
+    "take",
+    1137
+   ],
+   [
+    "compani",
+    1108
+   ]
+  ],
+  "example": {
+   "doc_id": "BUS-001",
+   "raw_first_tokens": [
+    "Quarterly",
+    "profits",
+    "at",
+    "US",
+    "media",
+    "giant",
+    "TimeWarner",
+    "jumped",
+    "76",
+    "%",
+    "to",
+    "$",
+    "1",
+    ".",
+    "13bn",
+    "(",
+    "\u00a3",
+    "600m",
+    ")",
+    "for",
+    "the",
+    "three",
+    "months",
+    "to",
+    "December",
+    ",",
+    "from",
+    "$",
+    "639m",
+    "year-earlier"
+   ],
+   "processed_first_tokens": [
+    "quarterli",
+    "profit",
+    "us",
+    "media",
+    "giant",
+    "timewarn",
+    "jump",
+    "three",
+    "month",
+    "decemb",
+    "yearearli",
+    "firm",
+    "one",
+    "biggest",
+    "investor",
+    "googl",
+    "benefit",
+    "sale",
+    "highspe",
+    "internet",
+    "connect",
+    "higher"
+   ]
+  },
+  "time_s": 2.33,
+  "steps": [
+   {
+    "step": "0. Raw tokens (no normalisation)",
+    "total_tokens": 961301,
+    "vocabulary_size": 37981,
+    "avg_tokens_per_doc": 432.0,
+    "min_tokens": 92,
+    "max_tokens": 4942,
+    "type_token_ratio": 0.0395,
+    "hapax_legomena": 14650
+   },
+   {
+    "step": "1. Lowercase + drop punctuation",
+    "total_tokens": 843375,
+    "vocabulary_size": 33096,
+    "avg_tokens_per_doc": 379.0,
+    "min_tokens": 84,
+    "max_tokens": 4420,
+    "type_token_ratio": 0.0392,
+    "hapax_legomena": 12266
+   },
+   {
+    "step": "2. + drop numbers, min length 2",
+    "total_tokens": 800959,
+    "vocabulary_size": 31133,
+    "avg_tokens_per_doc": 360.0,
+    "min_tokens": 82,
+    "max_tokens": 4260,
+    "type_token_ratio": 0.0389,
+    "hapax_legomena": 11305
+   },
+   {
+    "step": "3. + stop-word removal",
+    "total_tokens": 451770,
+    "vocabulary_size": 30998,
+    "avg_tokens_per_doc": 203.0,
+    "min_tokens": 43,
+    "max_tokens": 2156,
+    "type_token_ratio": 0.0686,
+    "hapax_legomena": 11303
+   },
+   {
+    "step": "4. + Porter stemming (baseline)",
+    "total_tokens": 451770,
+    "vocabulary_size": 21238,
+    "avg_tokens_per_doc": 203.0,
+    "min_tokens": 43,
+    "max_tokens": 2156,
+    "type_token_ratio": 0.047,
+    "hapax_legomena": 7560
+   }
+  ]
+ },
+ "tfidf": {
+  "params": {
+   "min_df": 2,
+   "max_df_ratio": 0.9,
+   "max_features": 5000,
+   "tf": "1+log10(tf)",
+   "idf": "log10(N/df)",
+   "normalisation": "L2 (cosine)"
+  },
+  "pruning": {
+   "raw_terms": 21238,
+   "removed_rare(<min_df)": 9031,
+   "removed_common(>max_df)": 0,
+   "kept_terms": 5000
+  },
+  "matrix_shape": [
+   2225,
+   5000
+  ],
+  "density_pct": 2.47,
+  "avg_nonzero_per_doc": 123.5,
+  "row_norm_check": {
+   "min": 1.0,
+   "max": 1.0
+  },
+  "idf_stats": {
+   "min": 0.2264,
+   "max": 3.0463,
+   "mean": 1.9391
+  },
+  "lowest_idf_terms": [
+   [
+    "year",
+    1321,
+    0.2264
+   ],
+   [
+    "one",
+    1044,
+    0.3286
+   ],
+   [
+    "new",
+    963,
+    0.3637
+   ],
+   [
+    "last",
+    917,
+    0.385
+   ],
+   [
+    "time",
+    894,
+    0.396
+   ],
+   [
+    "us",
+    829,
+    0.4288
+   ],
+   [
+    "make",
+    822,
+    0.4325
+   ],
+   [
+    "two",
+    813,
+    0.4372
+   ]
+  ],
+  "highest_idf_terms_sample": [
+   [
+    "absa",
+    2,
+    3.0463
+   ],
+   [
+    "argonaut",
+    2,
+    3.0463
+   ],
+   [
+    "asimo",
+    2,
+    3.0463
+   ],
+   [
+    "baa",
+    2,
+    3.0463
+   ],
+   [
+    "bdo",
+    2,
+    3.0463
+   ]
+  ],
+  "example_term": {
+   "term": "elect",
+   "df": 237,
+   "idf": 0.9726,
+   "N": 2225,
+   "postings_sample": [
+    [
+     "BUS-007",
+     2
+    ],
+    [
+     "BUS-035",
+     1
+    ],
+    [
+     "BUS-076",
+     1
+    ],
+    [
+     "BUS-102",
+     1
+    ],
+    [
+     "BUS-106",
+     6
+    ],
+    [
+     "BUS-107",
+     2
+    ]
+   ]
+  },
+  "walkthrough": {
+   "doc_id": "BUS-001",
+   "term": "aol",
+   "tf": 7,
+   "tf_weight": 1.8451,
+   "df": 15,
+   "idf": 2.1712,
+   "w_unnormalised": 4.0061,
+   "doc_vector_length": 18.2874,
+   "w_normalised": 0.2191,
+   "w_in_matrix": 0.2191
+  },
+  "example_doc_top_terms": {
+   "doc_id": "BUS-001",
+   "title": "Ad sales boost Time Warner profit",
+   "terms": [
+    [
+     "aol",
+     0.2191
+    ],
+    [
+     "warner",
+     0.1804
+    ],
+    [
+     "restat",
+     0.178
+    ],
+    [
+     "sec",
+     0.1525
+    ],
+    [
+     "highspe",
+     0.1341
+    ],
+    [
+     "bro",
+     0.1337
+    ],
+    [
+     "profit",
+     0.1274
+    ],
+    [
+     "googl",
+     0.1266
+    ],
+    [
+     "subscrib",
+     0.1266
+    ],
+    [
+     "trilog",
+     0.1261
+    ]
+   ]
+  },
+  "cosine_examples": [
+   {
+    "a": "BUS-001",
+    "b": "BUS-011",
+    "title_a": "Ad sales boost Time Warner profit",
+    "title_b": "Ask Jeeves tips online ad revival",
+    "cat_a": "business",
+    "cat_b": "business",
+    "cosine_matrix": 0.2073,
+    "cosine_scalar": 0.2073,
+    "note": "nearest neighbour"
+   },
+   {
+    "a": "BUS-001",
+    "b": "POL-106",
+    "title_a": "Ad sales boost Time Warner profit",
+    "title_b": "Howard attacks cost of asylum",
+    "cat_a": "business",
+    "cat_b": "politics",
+    "cosine_matrix": 0.0151,
+    "cosine_scalar": 0.0151,
+    "note": "different category"
+   }
+  ],
+  "time_s": 0.12
+ },
+ "naive_bayes": {
+  "split": {
+   "train": 1781,
+   "test": 444,
+   "test_size": 0.2,
+   "seed": 42,
+   "train_per_class": {
+    "business": 408,
+    "entertainment": 309,
+    "politics": 334,
+    "sport": 409,
+    "tech": 321
+   },
+   "test_per_class": {
+    "business": 102,
+    "entertainment": 77,
+    "politics": 83,
+    "sport": 102,
+    "tech": 80
+   }
+  },
+  "alpha": 1.0,
+  "vocab_train": 19063,
+  "accuracy": 0.9617,
+  "per_class": {
+   "business": {
+    "precision": 0.9798,
+    "recall": 0.951,
+    "f1": 0.9652,
+    "support": 102,
+    "tp": 97,
+    "fp": 2,
+    "fn": 5
+   },
+   "entertainment": {
+    "precision": 0.973,
+    "recall": 0.9351,
+    "f1": 0.9536,
+    "support": 77,
+    "tp": 72,
+    "fp": 2,
+    "fn": 5
+   },
+   "politics": {
+    "precision": 0.9405,
+    "recall": 0.9518,
+    "f1": 0.9461,
+    "support": 83,
+    "tp": 79,
+    "fp": 5,
+    "fn": 4
+   },
+   "sport": {
+    "precision": 0.9901,
+    "recall": 0.9804,
+    "f1": 0.9852,
+    "support": 102,
+    "tp": 100,
+    "fp": 1,
+    "fn": 2
+   },
+   "tech": {
+    "precision": 0.9186,
+    "recall": 0.9875,
+    "f1": 0.9518,
+    "support": 80,
+    "tp": 79,
+    "fp": 7,
+    "fn": 1
+   }
+  },
+  "macro": {
+   "precision": 0.9604,
+   "recall": 0.9611,
+   "f1": 0.9604
+  },
+  "weighted": {
+   "precision": 0.9626,
+   "recall": 0.9617,
+   "f1": 0.9618
+  },
+  "confusion_matrix": [
+   [
+    97,
+    1,
+    2,
+    0,
+    2
+   ],
+   [
+    0,
+    72,
+    1,
+    0,
+    4
+   ],
+   [
+    2,
+    0,
+    79,
+    1,
+    1
+   ],
+   [
+    0,
+    0,
+    2,
+    100,
+    0
+   ],
+   [
+    0,
+    1,
+    0,
+    0,
+    79
+   ]
+  ],
+  "labels": [
+   "business",
+   "entertainment",
+   "politics",
+   "sport",
+   "tech"
+  ],
+  "n_correct": 427,
+  "n_wrong": 17,
+  "misclassified": [
+   {
+    "doc_id": "BUS-133",
+    "title": "Salary scandal in Cameroon",
+    "actual": "business",
+    "predicted": "politics",
+    "posterior": 0.9759,
+    "correct": false
+   },
+   {
+    "doc_id": "BUS-213",
+    "title": "US bank boss hails 'genius' Smith",
+    "actual": "business",
+    "predicted": "politics",
+    "posterior": 1.0,
+    "correct": false
+   },
+   {
+    "doc_id": "BUS-226",
+    "title": "McDonald's to sponsor MTV show",
+    "actual": "business",
+    "predicted": "entertainment",
+    "posterior": 0.9987,
+    "correct": false
+   },
+   {
+    "doc_id": "BUS-252",
+    "title": "BT offers equal access to rivals",
+    "actual": "business",
+    "predicted": "tech",
+    "posterior": 1.0,
+    "correct": false
+   },
+   {
+    "doc_id": "BUS-254",
+    "title": "News Corp eyes video games market",
+    "actual": "business",
+    "predicted": "tech",
+    "posterior": 1.0,
+    "correct": false
+   },
+   {
+    "doc_id": "ENT-010",
+    "title": "Uganda bans Vagina Monologues",
+    "actual": "entertainment",
+    "predicted": "politics",
+    "posterior": 1.0,
+    "correct": false
+   },
+   {
+    "doc_id": "ENT-050",
+    "title": "Willis sues over movie 'injury'",
+    "actual": "entertainment",
+    "predicted": "tech",
+    "posterior": 0.9177,
+    "correct": false
+   },
+   {
+    "doc_id": "ENT-194",
+    "title": "Ethnic producers 'face barriers'",
+    "actual": "entertainment",
+    "predicted": "tech",
+    "posterior": 1.0,
+    "correct": false
+   },
+   {
+    "doc_id": "ENT-202",
+    "title": "BBC 'should allow more scrutiny'",
+    "actual": "entertainment",
+    "predicted": "tech",
+    "posterior": 1.0,
+    "correct": false
+   },
+   {
+    "doc_id": "ENT-271",
+    "title": "German music in a 'zombie' state",
+    "actual": "entertainment",
+    "predicted": "tech",
+    "posterior": 1.0,
+    "correct": false
+   },
+   {
+    "doc_id": "POL-076",
+    "title": "Report attacks defence spending",
+    "actual": "politics",
+    "predicted": "business",
+    "posterior": 1.0,
+    "correct": false
+   },
+   {
+    "doc_id": "POL-178",
+    "title": "Hatfield executives go on trial",
+    "actual": "politics",
+    "predicted": "sport",
+    "posterior": 0.7405,
+    "correct": false
+   },
+   {
+    "doc_id": "POL-199",
+    "title": "Game warnings 'must be clearer'",
+    "actual": "politics",
+    "predicted": "tech",
+    "posterior": 1.0,
+    "correct": false
+   },
+   {
+    "doc_id": "POL-208",
+    "title": "Gurkhas to help tsunami victims",
+    "actual": "politics",
+    "predicted": "business",
+    "posterior": 0.8402,
+    "correct": false
+   },
+   {
+    "doc_id": "SPO-363",
+    "title": "Calder fears for Scottish rugby",
+    "actual": "sport",
+    "predicted": "politics",
+    "posterior": 1.0,
+    "correct": false
+   },
+   {
+    "doc_id": "SPO-386",
+    "title": "Campbell to be Lions consultant",
+    "actual": "sport",
+    "predicted": "politics",
+    "posterior": 0.9999,
+    "correct": false
+   },
+   {
+    "doc_id": "TEC-046",
+    "title": "BBC leads interactive Bafta wins",
+    "actual": "tech",
+    "predicted": "entertainment",
+    "posterior": 1.0,
+    "correct": false
+   }
+  ],
+  "sample_predictions": [
+   {
+    "doc_id": "BUS-054",
+    "title": "Hyundai to build new India plant",
+    "actual": "business",
+    "predicted": "business",
+    "posterior": 1.0,
+    "correct": true
+   },
+   {
+    "doc_id": "BUS-133",
+    "title": "Salary scandal in Cameroon",
+    "actual": "business",
+    "predicted": "politics",
+    "posterior": 0.9759,
+    "correct": false
+   },
+   {
+    "doc_id": "BUS-213",
+    "title": "US bank boss hails 'genius' Smith",
+    "actual": "business",
+    "predicted": "politics",
+    "posterior": 1.0,
+    "correct": false
+   },
+   {
+    "doc_id": "BUS-226",
+    "title": "McDonald's to sponsor MTV show",
+    "actual": "business",
+    "predicted": "entertainment",
+    "posterior": 0.9987,
+    "correct": false
+   },
+   {
+    "doc_id": "BUS-252",
+    "title": "BT offers equal access to rivals",
+    "actual": "business",
+    "predicted": "tech",
+    "posterior": 1.0,
+    "correct": false
+   },
+   {
+    "doc_id": "BUS-254",
+    "title": "News Corp eyes video games market",
+    "actual": "business",
+    "predicted": "tech",
+    "posterior": 1.0,
+    "correct": false
+   },
+   {
+    "doc_id": "BUS-315",
+    "title": "S&N extends Indian beer venture",
+    "actual": "business",
+    "predicted": "business",
+    "posterior": 1.0,
+    "correct": true
+   },
+   {
+    "doc_id": "BUS-384",
+    "title": "Weak end-of-year sales hit Next",
+    "actual": "business",
+    "predicted": "business",
+    "posterior": 1.0,
+    "correct": true
+   },
+   {
+    "doc_id": "ENT-010",
+    "title": "Uganda bans Vagina Monologues",
+    "actual": "entertainment",
+    "predicted": "politics",
+    "posterior": 1.0,
+    "correct": false
+   },
+   {
+    "doc_id": "ENT-096",
+    "title": "Singer's film to show at festival",
+    "actual": "entertainment",
+    "predicted": "entertainment",
+    "posterior": 1.0,
+    "correct": true
+   },
+   {
+    "doc_id": "ENT-153",
+    "title": "OutKast win at MTV Europe Awards",
+    "actual": "entertainment",
+    "predicted": "entertainment",
+    "posterior": 1.0,
+    "correct": true
+   },
+   {
+    "doc_id": "ENT-248",
+    "title": "Deal to ban 'homophobic' reggae",
+    "actual": "entertainment",
+    "predicted": "entertainment",
+    "posterior": 1.0,
+    "correct": true
+   },
+   {
+    "doc_id": "SPO-404",
+    "title": "Ireland win eclipses refereeing 'errors'",
+    "actual": "sport",
+    "predicted": "sport",
+    "posterior": 1.0,
+    "correct": true
+   },
+   {
+    "doc_id": "TEC-138",
+    "title": "Firefox browser takes on Microsoft",
+    "actual": "tech",
+    "predicted": "tech",
+    "posterior": 1.0,
+    "correct": true
+   },
+   {
+    "doc_id": "TEC-141",
+    "title": "US top of supercomputing charts",
+    "actual": "tech",
+    "predicted": "tech",
+    "posterior": 1.0,
+    "correct": true
+   }
+  ],
+  "actual_distribution": {
+   "business": 102,
+   "entertainment": 77,
+   "politics": 83,
+   "sport": 102,
+   "tech": 80
+  },
+  "predicted_distribution": {
+   "business": 99,
+   "politics": 84,
+   "entertainment": 74,
+   "tech": 86,
+   "sport": 101
+  },
+  "top_terms": {
+   "business": [
+    [
+     "yuko",
+     5.02
+    ],
+    [
+     "sharehold",
+     4.36
+    ],
+    [
+     "oil",
+     4.28
+    ],
+    [
+     "gazprom",
+     4.21
+    ],
+    [
+     "deutsch",
+     4.14
+    ],
+    [
+     "gm",
+     4.11
+    ],
+    [
+     "ebber",
+     4.11
+    ],
+    [
+     "deficit",
+     4.05
+    ],
+    [
+     "yugansk",
+     4.04
+    ],
+    [
+     "boers",
+     3.99
+    ]
+   ],
+   "entertainment": [
+    [
+     "actress",
+     5.23
+    ],
+    [
+     "oscar",
+     5.0
+    ],
+    [
+     "actor",
+     4.63
+    ],
+    [
+     "comedi",
+     4.55
+    ],
+    [
+     "chart",
+     4.51
+    ],
+    [
+     "film",
+     4.49
+    ],
+    [
+     "album",
+     4.44
+    ],
+    [
+     "singer",
+     4.41
+    ],
+    [
+     "foxx",
+     4.16
+    ],
+    [
+     "nomin",
+     4.09
+    ]
+   ],
+   "politics": [
+    [
+     "tori",
+     5.83
+    ],
+    [
+     "lib",
+     4.95
+    ],
+    [
+     "labour",
+     4.89
+    ],
+    [
+     "dem",
+     4.78
+    ],
+    [
+     "mp",
+     4.69
+    ],
+    [
+     "chancellor",
+     4.61
+    ],
+    [
+     "ukip",
+     4.47
+    ],
+    [
+     "blunkett",
+     4.46
+    ],
+    [
+     "blair",
+     4.41
+    ],
+    [
+     "asylum",
+     4.37
+    ]
+   ],
+   "sport": [
+    [
+     "cup",
+     4.8
+    ],
+    [
+     "roddick",
+     4.69
+    ],
+    [
+     "rugbi",
+     4.65
+    ],
+    [
+     "athen",
+     4.55
+    ],
+    [
+     "coach",
+     4.53
+    ],
+    [
+     "refere",
+     4.48
+    ],
+    [
+     "arsen",
+     4.36
+    ],
+    [
+     "slam",
+     4.22
+    ],
+    [
+     "chelsea",
+     4.22
+    ],
+    [
+     "athlet",
+     4.11
+    ]
+   ],
+   "tech": [
+    [
+     "user",
+     5.06
+    ],
+    [
+     "softwar",
+     4.99
+    ],
+    [
+     "microsoft",
+     4.87
+    ],
+    [
+     "gadget",
+     4.76
+    ],
+    [
+     "blog",
+     4.49
+    ],
+    [
+     "devic",
+     4.45
+    ],
+    [
+     "broadband",
+     4.35
+    ],
+    [
+     "comput",
+     4.3
+    ],
+    [
+     "portabl",
+     4.27
+    ],
+    [
+     "appl",
+     4.26
+    ]
+   ]
+  },
+  "priors": {
+   "business": 0.2291,
+   "entertainment": 0.1735,
+   "politics": 0.1875,
+   "sport": 0.2296,
+   "tech": 0.1802
+  },
+  "test_leakage_docs": 38,
+  "leakage_analysis": {
+   "leaked_docs": 38,
+   "acc_on_leaked": 1.0,
+   "acc_on_non_leaked": 0.9581,
+   "leaked_by_class": {
+    "business": 3,
+    "entertainment": 8,
+    "politics": 4,
+    "sport": 6,
+    "tech": 17
+   }
+  },
+  "time_s": 0.04
+ },
+ "kmeans": {
+  "params": {
+   "k": 5,
+   "init": "kmeans++",
+   "n_init": 5,
+   "max_iter": 100,
+   "tol": 0.0001,
+   "seed": 42,
+   "distance": "squared Euclidean on L2-normalised TF-IDF rows"
+  },
+  "init_docs": [
+   {
+    "cluster": 0,
+    "doc_id": "BUS-199",
+    "title": "Georgia plans hidden asset pardon",
+    "category": "business"
+   },
+   {
+    "cluster": 1,
+    "doc_id": "POL-086",
+    "title": "Howard backs stem cell research",
+    "category": "politics"
+   },
+   {
+    "cluster": 2,
+    "doc_id": "TEC-086",
+    "title": "Warning over Windows Word files",
+    "category": "tech"
+   },
+   {
+    "cluster": 3,
+    "doc_id": "SPO-238",
+    "title": "Ferguson puts faith in youngsters",
+    "category": "sport"
+   },
+   {
+    "cluster": 4,
+    "doc_id": "BUS-211",
+    "title": "Electronics firms eye plasma deal",
+    "category": "business"
+   }
+  ],
+  "history": [
+   {
+    "iteration": 1,
+    "docs_changed": 2225,
+    "max_centroid_shift": 0.95981,
+    "SSE": 2108.1306,
+    "cluster_sizes": [
+     472,
+     406,
+     474,
+     524,
+     349
+    ]
+   },
+   {
+    "iteration": 2,
+    "docs_changed": 646,
+    "max_centroid_shift": 0.075263,
+    "SSE": 2090.8159,
+    "cluster_sizes": [
+     376,
+     559,
+     376,
+     528,
+     386
+    ]
+   },
+   {
+    "iteration": 3,
+    "docs_changed": 224,
+    "max_centroid_shift": 0.046956,
+    "SSE": 2086.5244,
+    "cluster_sizes": [
+     376,
+     671,
+     344,
+     499,
+     335
+    ]
+   },
+   {
+    "iteration": 4,
+    "docs_changed": 96,
+    "max_centroid_shift": 0.03818,
+    "SSE": 2085.0347,
+    "cluster_sizes": [
+     369,
+     709,
+     352,
+     497,
+     298
+    ]
+   },
+   {
+    "iteration": 5,
+    "docs_changed": 44,
+    "max_centroid_shift": 0.02728,
+    "SSE": 2084.3684,
+    "cluster_sizes": [
+     357,
+     717,
+     364,
+     500,
+     287
+    ]
+   },
+   {
+    "iteration": 6,
+    "docs_changed": 23,
+    "max_centroid_shift": 0.021031,
+    "SSE": 2084.0645,
+    "cluster_sizes": [
+     354,
+     720,
+     372,
+     502,
+     277
+    ]
+   },
+   {
+    "iteration": 7,
+    "docs_changed": 20,
+    "max_centroid_shift": 0.017635,
+    "SSE": 2083.8364,
+    "cluster_sizes": [
+     350,
+     724,
+     378,
+     505,
+     268
+    ]
+   },
+   {
+    "iteration": 8,
+    "docs_changed": 15,
+    "max_centroid_shift": 0.014655,
+    "SSE": 2083.667,
+    "cluster_sizes": [
+     347,
+     721,
+     382,
+     508,
+     267
+    ]
+   },
+   {
+    "iteration": 9,
+    "docs_changed": 23,
+    "max_centroid_shift": 0.020744,
+    "SSE": 2083.3613,
+    "cluster_sizes": [
+     337,
+     719,
+     387,
+     511,
+     271
+    ]
+   },
+   {
+    "iteration": 10,
+    "docs_changed": 14,
+    "max_centroid_shift": 0.016031,
+    "SSE": 2083.1636,
+    "cluster_sizes": [
+     329,
+     718,
+     391,
+     511,
+     276
+    ]
+   },
+   {
+    "iteration": 11,
+    "docs_changed": 19,
+    "max_centroid_shift": 0.018868,
+    "SSE": 2082.8945,
+    "cluster_sizes": [
+     320,
+     716,
+     391,
+     511,
+     287
+    ]
+   },
+   {
+    "iteration": 12,
+    "docs_changed": 25,
+    "max_centroid_shift": 0.021556,
+    "SSE": 2082.4985,
+    "cluster_sizes": [
+     312,
+     711,
+     390,
+     511,
+     301
+    ]
+   },
+   {
+    "iteration": 13,
+    "docs_changed": 16,
+    "max_centroid_shift": 0.015032,
+    "SSE": 2082.2952,
+    "cluster_sizes": [
+     310,
+     705,
+     390,
+     511,
+     309
+    ]
+   },
+   {
+    "iteration": 14,
+    "docs_changed": 9,
+    "max_centroid_shift": 0.010647,
+    "SSE": 2082.2285,
+    "cluster_sizes": [
+     315,
+     698,
+     390,
+     511,
+     311
+    ]
+   },
+   {
+    "iteration": 15,
+    "docs_changed": 7,
+    "max_centroid_shift": 0.008356,
+    "SSE": 2082.1758,
+    "cluster_sizes": [
+     317,
+     693,
+     390,
+     512,
+     313
+    ]
+   },
+   {
+    "iteration": 16,
+    "docs_changed": 11,
+    "max_centroid_shift": 0.011543,
+    "SSE": 2082.0967,
+    "cluster_sizes": [
+     324,
+     684,
+     390,
+     512,
+     315
+    ]
+   },
+   {
+    "iteration": 17,
+    "docs_changed": 16,
+    "max_centroid_shift": 0.01468,
+    "SSE": 2081.9658,
+    "cluster_sizes": [
+     336,
+     670,
+     390,
+     512,
+     317
+    ]
+   },
+   {
+    "iteration": 18,
+    "docs_changed": 22,
+    "max_centroid_shift": 0.016957,
+    "SSE": 2081.7761,
+    "cluster_sizes": [
+     350,
+     653,
+     391,
+     512,
+     319
+    ]
+   },
+   {
+    "iteration": 19,
+    "docs_changed": 40,
+    "max_centroid_shift": 0.024253,
+    "SSE": 2081.2942,
+    "cluster_sizes": [
+     383,
+     618,
+     391,
+     512,
+     321
+    ]
+   },
+   {
+    "iteration": 20,
+    "docs_changed": 83,
+    "max_centroid_shift": 0.040063,
+    "SSE": 2079.5635,
+    "cluster_sizes": [
+     449,
+     547,
+     389,
+     512,
+     328
+    ]
+   },
+   {
+    "iteration": 21,
+    "docs_changed": 127,
+    "max_centroid_shift": 0.048752,
+    "SSE": 2076.207,
+    "cluster_sizes": [
+     524,
+     448,
+     388,
+     512,
+     353
+    ]
+   },
+   {
+    "iteration": 22,
+    "docs_changed": 91,
+    "max_centroid_shift": 0.030469,
+    "SSE": 2074.4067,
+    "cluster_sizes": [
+     542,
+     399,
+     386,
+     513,
+     385
+    ]
+   },
+   {
+    "iteration": 23,
+    "docs_changed": 35,
+    "max_centroid_shift": 0.016757,
+    "SSE": 2073.9648,
+    "cluster_sizes": [
+     522,
+     392,
+     385,
+     513,
+     413
+    ]
+   },
+   {
+    "iteration": 24,
+    "docs_changed": 26,
+    "max_centroid_shift": 0.017431,
+    "SSE": 2073.5674,
+    "cluster_sizes": [
+     496,
+     392,
+     385,
+     513,
+     439
+    ]
+   },
+   {
+    "iteration": 25,
+    "docs_changed": 27,
+    "max_centroid_shift": 0.016025,
+    "SSE": 2073.1167,
+    "cluster_sizes": [
+     470,
+     392,
+     384,
+     513,
+     466
+    ]
+   },
+   {
+    "iteration": 26,
+    "docs_changed": 18,
+    "max_centroid_shift": 0.011879,
+    "SSE": 2072.9077,
+    "cluster_sizes": [
+     452,
+     392,
+     385,
+     513,
+     483
+    ]
+   },
+   {
+    "iteration": 27,
+    "docs_changed": 12,
+    "max_centroid_shift": 0.009786,
+    "SSE": 2072.8049,
+    "cluster_sizes": [
+     440,
+     392,
+     387,
+     513,
+     493
+    ]
+   },
+   {
+    "iteration": 28,
+    "docs_changed": 5,
+    "max_centroid_shift": 0.005299,
+    "SSE": 2072.7791,
+    "cluster_sizes": [
+     435,
+     392,
+     387,
+     513,
+     498
+    ]
+   },
+   {
+    "iteration": 29,
+    "docs_changed": 2,
+    "max_centroid_shift": 0.00331,
+    "SSE": 2072.7695,
+    "cluster_sizes": [
+     433,
+     392,
+     387,
+     513,
+     500
+    ]
+   },
+   {
+    "iteration": 30,
+    "docs_changed": 1,
+    "max_centroid_shift": 0.002261,
+    "SSE": 2072.7656,
+    "cluster_sizes": [
+     432,
+     392,
+     387,
+     513,
+     501
+    ]
+   },
+   {
+    "iteration": 31,
+    "docs_changed": 0,
+    "max_centroid_shift": 0.0,
+    "SSE": 2072.7656,
+    "cluster_sizes": [
+     432,
+     392,
+     387,
+     513,
+     501
+    ]
+   }
+  ],
+  "stop_reason": "converged: no document changed cluster at iteration 31",
+  "n_iter": 31,
+  "sse": 2072.7656,
+  "restarts": [
+   {
+    "run": 1,
+    "SSE": 2072.7656,
+    "iterations": 31
+   },
+   {
+    "run": 2,
+    "SSE": 2080.8999,
+    "iterations": 10
+   },
+   {
+    "run": 3,
+    "SSE": 2079.3521,
+    "iterations": 11
+   },
+   {
+    "run": 4,
+    "SSE": 2086.1465,
+    "iterations": 19
+   },
+   {
+    "run": 5,
+    "SSE": 2083.0562,
+    "iterations": 30
+   }
+  ],
+  "cluster_sizes": {
+   "0": 432,
+   "1": 392,
+   "2": 387,
+   "3": 513,
+   "4": 501
+  },
+  "majority_label": {
+   "0": "politics",
+   "1": "entertainment",
+   "2": "tech",
+   "3": "sport",
+   "4": "business"
+  },
+  "contingency": {
+   "0": {
+    "business": 14,
+    "entertainment": 2,
+    "politics": 406,
+    "sport": 1,
+    "tech": 9
+   },
+   "1": {
+    "business": 2,
+    "entertainment": 375,
+    "politics": 4,
+    "sport": 0,
+    "tech": 11
+   },
+   "2": {
+    "business": 6,
+    "entertainment": 7,
+    "politics": 1,
+    "sport": 0,
+    "tech": 373
+   },
+   "3": {
+    "business": 0,
+    "entertainment": 0,
+    "politics": 1,
+    "sport": 509,
+    "tech": 3
+   },
+   "4": {
+    "business": 488,
+    "entertainment": 2,
+    "politics": 5,
+    "sport": 1,
+    "tech": 5
+   }
+  },
+  "purity": 0.9667,
+  "rand_index": 0.9749,
+  "pair_counts": {
+   "TP": 470082,
+   "FP": 30919,
+   "FN": 31259,
+   "TN": 1941940,
+   "pairs": 2474200
+  },
+  "bruteforce_check": {
+   "sample": 300,
+   "fast": 0.9729,
+   "bruteforce": 0.9729,
+   "match": true
+  },
+  "top_terms": {
+   "0": [
+    "elect",
+    "labour",
+    "parti",
+    "minist",
+    "tori",
+    "blair",
+    "govern",
+    "secretari",
+    "mp",
+    "conserv"
+   ],
+   "1": [
+    "film",
+    "star",
+    "award",
+    "actor",
+    "music",
+    "best",
+    "singer",
+    "nomin",
+    "band",
+    "album"
+   ],
+   "2": [
+    "user",
+    "technolog",
+    "use",
+    "comput",
+    "digit",
+    "mobil",
+    "softwar",
+    "phone",
+    "onlin",
+    "peopl"
+   ],
+   "3": [
+    "game",
+    "win",
+    "match",
+    "player",
+    "play",
+    "champion",
+    "coach",
+    "cup",
+    "team",
+    "injuri"
+   ],
+   "4": [
+    "market",
+    "growth",
+    "compani",
+    "firm",
+    "bank",
+    "analyst",
+    "economi",
+    "share",
+    "price",
+    "profit"
+   ]
+  },
+  "membership_sample": [
+   {
+    "doc_id": "POL-073",
+    "title": "No to Royal succession shake-up",
+    "true_label": "politics",
+    "cluster": 0,
+    "cluster_majority": "politics"
+   },
+   {
+    "doc_id": "POL-230",
+    "title": "Burglar defence guidelines issued",
+    "true_label": "politics",
+    "cluster": 0,
+    "cluster_majority": "politics"
+   },
+   {
+    "doc_id": "BUS-043",
+    "title": "Saudi ministry to employ women",
+    "true_label": "business",
+    "cluster": 0,
+    "cluster_majority": "politics"
+   },
+   {
+    "doc_id": "ENT-175",
+    "title": "Alicia Keys to open US Super Bowl",
+    "true_label": "entertainment",
+    "cluster": 1,
+    "cluster_majority": "entertainment"
+   },
+   {
+    "doc_id": "ENT-036",
+    "title": "Hanks greeted at wintry premiere",
+    "true_label": "entertainment",
+    "cluster": 1,
+    "cluster_majority": "entertainment"
+   },
+   {
+    "doc_id": "BUS-226",
+    "title": "McDonald's to sponsor MTV show",
+    "true_label": "business",
+    "cluster": 1,
+    "cluster_majority": "entertainment"
+   },
+   {
+    "doc_id": "TEC-356",
+    "title": "Hitachi unveils 'fastest robot'",
+    "true_label": "tech",
+    "cluster": 2,
+    "cluster_majority": "tech"
+   },
+   {
+    "doc_id": "TEC-037",
+    "title": "US woman sues over cartridges",
+    "true_label": "tech",
+    "cluster": 2,
+    "cluster_majority": "tech"
+   },
+   {
+    "doc_id": "BUS-020",
+    "title": "Call centre users 'lose patience'",
+    "true_label": "business",
+    "cluster": 2,
+    "cluster_majority": "tech"
+   },
+   {
+    "doc_id": "SPO-080",
+    "title": "Greek sprinters 'won't run again'",
+    "true_label": "sport",
+    "cluster": 3,
+    "cluster_majority": "sport"
+   },
+   {
+    "doc_id": "SPO-319",
+    "title": "Pountney handed ban and fine",
+    "true_label": "sport",
+    "cluster": 3,
+    "cluster_majority": "sport"
+   },
+   {
+    "doc_id": "POL-190",
+    "title": "Howard 'truanted to play snooker'",
+    "true_label": "politics",
+    "cluster": 3,
+    "cluster_majority": "sport"
+   },
+   {
+    "doc_id": "BUS-075",
+    "title": "EU ministers to mull jet fuel tax",
+    "true_label": "business",
+    "cluster": 4,
+    "cluster_majority": "business"
+   },
+   {
+    "doc_id": "BUS-261",
+    "title": "Booming markets shed few tears",
+    "true_label": "business",
+    "cluster": 4,
+    "cluster_majority": "business"
+   },
+   {
+    "doc_id": "ENT-026",
+    "title": "UK's National Gallery in the pink",
+    "true_label": "entertainment",
+    "cluster": 4,
+    "cluster_majority": "business"
+   }
+  ],
+  "time_s": 1.02,
+  "label_permutation_note": "cluster ids are arbitrary; majority label used only to name clusters",
+  "elbow": [
+   [
+    2,
+    2117.4514
+   ],
+   [
+    3,
+    2100.6785
+   ],
+   [
+    4,
+    2088.1667
+   ],
+   [
+    5,
+    2072.7656
+   ],
+   [
+    6,
+    2064.9272
+   ],
+   [
+    7,
+    2057.8369
+   ],
+   [
+    8,
+    2053.5791
+   ],
+   [
+    9,
+    2045.5779
+   ],
+   [
+    10,
+    2037.8938
+   ]
+  ],
+  "purity_by_k": [
+   [
+    2,
+    0.453,
+    0.546
+   ],
+   [
+    3,
+    0.6306,
+    0.8051
+   ],
+   [
+    4,
+    0.7973,
+    0.908
+   ],
+   [
+    5,
+    0.9667,
+    0.9749
+   ],
+   [
+    6,
+    0.9685,
+    0.9552
+   ],
+   [
+    7,
+    0.9578,
+    0.9363
+   ],
+   [
+    8,
+    0.911,
+    0.9084
+   ],
+   [
+    9,
+    0.9546,
+    0.9017
+   ],
+   [
+    10,
+    0.9339,
+    0.8793
+   ]
+  ]
+ },
+ "stability": {
+  "seeds": [
+   1,
+   7,
+   42,
+   123,
+   2024
+  ],
+  "kmeans": {
+   "full_ninit5": {
+    "runs": [
+     {
+      "seed": 1,
+      "purity": 0.9573,
+      "rand_index": 0.967,
+      "sse": 2072.7861,
+      "iterations": 11
+     },
+     {
+      "seed": 7,
+      "purity": 0.9604,
+      "rand_index": 0.97,
+      "sse": 2072.7339,
+      "iterations": 19
+     },
+     {
+      "seed": 42,
+      "purity": 0.9667,
+      "rand_index": 0.9749,
+      "sse": 2072.7656,
+      "iterations": 31
+     },
+     {
+      "seed": 123,
+      "purity": 0.9636,
+      "rand_index": 0.9723,
+      "sse": 2072.7852,
+      "iterations": 14
+     },
+     {
+      "seed": 2024,
+      "purity": 0.9658,
+      "rand_index": 0.974,
+      "sse": 2072.7642,
+      "iterations": 10
+     }
+    ],
+    "purity_mean": 0.9628,
+    "purity_std": 0.0035,
+    "ri_mean": 0.9716,
+    "ri_std": 0.0029,
+    "purity_min": 0.9573,
+    "purity_max": 0.9667
+   },
+   "full_ninit1": {
+    "runs": [
+     {
+      "seed": 1,
+      "purity": 0.9573,
+      "rand_index": 0.967,
+      "sse": 2072.7861,
+      "iterations": 11
+     },
+     {
+      "seed": 7,
+      "purity": 0.9604,
+      "rand_index": 0.97,
+      "sse": 2072.7339,
+      "iterations": 19
+     },
+     {
+      "seed": 42,
+      "purity": 0.9667,
+      "rand_index": 0.9749,
+      "sse": 2072.7656,
+      "iterations": 31
+     },
+     {
+      "seed": 123,
+      "purity": 0.9429,
+      "rand_index": 0.9558,
+      "sse": 2073.3179,
+      "iterations": 15
+     },
+     {
+      "seed": 2024,
+      "purity": 0.782,
+      "rand_index": 0.8849,
+      "sse": 2082.4731,
+      "iterations": 13
+     }
+    ],
+    "purity_mean": 0.9219,
+    "purity_std": 0.0704,
+    "ri_mean": 0.9505,
+    "ri_std": 0.0334,
+    "purity_min": 0.782,
+    "purity_max": 0.9667
+   },
+   "dedup_ninit5": {
+    "runs": [
+     {
+      "seed": 1,
+      "purity": 0.967,
+      "rand_index": 0.9751,
+      "sse": 1923.0984,
+      "iterations": 8
+     },
+     {
+      "seed": 7,
+      "purity": 0.952,
+      "rand_index": 0.9632,
+      "sse": 1923.5127,
+      "iterations": 15
+     },
+     {
+      "seed": 42,
+      "purity": 0.7921,
+      "rand_index": 0.8865,
+      "sse": 1927.4403,
+      "iterations": 17
+     },
+     {
+      "seed": 123,
+      "purity": 0.9632,
+      "rand_index": 0.9722,
+      "sse": 1923.108,
+      "iterations": 8
+     },
+     {
+      "seed": 2024,
+      "purity": 0.9622,
+      "rand_index": 0.9718,
+      "sse": 1923.1249,
+      "iterations": 17
+     }
+    ],
+    "purity_mean": 0.9273,
+    "purity_std": 0.0678,
+    "ri_mean": 0.9538,
+    "ri_std": 0.0339,
+    "purity_min": 0.7921,
+    "purity_max": 0.967
+   },
+   "dedup_ninit1": {
+    "runs": [
+     {
+      "seed": 1,
+      "purity": 0.967,
+      "rand_index": 0.9751,
+      "sse": 1923.0984,
+      "iterations": 8
+     },
+     {
+      "seed": 7,
+      "purity": 0.952,
+      "rand_index": 0.9632,
+      "sse": 1923.5127,
+      "iterations": 15
+     },
+     {
+      "seed": 42,
+      "purity": 0.7848,
+      "rand_index": 0.8695,
+      "sse": 1928.2355,
+      "iterations": 16
+     },
+     {
+      "seed": 123,
+      "purity": 0.8124,
+      "rand_index": 0.8907,
+      "sse": 1927.8992,
+      "iterations": 16
+     },
+     {
+      "seed": 2024,
+      "purity": 0.7857,
+      "rand_index": 0.8664,
+      "sse": 1931.3695,
+      "iterations": 13
+     }
+    ],
+    "purity_mean": 0.8604,
+    "purity_std": 0.0817,
+    "ri_mean": 0.913,
+    "ri_std": 0.0468,
+    "purity_min": 0.7848,
+    "purity_max": 0.967
+   },
+   "dedup_seed42_ninit20": {
+    "purity": 0.9612,
+    "rand_index": 0.9711,
+    "sse": 1923.0964
+   }
+  },
+  "naive_bayes": {
+   "full": {
+    "acc": [
+     0.9662,
+     0.9707,
+     0.9617,
+     0.964,
+     0.9865
+    ],
+    "acc_mean": 0.9698,
+    "acc_std": 0.0088,
+    "f1_mean": 0.9687,
+    "f1_std": 0.0093,
+    "leakage": [
+     47,
+     42,
+     38,
+     37,
+     36
+    ]
+   },
+   "dedup": {
+    "acc": [
+     0.9612,
+     0.9806,
+     0.983,
+     0.9757,
+     0.9782
+    ],
+    "acc_mean": 0.9757,
+    "acc_std": 0.0077,
+    "f1_mean": 0.9743,
+    "f1_std": 0.0079,
+    "leakage": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  }
+ },
+ "comparison": {
+  "NB accuracy": 0.9617,
+  "NB macro-P": 0.9604,
+  "NB macro-R": 0.9611,
+  "NB macro-F1": 0.9604,
+  "KM purity": 0.9667,
+  "KM Rand index": 0.9749,
+  "KM purity (5-seed mean)": 0.9628,
+  "KM RI (5-seed mean)": 0.9716
+ },
+ "recommendation": {
+  "queries": [
+   {
+    "query": {
+     "doc_id": "BUS-007",
+     "title": "Jobs growth still slow in the US",
+     "category": "business"
+    },
+    "top5": [
+     {
+      "rank": 1,
+      "doc_id": "BUS-253",
+      "title": "Jobs growth still slow in the US",
+      "category": "business",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 284,
+      "score": 1.0,
+      "same_category": true,
+      "shared_terms": [
+       "labor",
+       "moder",
+       "payrol",
+       "lowest",
+       "albeit"
+      ]
+     },
+     {
+      "rank": 2,
+      "doc_id": "BUS-292",
+      "title": "Steady job growth continues in US",
+      "category": "business",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 375,
+      "score": 0.3462,
+      "same_category": true,
+      "shared_terms": [
+       "labor",
+       "payrol",
+       "presidenti",
+       "creation",
+       "unemploy"
+      ]
+     },
+     {
+      "rank": 3,
+      "doc_id": "BUS-416",
+      "title": "Steady job growth continues in US",
+      "category": "business",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 375,
+      "score": 0.3462,
+      "same_category": true,
+      "shared_terms": [
+       "labor",
+       "payrol",
+       "presidenti",
+       "creation",
+       "unemploy"
+      ]
+     },
+     {
+      "rank": 4,
+      "doc_id": "BUS-134",
+      "title": "US adds more jobs than expected",
+      "category": "business",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 364,
+      "score": 0.3028,
+      "same_category": true,
+      "shared_terms": [
+       "labor",
+       "payrol",
+       "job",
+       "unemploy",
+       "revis"
+      ]
+     },
+     {
+      "rank": 5,
+      "doc_id": "BUS-165",
+      "title": "Consumer spending lifts US growth",
+      "category": "business",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 363,
+      "score": 0.274,
+      "same_category": true,
+      "shared_terms": [
+       "presidenti",
+       "bush",
+       "economist",
+       "creation",
+       "job"
+      ]
+     }
+    ],
+    "top5_hide_dups": [
+     {
+      "rank": 1,
+      "doc_id": "BUS-292",
+      "title": "Steady job growth continues in US",
+      "category": "business",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 375,
+      "score": 0.3462,
+      "same_category": true,
+      "shared_terms": [
+       "labor",
+       "payrol",
+       "presidenti",
+       "creation",
+       "unemploy"
+      ]
+     },
+     {
+      "rank": 2,
+      "doc_id": "BUS-416",
+      "title": "Steady job growth continues in US",
+      "category": "business",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 375,
+      "score": 0.3462,
+      "same_category": true,
+      "shared_terms": [
+       "labor",
+       "payrol",
+       "presidenti",
+       "creation",
+       "unemploy"
+      ]
+     },
+     {
+      "rank": 3,
+      "doc_id": "BUS-134",
+      "title": "US adds more jobs than expected",
+      "category": "business",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 364,
+      "score": 0.3028,
+      "same_category": true,
+      "shared_terms": [
+       "labor",
+       "payrol",
+       "job",
+       "unemploy",
+       "revis"
+      ]
+     },
+     {
+      "rank": 4,
+      "doc_id": "BUS-165",
+      "title": "Consumer spending lifts US growth",
+      "category": "business",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 363,
+      "score": 0.274,
+      "same_category": true,
+      "shared_terms": [
+       "presidenti",
+       "bush",
+       "economist",
+       "creation",
+       "job"
+      ]
+     },
+     {
+      "rank": 5,
+      "doc_id": "BUS-121",
+      "title": "US interest rates increased to 2%",
+      "category": "business",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 520,
+      "score": 0.2469,
+      "same_category": true,
+      "shared_terms": [
+       "moder",
+       "unemploy",
+       "pace",
+       "economist",
+       "rate"
+      ]
+     }
+    ]
+   },
+   {
+    "query": {
+     "doc_id": "POL-001",
+     "title": "Labour plans maternity pay rise",
+     "category": "politics"
+    },
+    "top5": [
+     {
+      "rank": 1,
+      "doc_id": "POL-340",
+      "title": "Lib Dems unveil women's manifesto",
+      "category": "politics",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 578,
+      "score": 0.3395,
+      "same_category": true,
+      "shared_terms": [
+       "matern",
+       "carer",
+       "hewitt",
+       "women",
+       "birth"
+      ]
+     },
+     {
+      "rank": 2,
+      "doc_id": "POL-128",
+      "title": "Brown shrugs off economy fears",
+      "category": "politics",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 621,
+      "score": 0.2921,
+      "same_category": true,
+      "shared_terms": [
+       "matern",
+       "prebudget",
+       "mother",
+       "taxpay",
+       "older"
+      ]
+     },
+     {
+      "rank": 3,
+      "doc_id": "POL-003",
+      "title": "Hewitt decries 'career sexism'",
+      "category": "politics",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 523,
+      "score": 0.2638,
+      "same_category": true,
+      "shared_terms": [
+       "matern",
+       "hewitt",
+       "women",
+       "patricia",
+       "mother"
+      ]
+     },
+     {
+      "rank": 4,
+      "doc_id": "BUS-382",
+      "title": "Ban on forced retirement under 65",
+      "category": "business",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 297,
+      "score": 0.2194,
+      "same_category": false,
+      "shared_terms": [
+       "hewitt",
+       "patricia",
+       "commerc",
+       "older",
+       "flexibl"
+      ]
+     },
+     {
+      "rank": 5,
+      "doc_id": "POL-390",
+      "title": "Child access law shake-up planned",
+      "category": "politics",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 569,
+      "score": 0.1998,
+      "same_category": true,
+      "shared_terms": [
+       "recycl",
+       "father",
+       "parent",
+       "outlin",
+       "flexibl"
+      ]
+     }
+    ],
+    "top5_hide_dups": [
+     {
+      "rank": 1,
+      "doc_id": "POL-340",
+      "title": "Lib Dems unveil women's manifesto",
+      "category": "politics",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 578,
+      "score": 0.3395,
+      "same_category": true,
+      "shared_terms": [
+       "matern",
+       "carer",
+       "hewitt",
+       "women",
+       "birth"
+      ]
+     },
+     {
+      "rank": 2,
+      "doc_id": "POL-128",
+      "title": "Brown shrugs off economy fears",
+      "category": "politics",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 621,
+      "score": 0.2921,
+      "same_category": true,
+      "shared_terms": [
+       "matern",
+       "prebudget",
+       "mother",
+       "taxpay",
+       "older"
+      ]
+     },
+     {
+      "rank": 3,
+      "doc_id": "POL-003",
+      "title": "Hewitt decries 'career sexism'",
+      "category": "politics",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 523,
+      "score": 0.2638,
+      "same_category": true,
+      "shared_terms": [
+       "matern",
+       "hewitt",
+       "women",
+       "patricia",
+       "mother"
+      ]
+     },
+     {
+      "rank": 4,
+      "doc_id": "BUS-382",
+      "title": "Ban on forced retirement under 65",
+      "category": "business",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 297,
+      "score": 0.2194,
+      "same_category": false,
+      "shared_terms": [
+       "hewitt",
+       "patricia",
+       "commerc",
+       "older",
+       "flexibl"
+      ]
+     },
+     {
+      "rank": 5,
+      "doc_id": "POL-390",
+      "title": "Child access law shake-up planned",
+      "category": "politics",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 569,
+      "score": 0.1998,
+      "same_category": true,
+      "shared_terms": [
+       "recycl",
+       "father",
+       "parent",
+       "outlin",
+       "flexibl"
+      ]
+     }
+    ]
+   },
+   {
+    "query": {
+     "doc_id": "ENT-001",
+     "title": "Gallery unveils interactive tree",
+     "category": "entertainment"
+    },
+    "top5": [
+     {
+      "rank": 1,
+      "doc_id": "TEC-085",
+      "title": "Smart search lets art fans browse",
+      "category": "tech",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 400,
+      "score": 0.1742,
+      "same_category": false,
+      "shared_terms": [
+       "tate",
+       "galleri",
+       "art",
+       "artist",
+       "christma"
+      ]
+     },
+     {
+      "rank": 2,
+      "doc_id": "ENT-020",
+      "title": "Public show for Reynolds portrait",
+      "category": "entertainment",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 277,
+      "score": 0.1713,
+      "same_category": true,
+      "shared_terms": [
+       "tate",
+       "galleri",
+       "artist",
+       "auction",
+       "invit"
+      ]
+     },
+     {
+      "rank": 3,
+      "doc_id": "ENT-026",
+      "title": "UK's National Gallery in the pink",
+      "category": "entertainment",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 367,
+      "score": 0.1361,
+      "same_category": true,
+      "shared_terms": [
+       "galleri",
+       "tate",
+       "visitor",
+       "britain",
+       "london"
+      ]
+     },
+     {
+      "rank": 4,
+      "doc_id": "BUS-385",
+      "title": "Tate & Lyle boss bags top award",
+      "category": "business",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 187,
+      "score": 0.1011,
+      "same_category": false,
+      "shared_terms": [
+       "tate",
+       "previou",
+       "britain",
+       "includ",
+       "one"
+      ]
+     },
+     {
+      "rank": 5,
+      "doc_id": "ENT-117",
+      "title": "Rapper Jay-Z becomes label boss",
+      "category": "entertainment",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 283,
+      "score": 0.0927,
+      "same_category": true,
+      "shared_terms": [
+       "jam",
+       "influenti",
+       "artist",
+       "includ",
+       "two"
+      ]
+     }
+    ],
+    "top5_hide_dups": [
+     {
+      "rank": 1,
+      "doc_id": "TEC-085",
+      "title": "Smart search lets art fans browse",
+      "category": "tech",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 400,
+      "score": 0.1742,
+      "same_category": false,
+      "shared_terms": [
+       "tate",
+       "galleri",
+       "art",
+       "artist",
+       "christma"
+      ]
+     },
+     {
+      "rank": 2,
+      "doc_id": "ENT-020",
+      "title": "Public show for Reynolds portrait",
+      "category": "entertainment",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 277,
+      "score": 0.1713,
+      "same_category": true,
+      "shared_terms": [
+       "tate",
+       "galleri",
+       "artist",
+       "auction",
+       "invit"
+      ]
+     },
+     {
+      "rank": 3,
+      "doc_id": "ENT-026",
+      "title": "UK's National Gallery in the pink",
+      "category": "entertainment",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 367,
+      "score": 0.1361,
+      "same_category": true,
+      "shared_terms": [
+       "galleri",
+       "tate",
+       "visitor",
+       "britain",
+       "london"
+      ]
+     },
+     {
+      "rank": 4,
+      "doc_id": "BUS-385",
+      "title": "Tate & Lyle boss bags top award",
+      "category": "business",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 187,
+      "score": 0.1011,
+      "same_category": false,
+      "shared_terms": [
+       "tate",
+       "previou",
+       "britain",
+       "includ",
+       "one"
+      ]
+     },
+     {
+      "rank": 5,
+      "doc_id": "ENT-117",
+      "title": "Rapper Jay-Z becomes label boss",
+      "category": "entertainment",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 283,
+      "score": 0.0927,
+      "same_category": true,
+      "shared_terms": [
+       "jam",
+       "influenti",
+       "artist",
+       "includ",
+       "two"
+      ]
+     }
+    ]
+   },
+   {
+    "query": {
+     "doc_id": "TEC-001",
+     "title": "Ink helps drive democracy in Asia",
+     "category": "tech"
+    },
+    "top5": [
+     {
+      "rank": 1,
+      "doc_id": "POL-338",
+      "title": "Lib Dems highlight problem debt",
+      "category": "politics",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 439,
+      "score": 0.15,
+      "same_category": false,
+      "shared_terms": [
+       "upcom",
+       "aggress",
+       "soft",
+       "parliamentari",
+       "rural"
+      ]
+     },
+     {
+      "rank": 2,
+      "doc_id": "POL-290",
+      "title": "Terror powers expose 'tyranny'",
+      "category": "politics",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 4432,
+      "score": 0.1496,
+      "same_category": false,
+      "shared_terms": [
+       "invis",
+       "democraci",
+       "islam",
+       "soviet",
+       "afghanistan"
+      ]
+     },
+     {
+      "rank": 3,
+      "doc_id": "POL-267",
+      "title": "UKIP's secret weapon?",
+      "category": "politics",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 858,
+      "score": 0.1378,
+      "same_category": false,
+      "shared_terms": [
+       "presidenti",
+       "democraci",
+       "primarili",
+       "ukrain",
+       "referendum"
+      ]
+     },
+     {
+      "rank": 4,
+      "doc_id": "POL-380",
+      "title": "Minimum wage increased to \u00a35.05",
+      "category": "politics",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 3295,
+      "score": 0.1346,
+      "same_category": false,
+      "shared_terms": [
+       "contrari",
+       "democraci",
+       "branch",
+       "fair",
+       "clean"
+      ]
+     },
+     {
+      "rank": 5,
+      "doc_id": "BUS-357",
+      "title": "Soros group warns of Kazakh close",
+      "category": "business",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 273,
+      "score": 0.1329,
+      "same_category": false,
+      "shared_terms": [
+       "soviet",
+       "georgia",
+       "ukrain",
+       "islam",
+       "societi"
+      ]
+     }
+    ],
+    "top5_hide_dups": [
+     {
+      "rank": 1,
+      "doc_id": "POL-338",
+      "title": "Lib Dems highlight problem debt",
+      "category": "politics",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 439,
+      "score": 0.15,
+      "same_category": false,
+      "shared_terms": [
+       "upcom",
+       "aggress",
+       "soft",
+       "parliamentari",
+       "rural"
+      ]
+     },
+     {
+      "rank": 2,
+      "doc_id": "POL-290",
+      "title": "Terror powers expose 'tyranny'",
+      "category": "politics",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 4432,
+      "score": 0.1496,
+      "same_category": false,
+      "shared_terms": [
+       "invis",
+       "democraci",
+       "islam",
+       "soviet",
+       "afghanistan"
+      ]
+     },
+     {
+      "rank": 3,
+      "doc_id": "POL-267",
+      "title": "UKIP's secret weapon?",
+      "category": "politics",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 858,
+      "score": 0.1378,
+      "same_category": false,
+      "shared_terms": [
+       "presidenti",
+       "democraci",
+       "primarili",
+       "ukrain",
+       "referendum"
+      ]
+     },
+     {
+      "rank": 4,
+      "doc_id": "POL-380",
+      "title": "Minimum wage increased to \u00a35.05",
+      "category": "politics",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 3295,
+      "score": 0.1346,
+      "same_category": false,
+      "shared_terms": [
+       "contrari",
+       "democraci",
+       "branch",
+       "fair",
+       "clean"
+      ]
+     },
+     {
+      "rank": 5,
+      "doc_id": "BUS-357",
+      "title": "Soros group warns of Kazakh close",
+      "category": "business",
+      "source": "BBC News",
+      "period": "2004-2005",
+      "n_words": 273,
+      "score": 0.1329,
+      "same_category": false,
+      "shared_terms": [
+       "soviet",
+       "georgia",
+       "ukrain",
+       "islam",
+       "societi"
+      ]
+     }
+    ]
+   }
+  ],
+  "free_text": {
+   "query": "mobile phone operators launch faster broadband and music download services",
+   "tokens": [
+    "mobil",
+    "phone",
+    "oper",
+    "launch",
+    "faster",
+    "broadband",
+    "music",
+    "download",
+    "servic"
+   ],
+   "results": [
+    {
+     "rank": 1,
+     "doc_id": "TEC-182",
+     "title": "Mobile gig aims to rock 3G",
+     "category": "tech",
+     "score": 0.2423
+    },
+    {
+     "rank": 2,
+     "doc_id": "TEC-265",
+     "title": "Half of UK's mobiles 'go online'",
+     "category": "tech",
+     "score": 0.2203
+    },
+    {
+     "rank": 3,
+     "doc_id": "TEC-254",
+     "title": "Broadband in the UK gathers pace",
+     "category": "tech",
+     "score": 0.1995
+    },
+    {
+     "rank": 4,
+     "doc_id": "TEC-205",
+     "title": "UK broadband gets speed injection",
+     "category": "tech",
+     "score": 0.1964
+    },
+    {
+     "rank": 5,
+     "doc_id": "TEC-347",
+     "title": "Cebit opens to mobile music tune",
+     "category": "tech",
+     "score": 0.1951
+    }
+   ]
+  },
+  "precision": {
+   "P@5": 0.9329,
+   "P@5_hide_dups": 0.9309,
+   "P@10": 0.9196,
+   "P@10_hide_dups": 0.9187,
+   "P@5_dedup_corpus": 0.9283,
+   "P@10_dedup_corpus": 0.9147
+  },
+  "p5_per_category": {
+   "business": 0.9035,
+   "entertainment": 0.9021,
+   "politics": 0.9295,
+   "sport": 0.9863,
+   "tech": 0.9352
+  },
+  "lists_with_dup_in_top5": 323,
+  "relevance_proxy": "a recommendation is relevant if it shares the query's category"
+ },
+ "ablation": [
+  {
+   "config": "lower|stop|stem|ng1-1",
+   "dedup": false,
+   "docs_used": 2225,
+   "dropped_duplicates": 0,
+   "vocab_raw": 21238,
+   "vocab_tfidf": 5000,
+   "avg_tokens": 203.0,
+   "nb_accuracy": 0.9617,
+   "nb_macro_f1": 0.9604,
+   "nb_macro_precision": 0.9604,
+   "nb_macro_recall": 0.9611,
+   "test_leakage_docs": 38,
+   "km_purity": 0.9667,
+   "km_rand_index": 0.9749,
+   "km_sse": 2072.7656,
+   "km_iterations": 31,
+   "precision_at_5": 0.9333,
+   "timings": {
+    "preprocess_s": 2.34,
+    "tfidf_s": 0.16,
+    "naive_bayes_s": 0.04,
+    "kmeans_s": 1.01,
+    "recommend_eval_s": 0.25
+   },
+   "name": "Baseline",
+   "base_name": "Baseline",
+   "km_purity_seedmean": 0.9587,
+   "km_purity_seedstd": 0.0086,
+   "km_ri_seedmean": 0.9683
+  },
+  {
+   "config": "lower|stop|stem|ng1-1",
+   "dedup": true,
+   "docs_used": 2063,
+   "dropped_duplicates": 162,
+   "vocab_raw": 21227,
+   "vocab_tfidf": 5000,
+   "avg_tokens": 202.0,
+   "nb_accuracy": 0.983,
+   "nb_macro_f1": 0.9815,
+   "nb_macro_precision": 0.9811,
+   "nb_macro_recall": 0.9825,
+   "test_leakage_docs": 0,
+   "km_purity": 0.7921,
+   "km_rand_index": 0.8865,
+   "km_sse": 1927.4403,
+   "km_iterations": 17,
+   "precision_at_5": 0.9169,
+   "timings": {
+    "preprocess_s": 2.34,
+    "tfidf_s": 0.09,
+    "naive_bayes_s": 0.04,
+    "kmeans_s": 0.8,
+    "recommend_eval_s": 0.25
+   },
+   "name": "Baseline + dedup",
+   "base_name": "Baseline",
+   "km_purity_seedmean": 0.8719,
+   "km_purity_seedstd": 0.074,
+   "km_ri_seedmean": 0.9215
+  },
+  {
+   "config": "lower|nostop|stem|ng1-1",
+   "dedup": false,
+   "docs_used": 2225,
+   "dropped_duplicates": 0,
+   "vocab_raw": 21332,
+   "vocab_tfidf": 5000,
+   "avg_tokens": 360.0,
+   "nb_accuracy": 0.9595,
+   "nb_macro_f1": 0.9579,
+   "nb_macro_precision": 0.9581,
+   "nb_macro_recall": 0.9586,
+   "test_leakage_docs": 38,
+   "km_purity": 0.9663,
+   "km_rand_index": 0.9745,
+   "km_sse": 2055.8245,
+   "km_iterations": 10,
+   "precision_at_5": 0.9358,
+   "timings": {
+    "preprocess_s": 3.2,
+    "tfidf_s": 0.18,
+    "naive_bayes_s": 0.06,
+    "kmeans_s": 0.77,
+    "recommend_eval_s": 0.25
+   },
+   "name": "No stop-word removal",
+   "base_name": "No stop-word removal",
+   "km_purity_seedmean": 0.9115,
+   "km_purity_seedstd": 0.0874,
+   "km_ri_seedmean": 0.942
+  },
+  {
+   "config": "lower|nostop|stem|ng1-1",
+   "dedup": true,
+   "docs_used": 2063,
+   "dropped_duplicates": 162,
+   "vocab_raw": 21321,
+   "vocab_tfidf": 5000,
+   "avg_tokens": 358.2,
+   "nb_accuracy": 0.983,
+   "nb_macro_f1": 0.9814,
+   "nb_macro_precision": 0.9809,
+   "nb_macro_recall": 0.9822,
+   "test_leakage_docs": 0,
+   "km_purity": 0.8177,
+   "km_rand_index": 0.8958,
+   "km_sse": 1912.5571,
+   "km_iterations": 11,
+   "precision_at_5": 0.9186,
+   "timings": {
+    "preprocess_s": 3.2,
+    "tfidf_s": 0.11,
+    "naive_bayes_s": 0.06,
+    "kmeans_s": 0.63,
+    "recommend_eval_s": 0.25
+   },
+   "name": "No stop-word removal + dedup",
+   "base_name": "No stop-word removal",
+   "km_purity_seedmean": 0.8362,
+   "km_purity_seedstd": 0.1168,
+   "km_ri_seedmean": 0.9041
+  },
+  {
+   "config": "lower|stop|lemma|ng1-1",
+   "dedup": false,
+   "docs_used": 2225,
+   "dropped_duplicates": 0,
+   "vocab_raw": 27572,
+   "vocab_tfidf": 5000,
+   "avg_tokens": 203.0,
+   "nb_accuracy": 0.9662,
+   "nb_macro_f1": 0.9653,
+   "nb_macro_precision": 0.9652,
+   "nb_macro_recall": 0.9662,
+   "test_leakage_docs": 38,
+   "km_purity": 0.956,
+   "km_rand_index": 0.9661,
+   "km_sse": 2084.2485,
+   "km_iterations": 20,
+   "precision_at_5": 0.9384,
+   "timings": {
+    "preprocess_s": 1.99,
+    "tfidf_s": 0.1,
+    "naive_bayes_s": 0.05,
+    "kmeans_s": 0.81,
+    "recommend_eval_s": 0.25
+   },
+   "name": "Lemmatization",
+   "base_name": "Lemmatization",
+   "km_purity_seedmean": 0.9155,
+   "km_purity_seedstd": 0.0751,
+   "km_ri_seedmean": 0.9429
+  },
+  {
+   "config": "lower|stop|lemma|ng1-1",
+   "dedup": true,
+   "docs_used": 2062,
+   "dropped_duplicates": 163,
+   "vocab_raw": 27557,
+   "vocab_tfidf": 5000,
+   "avg_tokens": 202.0,
+   "nb_accuracy": 0.9781,
+   "nb_macro_f1": 0.9764,
+   "nb_macro_precision": 0.976,
+   "nb_macro_recall": 0.9774,
+   "test_leakage_docs": 0,
+   "km_purity": 0.9573,
+   "km_rand_index": 0.967,
+   "km_sse": 1932.7385,
+   "km_iterations": 8,
+   "precision_at_5": 0.9238,
+   "timings": {
+    "preprocess_s": 1.99,
+    "tfidf_s": 0.09,
+    "naive_bayes_s": 0.05,
+    "kmeans_s": 0.59,
+    "recommend_eval_s": 0.24
+   },
+   "name": "Lemmatization + dedup",
+   "base_name": "Lemmatization",
+   "km_purity_seedmean": 0.9567,
+   "km_purity_seedstd": 0.006,
+   "km_ri_seedmean": 0.9672
+  },
+  {
+   "config": "lower|stop|none|ng1-1",
+   "dedup": false,
+   "docs_used": 2225,
+   "dropped_duplicates": 0,
+   "vocab_raw": 30998,
+   "vocab_tfidf": 5000,
+   "avg_tokens": 203.0,
+   "nb_accuracy": 0.9662,
+   "nb_macro_f1": 0.965,
+   "nb_macro_precision": 0.9651,
+   "nb_macro_recall": 0.966,
+   "test_leakage_docs": 38,
+   "km_purity": 0.9501,
+   "km_rand_index": 0.9619,
+   "km_sse": 2090.7397,
+   "km_iterations": 18,
+   "precision_at_5": 0.9358,
+   "timings": {
+    "preprocess_s": 0.5,
+    "tfidf_s": 0.11,
+    "naive_bayes_s": 0.05,
+    "kmeans_s": 0.83,
+    "recommend_eval_s": 0.24
+   },
+   "name": "No normalizer",
+   "base_name": "No normalizer",
+   "km_purity_seedmean": 0.8895,
+   "km_purity_seedstd": 0.0852,
+   "km_ri_seedmean": 0.9297
+  },
+  {
+   "config": "lower|stop|none|ng1-1",
+   "dedup": true,
+   "docs_used": 2062,
+   "dropped_duplicates": 163,
+   "vocab_raw": 30981,
+   "vocab_tfidf": 5000,
+   "avg_tokens": 202.0,
+   "nb_accuracy": 0.9757,
+   "nb_macro_f1": 0.9741,
+   "nb_macro_precision": 0.9739,
+   "nb_macro_recall": 0.9748,
+   "test_leakage_docs": 0,
+   "km_purity": 0.9578,
+   "km_rand_index": 0.9677,
+   "km_sse": 1938.8291,
+   "km_iterations": 9,
+   "precision_at_5": 0.9215,
+   "timings": {
+    "preprocess_s": 0.5,
+    "tfidf_s": 0.09,
+    "naive_bayes_s": 0.05,
+    "kmeans_s": 0.6,
+    "recommend_eval_s": 0.25
+   },
+   "name": "No normalizer + dedup",
+   "base_name": "No normalizer",
+   "km_purity_seedmean": 0.8913,
+   "km_purity_seedstd": 0.0779,
+   "km_ri_seedmean": 0.9281
+  },
+  {
+   "config": "lower|stop|stem|ng1-2",
+   "dedup": false,
+   "docs_used": 2225,
+   "dropped_duplicates": 0,
+   "vocab_raw": 321720,
+   "vocab_tfidf": 5000,
+   "avg_tokens": 405.1,
+   "nb_accuracy": 0.964,
+   "nb_macro_f1": 0.962,
+   "nb_macro_precision": 0.963,
+   "nb_macro_recall": 0.9623,
+   "test_leakage_docs": 38,
+   "km_purity": 0.9546,
+   "km_rand_index": 0.9652,
+   "km_sse": 2073.0054,
+   "km_iterations": 16,
+   "precision_at_5": 0.9459,
+   "timings": {
+    "preprocess_s": 2.4,
+    "tfidf_s": 0.48,
+    "naive_bayes_s": 0.14,
+    "kmeans_s": 0.72,
+    "recommend_eval_s": 0.25
+   },
+   "name": "Uni+bigram",
+   "base_name": "Uni+bigram",
+   "km_purity_seedmean": 0.859,
+   "km_purity_seedstd": 0.0791,
+   "km_ri_seedmean": 0.9151
+  },
+  {
+   "config": "lower|stop|stem|ng1-2",
+   "dedup": true,
+   "docs_used": 2064,
+   "dropped_duplicates": 161,
+   "vocab_raw": 321425,
+   "vocab_tfidf": 5000,
+   "avg_tokens": 403.0,
+   "nb_accuracy": 0.9782,
+   "nb_macro_f1": 0.9765,
+   "nb_macro_precision": 0.9761,
+   "nb_macro_recall": 0.9778,
+   "test_leakage_docs": 0,
+   "km_purity": 0.9569,
+   "km_rand_index": 0.9666,
+   "km_sse": 1924.2297,
+   "km_iterations": 10,
+   "precision_at_5": 0.9244,
+   "timings": {
+    "preprocess_s": 2.4,
+    "tfidf_s": 0.37,
+    "naive_bayes_s": 0.13,
+    "kmeans_s": 0.68,
+    "recommend_eval_s": 0.25
+   },
+   "name": "Uni+bigram + dedup",
+   "base_name": "Uni+bigram",
+   "km_purity_seedmean": 0.9586,
+   "km_purity_seedstd": 0.0027,
+   "km_ri_seedmean": 0.9687
+  },
+  {
+   "config": "case|stop|stem|ng1-1",
+   "dedup": false,
+   "docs_used": 2225,
+   "dropped_duplicates": 0,
+   "vocab_raw": 21238,
+   "vocab_tfidf": 5000,
+   "avg_tokens": 203.0,
+   "nb_accuracy": 0.9617,
+   "nb_macro_f1": 0.9604,
+   "nb_macro_precision": 0.9604,
+   "nb_macro_recall": 0.9611,
+   "test_leakage_docs": 38,
+   "km_purity": 0.9667,
+   "km_rand_index": 0.9749,
+   "km_sse": 2072.7656,
+   "km_iterations": 31,
+   "precision_at_5": 0.9333,
+   "timings": {
+    "preprocess_s": 2.34,
+    "tfidf_s": 0.1,
+    "naive_bayes_s": 0.05,
+    "kmeans_s": 1.02,
+    "recommend_eval_s": 0.25
+   },
+   "name": "No lowercasing",
+   "base_name": "No lowercasing",
+   "km_purity_seedmean": 0.9587,
+   "km_purity_seedstd": 0.0086,
+   "km_ri_seedmean": 0.9683
+  },
+  {
+   "config": "case|stop|stem|ng1-1",
+   "dedup": true,
+   "docs_used": 2063,
+   "dropped_duplicates": 162,
+   "vocab_raw": 21227,
+   "vocab_tfidf": 5000,
+   "avg_tokens": 202.0,
+   "nb_accuracy": 0.983,
+   "nb_macro_f1": 0.9815,
+   "nb_macro_precision": 0.9811,
+   "nb_macro_recall": 0.9825,
+   "test_leakage_docs": 0,
+   "km_purity": 0.7921,
+   "km_rand_index": 0.8865,
+   "km_sse": 1927.4403,
+   "km_iterations": 17,
+   "precision_at_5": 0.9169,
+   "timings": {
+    "preprocess_s": 2.34,
+    "tfidf_s": 0.08,
+    "naive_bayes_s": 0.04,
+    "kmeans_s": 0.79,
+    "recommend_eval_s": 0.25
+   },
+   "name": "No lowercasing + dedup",
+   "base_name": "No lowercasing",
+   "km_purity_seedmean": 0.8719,
+   "km_purity_seedstd": 0.074,
+   "km_ri_seedmean": 0.9215
+  },
+  {
+   "config": "case|stop|none|ng1-1",
+   "dedup": false,
+   "docs_used": 2225,
+   "dropped_duplicates": 0,
+   "vocab_raw": 35047,
+   "vocab_tfidf": 5000,
+   "avg_tokens": 203.0,
+   "nb_accuracy": 0.9685,
+   "nb_macro_f1": 0.967,
+   "nb_macro_precision": 0.9675,
+   "nb_macro_recall": 0.9675,
+   "test_leakage_docs": 38,
+   "km_purity": 0.9456,
+   "km_rand_index": 0.9577,
+   "km_sse": 2094.3936,
+   "km_iterations": 14,
+   "precision_at_5": 0.9491,
+   "timings": {
+    "preprocess_s": 0.5,
+    "tfidf_s": 0.11,
+    "naive_bayes_s": 0.05,
+    "kmeans_s": 0.71,
+    "recommend_eval_s": 0.25
+   },
+   "name": "No lowercasing, no stemming",
+   "base_name": "No lowercasing, no stemming",
+   "km_purity_seedmean": 0.8893,
+   "km_purity_seedstd": 0.0826,
+   "km_ri_seedmean": 0.9339
+  },
+  {
+   "config": "case|stop|none|ng1-1",
+   "dedup": true,
+   "docs_used": 2063,
+   "dropped_duplicates": 162,
+   "vocab_raw": 35020,
+   "vocab_tfidf": 5000,
+   "avg_tokens": 202.0,
+   "nb_accuracy": 0.9782,
+   "nb_macro_f1": 0.9765,
+   "nb_macro_precision": 0.9762,
+   "nb_macro_recall": 0.9774,
+   "test_leakage_docs": 0,
+   "km_purity": 0.8153,
+   "km_rand_index": 0.8841,
+   "km_sse": 1946.9348,
+   "km_iterations": 12,
+   "precision_at_5": 0.9302,
+   "timings": {
+    "preprocess_s": 0.5,
+    "tfidf_s": 0.18,
+    "naive_bayes_s": 0.05,
+    "kmeans_s": 0.57,
+    "recommend_eval_s": 0.25
+   },
+   "name": "No lowercasing, no stemming + dedup",
+   "base_name": "No lowercasing, no stemming",
+   "km_purity_seedmean": 0.8523,
+   "km_purity_seedstd": 0.0937,
+   "km_ri_seedmean": 0.9138
+  }
+ ],
+ "timings_s": {
+  "preprocess": 2.33,
+  "tfidf": 0.12,
+  "naive_bayes": 0.04,
+  "kmeans": 1.02
+ },
+ "figures": [
+  "01_category_distribution.png",
+  "02_duplicate_pairs.png",
+  "03_top20_before_after.png",
+  "04_zipf.png",
+  "05_doc_length_hist.png",
+  "06_idf_hist.png",
+  "07_nb_confusion_matrix.png",
+  "08_nb_actual_vs_predicted.png",
+  "09_nb_per_class_metrics.png",
+  "10_kmeans_sse_iterations.png",
+  "11_kmeans_pca_scatter.png",
+  "12_kmeans_cluster_sizes.png",
+  "13_kmeans_contingency.png",
+  "14_kmeans_elbow.png",
+  "15_seed_stability.png",
+  "16_nb_vs_kmeans.png",
+  "17_recommendation_scores.png",
+  "18_ablation.png"
+ ]
+}

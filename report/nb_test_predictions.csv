@@ -1,0 +1,445 @@
+doc_id,title,actual,predicted,posterior,correct
+BUS-005,Pernod takeover talk lifts Domecq,business,business,1.0,True
+BUS-007,Jobs growth still slow in the US,business,business,1.0,True
+BUS-008,India calls for fair trade rules,business,business,1.0,True
+BUS-009,Ethiopia's crop production up 24%,business,business,1.0,True
+BUS-012,Indonesians face fuel price rise,business,business,1.0,True
+BUS-022,Sluggish economy hits German jobs,business,business,1.0,True
+BUS-027,"Steel firm 'to cut' 45,000 jobs",business,business,1.0,True
+BUS-032,Japanese banking battle at an end,business,business,1.0,True
+BUS-038,Deutsche Telekom sees mobile gain,business,business,1.0,True
+BUS-042,UK Coal plunges into deeper loss,business,business,1.0,True
+BUS-046,Industrial output falls in Japan,business,business,1.0,True
+BUS-051,Fiat mulls Ferrari market listing,business,business,1.0,True
+BUS-054,Hyundai to build new India plant,business,business,1.0,True
+BUS-060,Insurance bosses plead guilty,business,business,1.0,True
+BUS-069,Boeing unveils new 777 aircraft,business,business,1.0,True
+BUS-075,EU ministers to mull jet fuel tax,business,business,1.0,True
+BUS-078,Deadline nears for Fiat-GM deal,business,business,1.0,True
+BUS-089,Europe blames US over weak dollar,business,business,1.0,True
+BUS-093,Argentina closes $102.6bn debt swap,business,business,1.0,True
+BUS-094,US economy shows solid GDP growth,business,business,1.0,True
+BUS-097,'Strong dollar' call halts slide,business,business,1.0,True
+BUS-101,Australia rates at four year high,business,business,1.0,True
+BUS-121,US interest rates increased to 2%,business,business,1.0,True
+BUS-128,Qantas sees profits fly to record,business,business,1.0,True
+BUS-133,Salary scandal in Cameroon,business,politics,0.9759,False
+BUS-140,Ore costs hit global steel firms,business,business,1.0,True
+BUS-147,Malaysia lifts Islamic bank limit,business,business,1.0,True
+BUS-152,Crude oil prices back above $50,business,business,1.0,True
+BUS-155,Macy's owner buys rival for $11bn,business,business,1.0,True
+BUS-157,Khodorkovsky ally denies charges,business,business,1.0,True
+BUS-159,India unveils anti-poverty budget,business,business,1.0,True
+BUS-161,Ex-Boeing director gets jail term,business,business,1.0,True
+BUS-164,Yukos sues four firms for $20bn,business,business,1.0,True
+BUS-172,Newest EU members underpin growth,business,business,1.0,True
+BUS-176,GSK aims to stop Aids profiteers,business,business,1.0,True
+BUS-183,Business fears over sluggish EU economy,business,business,1.0,True
+BUS-189,Fiat chief takes steering wheel,business,business,1.0,True
+BUS-197,Ukraine steel sell-off 'illegal',business,business,1.0,True
+BUS-200,Cuba winds back economic clock,business,business,1.0,True
+BUS-201,Novartis hits acquisition trail,business,business,1.0,True
+BUS-202,MCI shareholder sues to stop bid,business,business,1.0,True
+BUS-212,MG Rover China tie-up 'delayed',business,business,1.0,True
+BUS-213,US bank boss hails 'genius' Smith,business,politics,1.0,False
+BUS-214,Economy 'strong' in election year,business,business,1.0,True
+BUS-219,Rescue hope for Borussia Dortmund,business,business,1.0,True
+BUS-224,Man Utd to open books to Glazer,business,business,1.0,True
+BUS-226,McDonald's to sponsor MTV show,business,entertainment,0.9987,False
+BUS-228,Tsunami 'to hit Sri Lanka banks',business,business,1.0,True
+BUS-234,Vodafone appoints new Japan boss,business,business,1.0,True
+BUS-238,Firms pump billions into pensions,business,business,1.0,True
+BUS-242,Q&A: Malcolm Glazer and Man Utd,business,business,1.0,True
+BUS-248,Survey confirms property slowdown,business,business,1.0,True
+BUS-252,BT offers equal access to rivals,business,tech,1.0,False
+BUS-254,News Corp eyes video games market,business,tech,1.0,False
+BUS-262,Asian quake hits European shares,business,business,1.0,True
+BUS-263,Split-caps pay £194m compensation,business,business,1.0,True
+BUS-269,Air China in $1bn London listing,business,business,1.0,True
+BUS-279,German bidder in talks with LSE,business,business,1.0,True
+BUS-281,Axa Sun Life cuts bonus payments,business,business,1.0,True
+BUS-285,EU 'too slow' on economic reforms,business,business,1.0,True
+BUS-298,Fannie Mae 'should restate books',business,business,1.0,True
+BUS-311,Stormy year for property insurers,business,business,1.0,True
+BUS-315,S&N extends Indian beer venture,business,business,1.0,True
+BUS-319,Euronext joins bid battle for LSE,business,business,1.0,True
+BUS-323,No seasonal lift for house market,business,business,1.0,True
+BUS-338,Police detain Chinese milk bosses,business,business,1.0,True
+BUS-340,Venezuela and China sign oil deal,business,business,1.0,True
+BUS-341,Jarvis sells Tube stake to Spain,business,business,1.0,True
+BUS-342,Honda wins China copyright ruling,business,business,1.0,True
+BUS-343,Air Jamaica back in state control,business,business,1.0,True
+BUS-354,Asia shares defy post-quake gloom,business,business,1.0,True
+BUS-355,Israeli economy picking up pace,business,business,1.0,True
+BUS-377,VW considers opening Indian plant,business,business,1.0,True
+BUS-379,Reliance unit loses Anil Ambani,business,business,1.0,True
+BUS-381,Oil rebounds from weather effect,business,business,1.0,True
+BUS-383,Fed warns of more US rate rises,business,business,1.0,True
+BUS-384,Weak end-of-year sales hit Next,business,business,1.0,True
+BUS-393,Laura Ashley chief stepping down,business,business,1.0,True
+BUS-398,Tsunami to cost Sri Lanka $1.3bn,business,business,1.0,True
+BUS-402,US interest rate rise expected,business,business,1.0,True
+BUS-403,WorldCom bosses' $54m payout,business,business,1.0,True
+BUS-405,House prices rebound says Halifax,business,business,1.0,True
+BUS-408,South African car demand surges,business,business,1.0,True
+BUS-416,Steady job growth continues in US,business,business,1.0,True
+BUS-418,US firm 'bids for Lacroix label',business,business,1.0,True
+BUS-419,$1m payoff for former Shell boss,business,business,1.0,True
+BUS-426,Minister hits out at Yukos sale,business,business,1.0,True
+BUS-432,BA to suspend two Saudi services,business,business,1.0,True
+BUS-436,ECB holds rates amid growth fears,business,business,1.0,True
+BUS-443,Kraft cuts snack ads for children,business,business,0.9996,True
+BUS-445,Executive trio leave Aer Lingus,business,business,1.0,True
+BUS-448,US Ahold suppliers face charges,business,business,1.0,True
+BUS-450,US retail sales surge in December,business,business,1.0,True
+BUS-453,US industrial output growth eases,business,business,1.0,True
+BUS-464,Wall Street cool to eBay's profit,business,business,1.0,True
+BUS-470,Saudi investor picks up the Savoy,business,business,1.0,True
+BUS-477,JP Morgan admits US slavery links,business,business,1.0,True
+BUS-480,Wipro beats forecasts once again,business,business,1.0,True
+BUS-483,Ailing EuroDisney vows turnaround,business,business,1.0,True
+BUS-487,World leaders gather to face uncertainty,business,business,1.0,True
+BUS-495,BBC poll indicates economic gloom,business,business,1.0,True
+BUS-496,Europe asks Asia for euro help,business,business,1.0,True
+ENT-010,Uganda bans Vagina Monologues,entertainment,politics,1.0,False
+ENT-015,Mutant book wins Guardian prize,entertainment,entertainment,1.0,True
+ENT-019,Slater to star in Broadway play,entertainment,entertainment,1.0,True
+ENT-025,New Harry Potter tops book chart,entertainment,entertainment,1.0,True
+ENT-029,Baghdad Blogger on big screen,entertainment,entertainment,1.0,True
+ENT-034,Vera Drake scoops film award,entertainment,entertainment,1.0,True
+ENT-037,Film row over Pirates 'cannibals',entertainment,entertainment,1.0,True
+ENT-041,No ads for Passion Oscar campaign,entertainment,entertainment,1.0,True
+ENT-045,Jugnot 'tops French actor league',entertainment,entertainment,1.0,True
+ENT-046,Howl helps boost Japan's cinemas,entertainment,entertainment,1.0,True
+ENT-050,Willis sues over movie 'injury',entertainment,tech,0.9177,False
+ENT-061,Director Nair's Vanity project,entertainment,entertainment,1.0,True
+ENT-068,Tautou 'to star in Da Vinci film',entertainment,entertainment,1.0,True
+ENT-074,Ocean's Twelve raids box office,entertainment,entertainment,1.0,True
+ENT-075,Indie film nominations announced,entertainment,entertainment,1.0,True
+ENT-081,Oscars race enters final furlong,entertainment,entertainment,1.0,True
+ENT-088,Ocean's Twelve raids box office,entertainment,entertainment,1.0,True
+ENT-092,Actor Foxx sees Globe nominations,entertainment,entertainment,1.0,True
+ENT-093,Godzilla gets Hollywood fame star,entertainment,entertainment,1.0,True
+ENT-096,Singer's film to show at festival,entertainment,entertainment,1.0,True
+ENT-103,Downloads enter US singles chart,entertainment,entertainment,1.0,True
+ENT-111,Elton plays Paris charity concert,entertainment,entertainment,1.0,True
+ENT-114,Pete Doherty misses bail deadline,entertainment,entertainment,1.0,True
+ENT-115,Rapper Snoop Dogg sued for 'rape',entertainment,entertainment,1.0,True
+ENT-118,REM concerts blighted by illness,entertainment,entertainment,1.0,True
+ENT-130,Charity single for quake relief,entertainment,entertainment,1.0,True
+ENT-132,Hard act to follow for OutKast,entertainment,entertainment,1.0,True
+ENT-134,Rock group Korn's guitarist quits,entertainment,entertainment,1.0,True
+ENT-149,Spector facing more legal action,entertainment,entertainment,1.0,True
+ENT-151,Eminem secret gig venue revealed,entertainment,entertainment,1.0,True
+ENT-153,OutKast win at MTV Europe Awards,entertainment,entertainment,1.0,True
+ENT-157,US charity anthem is re-released,entertainment,entertainment,1.0,True
+ENT-158,Queen recruit singer for new tour,entertainment,entertainment,1.0,True
+ENT-162,Prince crowned 'top music earner',entertainment,entertainment,1.0,True
+ENT-166,TV station refuses adoption show,entertainment,entertainment,1.0,True
+ENT-167,A-listers flock to Gervais sitcom,entertainment,entertainment,1.0,True
+ENT-169,US actor 'found with gun residue',entertainment,entertainment,1.0,True
+ENT-194,Ethnic producers 'face barriers',entertainment,tech,1.0,False
+ENT-201,Triple triumph for Little Britain,entertainment,entertainment,1.0,True
+ENT-202,BBC 'should allow more scrutiny',entertainment,tech,1.0,False
+ENT-206,Show over for MTV's The Osbournes,entertainment,entertainment,1.0,True
+ENT-209,US show sued for rat-eating stunt,entertainment,entertainment,1.0,True
+ENT-228,Joy Division story to become film,entertainment,entertainment,1.0,True
+ENT-230,Aaliyah claim dismissed by court,entertainment,entertainment,1.0,True
+ENT-240,Elvis 'set for chart hat-trick',entertainment,entertainment,1.0,True
+ENT-241,Youssou N'Dour wins music prize,entertainment,entertainment,1.0,True
+ENT-245,Mogul Wilson backing UK rap band,entertainment,entertainment,1.0,True
+ENT-248,Deal to ban 'homophobic' reggae,entertainment,entertainment,1.0,True
+ENT-250,Prince crowned 'top music earner',entertainment,entertainment,1.0,True
+ENT-253,Scissor Sisters triumph at Brits,entertainment,entertainment,1.0,True
+ENT-255,Cult band Kasabian surge forward,entertainment,entertainment,1.0,True
+ENT-256,Brits debate over 'urban' music,entertainment,entertainment,1.0,True
+ENT-258,No jail for singer Courtney Love,entertainment,entertainment,1.0,True
+ENT-265,Abba reunite for musical premiere,entertainment,entertainment,1.0,True
+ENT-270,"Hendrix guitar fetches £100,000",entertainment,entertainment,1.0,True
+ENT-271,German music in a 'zombie' state,entertainment,tech,1.0,False
+ENT-280,Music man to the Oscars,entertainment,entertainment,1.0,True
+ENT-287,REM announce new Glasgow concert,entertainment,entertainment,1.0,True
+ENT-291,U2 stars enter rock Hall of Fame,entertainment,entertainment,1.0,True
+ENT-294,No UK premiere for Rings musical,entertainment,entertainment,1.0,True
+ENT-304,Fantasy book wins Hollywood deal,entertainment,entertainment,1.0,True
+ENT-314,How the Academy Awards flourished,entertainment,entertainment,1.0,True
+ENT-317,Patti Smith to host arts festival,entertainment,entertainment,1.0,True
+ENT-327,Kidman wins photographer battle,entertainment,entertainment,0.6921,True
+ENT-332,Incredibles win animation awards,entertainment,entertainment,1.0,True
+ENT-333,Actor Scott is new Bond favourite,entertainment,entertainment,1.0,True
+ENT-335,De Niro film leads US box office,entertainment,entertainment,1.0,True
+ENT-347,Casino Royale is next Bond movie,entertainment,entertainment,1.0,True
+ENT-348,Berlin celebrates European cinema,entertainment,entertainment,1.0,True
+ENT-350,Ray DVD beats box office takings,entertainment,entertainment,1.0,True
+ENT-353,Roundabout continues nostalgia trip,entertainment,entertainment,1.0,True
+ENT-355,Bafta to hand out movie honours,entertainment,entertainment,1.0,True
+ENT-362,Original Exorcist to be screened,entertainment,entertainment,1.0,True
+ENT-372,Eastwood's Baby scoops top Oscars,entertainment,entertainment,1.0,True
+ENT-382,Last Star Wars 'not for children',entertainment,entertainment,1.0,True
+ENT-383,French honour for director Parker,entertainment,entertainment,1.0,True
+ENT-384,Robots march to US cinema summit,entertainment,entertainment,1.0,True
+POL-003,Hewitt decries 'career sexism',politics,politics,1.0,True
+POL-005,Brown ally rejects Budget spree,politics,politics,1.0,True
+POL-009,Campbell: E-mail row 'silly fuss',politics,politics,1.0,True
+POL-013,Howard rebuts asylum criticisms,politics,politics,1.0,True
+POL-015,Talks held on Gibraltar's future,politics,politics,1.0,True
+POL-016,Crisis 'ahead in social sciences',politics,politics,1.0,True
+POL-025,UK 'needs true immigration data',politics,politics,1.0,True
+POL-029,UK set to cut back on embassies,politics,politics,1.0,True
+POL-036,Choose hope over fear - Kennedy,politics,politics,1.0,True
+POL-045,Tory leader 'cleared' over work,politics,politics,1.0,True
+POL-050,Scots smoking ban details set out,politics,politics,1.0,True
+POL-052,Nuclear strike 'key terror risk',politics,politics,1.0,True
+POL-055,Kelly trails new discipline power,politics,politics,1.0,True
+POL-066,Commons hunt protest charges,politics,politics,1.0,True
+POL-067,Child access laws shake-up,politics,politics,1.0,True
+POL-072,'No more concessions' on terror,politics,politics,1.0,True
+POL-076,Report attacks defence spending,politics,business,1.0,False
+POL-084,Job cuts 'false economy'  - TUC,politics,politics,1.0,True
+POL-091,Vouchers 'to cut winter deaths',politics,politics,1.0,True
+POL-092,New 'yob' targets to be unveiled,politics,politics,1.0,True
+POL-094,McConnell in 'drunk' remark row,politics,politics,1.0,True
+POL-096,Tories 'would cut number of MPs',politics,politics,1.0,True
+POL-100,Guantanamo man 'suing government',politics,politics,1.0,True
+POL-101,Council tax rise 'reasonable',politics,politics,1.0,True
+POL-103,Minimum rate for foster parents,politics,politics,1.0,True
+POL-104,Royal couple watch nation's mood,politics,politics,1.0,True
+POL-108,'Super union' merger plan touted,politics,politics,0.997,True
+POL-110,UK heading wrong way - Howard,politics,politics,1.0,True
+POL-111,Kilroy launches 'Veritas' party,politics,politics,1.0,True
+POL-144,MP attacked by muggers in Kenya,politics,politics,1.0,True
+POL-159,Howard unveils election platform,politics,politics,1.0,True
+POL-163,Kinnock to urge reform in Lords,politics,politics,1.0,True
+POL-168,MPs' murder sentence concern,politics,politics,1.0,True
+POL-173,Ministers lose slopping out case,politics,politics,1.0,True
+POL-174,Escaped prisoner report ordered,politics,politics,1.0,True
+POL-178,Hatfield executives go on trial,politics,sport,0.7405,False
+POL-180,Falconer rebuts 'charade' claims,politics,politics,1.0,True
+POL-187,Jowell confirms casino climbdown,politics,politics,1.0,True
+POL-188,Security papers 'found in street',politics,politics,1.0,True
+POL-189,Blair congratulates Bush on win,politics,politics,1.0,True
+POL-191,Short attacks US over tsunami aid,politics,politics,1.0,True
+POL-194,Cherie accused of attacking Bush,politics,politics,1.0,True
+POL-196,Mandelson warning to BBC,politics,politics,1.0,True
+POL-199,Game warnings 'must be clearer',politics,tech,1.0,False
+POL-200,Mallon wades into NE vote battle,politics,politics,1.0,True
+POL-202,Tories opposing 24-hour drinking,politics,politics,1.0,True
+POL-203,New foot and mouth action urged,politics,politics,1.0,True
+POL-204,Correction agency plans dropped,politics,politics,1.0,True
+POL-208,Gurkhas to help tsunami victims,politics,business,0.8402,False
+POL-215,New rules tackle 'sham weddings',politics,politics,1.0,True
+POL-228,Labour pig poster 'anti-Semitic',politics,politics,1.0,True
+POL-230,Burglar defence guidelines issued,politics,politics,1.0,True
+POL-255,Brown in appeal for Labour unity,politics,politics,1.0,True
+POL-258,Labour MPs' fears over squabbling,politics,politics,1.0,True
+POL-263,How political squabbles snowball,politics,politics,1.0,True
+POL-274,The memory driving Brown's mission,politics,politics,1.0,True
+POL-276,Donor attacks Blair-Brown 'feud',politics,politics,1.0,True
+POL-278,What really divides the parties,politics,politics,1.0,True
+POL-282,Blair blasts Tory spending plans,politics,politics,1.0,True
+POL-288,New UKIP defection to 'Veritas',politics,politics,1.0,True
+POL-291,'Super union' merger plan touted,politics,politics,0.997,True
+POL-298,'Debate needed' on donations cap,politics,politics,1.0,True
+POL-304,UKIP outspent Labour on EU poll,politics,politics,1.0,True
+POL-322,Parties build up poll war chests,politics,politics,1.0,True
+POL-336,Labour's core support takes stock,politics,politics,1.0,True
+POL-338,Lib Dems highlight problem debt,politics,politics,1.0,True
+POL-342,Brown outlines third term vision,politics,politics,1.0,True
+POL-345,Teenagers to be allowed to be MPs,politics,politics,1.0,True
+POL-346,Labour's four little words,politics,politics,1.0,True
+POL-359,Brown ally rejects Budget spree,politics,politics,1.0,True
+POL-361,Budget to set scene for election,politics,politics,1.0,True
+POL-364,Howard attacks 'pay later' Budget,politics,politics,1.0,True
+POL-367,"UK heading wrong way, says Howard",politics,politics,1.0,True
+POL-372,Observers to monitor UK election,politics,politics,1.0,True
+POL-376,MPs demand 'Budget leak' answers,politics,politics,1.0,True
+POL-380,Minimum wage increased to £5.05,politics,politics,1.0,True
+POL-385,UK pledges £1bn to vaccine effort,politics,politics,1.0,True
+POL-389,EU rules 'won't stop UK spending',politics,politics,1.0,True
+POL-391,'EU referendum could cost £80m',politics,politics,1.0,True
+POL-399,Tories reject rethink on axed MP,politics,politics,1.0,True
+POL-409,Tories urge 'change at the top',politics,politics,1.0,True
+POL-414,Blair 'up for it' ahead of poll,politics,politics,1.0,True
+POL-417,Lib Dems unveil election slogan,politics,politics,1.0,True
+SPO-001,Claxton hunting first major medal,sport,sport,1.0,True
+SPO-003,Greene sets sights on world title,sport,sport,1.0,True
+SPO-007,O'Sullivan commits to Dublin race,sport,sport,1.0,True
+SPO-018,Merritt close to indoor 400m mark,sport,sport,1.0,True
+SPO-025,El Guerrouj targets cross country,sport,sport,1.0,True
+SPO-037,Johnson accuses British sprinters,sport,sport,1.0,True
+SPO-039,Jones medals 'must go if guilty',sport,sport,1.0,True
+SPO-043,Collins named UK Athletics chief,sport,sport,1.0,True
+SPO-046,Radcliffe eyes hard line on drugs,sport,sport,1.0,True
+SPO-052,Holmes starts 2005 with GB events,sport,sport,1.0,True
+SPO-062,Brizzel to run AAA's in Sheffield,sport,sport,1.0,True
+SPO-069,Holmes back on form in Birmingham,sport,sport,1.0,True
+SPO-071,Tomlinson stays focused on Europe,sport,sport,1.0,True
+SPO-077,Yelling takes Cardiff hat-trick,sport,sport,1.0,True
+SPO-085,Tulu to appear at Caledonian run,sport,sport,1.0,True
+SPO-092,Collins calls for Chambers return,sport,sport,1.0,True
+SPO-094,Lewis-Francis turns to Christie,sport,sport,1.0,True
+SPO-096,Van Nistelrooy set to return,sport,sport,1.0,True
+SPO-100,Mido makes third apology,sport,sport,1.0,True
+SPO-101,Man City 0-2 Man Utd,sport,sport,1.0,True
+SPO-105,Newcastle 2-1 Bolton,sport,sport,1.0,True
+SPO-113,Wright-Phillips to start on right,sport,sport,1.0,True
+SPO-123,England's defensive crisis grows,sport,sport,1.0,True
+SPO-127,Kewell waits as injury drags on,sport,sport,1.0,True
+SPO-130,Weir poised for Sunderland move,sport,sport,1.0,True
+SPO-133,Finnan says Irish can win group,sport,sport,1.0,True
+SPO-138,Bellamy under new fire,sport,sport,1.0,True
+SPO-145,Downing injury mars Uefa victory,sport,sport,1.0,True
+SPO-149,Legendary Dutch boss Michels dies,sport,sport,1.0,True
+SPO-150,Jol joy at 'professional' Cup win,sport,sport,1.0,True
+SPO-158,Stam spices up Man Utd encounter,sport,sport,1.0,True
+SPO-163,Arsenal through on penalties,sport,sport,1.0,True
+SPO-176,Keegan hails comeback king Fowler,sport,sport,1.0,True
+SPO-178,Cole refuses to blame van Persie,sport,sport,1.0,True
+SPO-183,Mourinho expects fight to finish,sport,sport,1.0,True
+SPO-187,Celtic make late bid for Bellamy,sport,sport,1.0,True
+SPO-201,Wenger offers Mutu hope,sport,sport,1.0,True
+SPO-203,Mutu to hold talks with Juventus,sport,sport,1.0,True
+SPO-214,Mansfield 0-1 Leyton Orient,sport,sport,1.0,True
+SPO-218,Mourinho plots impressive course,sport,sport,1.0,True
+SPO-223,Benitez delight after crucial win,sport,sport,1.0,True
+SPO-224,Bristol City 2-1 Milton Keynes,sport,sport,1.0,True
+SPO-225,Hereford 1-1 Doncaster,sport,sport,1.0,True
+SPO-236,Liverpool revel in night of glory,sport,sport,1.0,True
+SPO-240,Man Utd through after Exeter test,sport,sport,1.0,True
+SPO-241,Hamm bows out for US,sport,sport,1.0,True
+SPO-245,Bomb threat at Bernabeu stadium,sport,sport,1.0,True
+SPO-249,Solskjaer raises hopes of return,sport,sport,1.0,True
+SPO-254,Anelka apologises for criticism,sport,sport,1.0,True
+SPO-255,Ferguson rues failure to cut gap,sport,sport,1.0,True
+SPO-256,Everton's Weir cools Euro hopes,sport,sport,1.0,True
+SPO-262,Spurs to sign Iceland U21 star,sport,sport,1.0,True
+SPO-265,Gronkjaer agrees switch to Madrid,sport,sport,1.0,True
+SPO-266,Benitez 'to launch Morientes bid',sport,sport,1.0,True
+SPO-269,Reds sink 10-man Magpies,sport,sport,1.0,True
+SPO-274,Gerrard happy at Anfield,sport,sport,1.0,True
+SPO-275,Beckham rules out management move,sport,sport,1.0,True
+SPO-278,Robben and Cole earn Chelsea win,sport,sport,1.0,True
+SPO-282,Ferguson hails Man Utd's resolve,sport,sport,1.0,True
+SPO-286,Yachvili savours France comeback,sport,sport,1.0,True
+SPO-292,Wales coach elated with win,sport,sport,1.0,True
+SPO-293,Newcastle 27-27 Gloucester,sport,sport,1.0,True
+SPO-296,Fear will help France - Laporte,sport,sport,1.0,True
+SPO-303,Jones happy with Henson heroics,sport,sport,1.0,True
+SPO-307,Wales critical of clumsy Grewcock,sport,sport,1.0,True
+SPO-308,Henson stakes early Lions claim,sport,sport,1.0,True
+SPO-317,Munster Cup tie switched to Spain,sport,sport,1.0,True
+SPO-342,Robinson out of Six Nations,sport,sport,1.0,True
+SPO-355,Wales get Williams fitness boost,sport,sport,1.0,True
+SPO-361,Hodges announces rugby retirement,sport,sport,1.0,True
+SPO-363,Calder fears for Scottish rugby,sport,politics,1.0,False
+SPO-365,Williams stays on despite dispute,sport,sport,1.0,True
+SPO-368,A November to remember,sport,sport,1.0,True
+SPO-369,South Africa sweep top awards,sport,sport,1.0,True
+SPO-370,Robinson wants dual code success,sport,sport,1.0,True
+SPO-371,All Black magic: New Zealand rugby,sport,sport,1.0,True
+SPO-372,WRU proposes season overhaul,sport,sport,1.0,True
+SPO-385,Lions blow to World Cup stars,sport,sport,1.0,True
+SPO-386,Campbell to be Lions consultant,sport,politics,0.9999,False
+SPO-387,Lions blow to World Cup winners,sport,sport,1.0,True
+SPO-402,Sydney to host north v south game,sport,sport,1.0,True
+SPO-404,Ireland win eclipses refereeing 'errors',sport,sport,1.0,True
+SPO-409,O'Connell rejects Lions rumours,sport,sport,1.0,True
+SPO-416,Italy 8-38 Wales,sport,sport,1.0,True
+SPO-420,O'Connor aims to grab opportunity,sport,sport,1.0,True
+SPO-438,Davenport hits out at Wimbledon,sport,sport,1.0,True
+SPO-443,Clijsters set for February return,sport,sport,1.0,True
+SPO-444,Hewitt falls to Dent,sport,sport,1.0,True
+SPO-446,Davenport dismantles young rival,sport,sport,1.0,True
+SPO-448,Kuznetsova 'failed a drugs test',sport,sport,1.0,True
+SPO-451,Moya fights back for Indian title,sport,sport,1.0,True
+SPO-454,Hingis hints at playing comeback,sport,sport,1.0,True
+SPO-459,Federer breezes into semi-finals,sport,sport,1.0,True
+SPO-461,Rusedski angry over supplements,sport,sport,1.0,True
+SPO-467,Capriati to miss Melbourne,sport,sport,1.0,True
+SPO-474,Mauresmo opens with victory in LA,sport,sport,1.0,True
+SPO-475,Agassi fear for Melbourne,sport,sport,1.0,True
+SPO-477,Moya suffers shock loss,sport,sport,1.0,True
+SPO-480,Edgy Agassi struggles past Dent,sport,sport,1.0,True
+SPO-481,Roddick splits from coach Gilbert,sport,sport,1.0,True
+SPO-490,Safin plays down Wimbledon hopes,sport,sport,1.0,True
+SPO-508,Almagro continues Spanish surge,sport,sport,1.0,True
+TEC-002,China net cafe culture crackdown,tech,tech,1.0,True
+TEC-006,Wi-fi web reaches farmers in Peru,tech,tech,1.0,True
+TEC-007,Microsoft releases bumper patches,tech,tech,1.0,True
+TEC-019,Intel unveils laser breakthrough,tech,tech,1.0,True
+TEC-029,Open source leaders slam patents,tech,tech,1.0,True
+TEC-030,Reboot ordered for EU patent law,tech,tech,1.0,True
+TEC-031,Solutions to net security fears,tech,tech,1.0,True
+TEC-046,BBC leads interactive Bafta wins,tech,entertainment,1.0,False
+TEC-054,Moving mobile improves golf swing,tech,tech,1.0,True
+TEC-055,Junk e-mails on relentless rise,tech,tech,1.0,True
+TEC-056,Sporting rivals go to extra time,tech,tech,1.0,True
+TEC-059,Mobiles 'not media players yet',tech,tech,1.0,True
+TEC-060,Microsoft releases patches,tech,tech,1.0,True
+TEC-066,Kenyan school turns to handhelds,tech,tech,1.0,True
+TEC-073,'Evil twin' fear for wireless net,tech,tech,1.0,True
+TEC-078,Blog reading explodes in America,tech,tech,1.0,True
+TEC-097,Web helps collect aid donations,tech,tech,1.0,True
+TEC-098,Mobiles rack up 20 years of use,tech,tech,1.0,True
+TEC-101,Bush website blocked outside US,tech,tech,1.0,True
+TEC-105,Nuclear body seeks new tech,tech,tech,1.0,True
+TEC-106,Web logs aid disaster recovery,tech,tech,1.0,True
+TEC-108,Search wars hit desktop PCs,tech,tech,1.0,True
+TEC-117,Joke e-mail virus tricks users,tech,tech,1.0,True
+TEC-125,The Force is strong in Battlefront,tech,tech,1.0,True
+TEC-126,'Ultimate game' award for Doom 3,tech,tech,1.0,True
+TEC-127,Gadget show heralds MP3 season,tech,tech,1.0,True
+TEC-130,Slim PlayStation triples sales,tech,tech,1.0,True
+TEC-134,Gates opens biggest gadget fair,tech,tech,1.0,True
+TEC-136,BT offers free net phone calls,tech,tech,1.0,True
+TEC-137,When invention turns to innovation,tech,tech,1.0,True
+TEC-138,Firefox browser takes on Microsoft,tech,tech,1.0,True
+TEC-139,Halo fans' hope for sequel,tech,tech,1.0,True
+TEC-141,US top of supercomputing charts,tech,tech,1.0,True
+TEC-143,Putting a face to 'Big Brother',tech,tech,1.0,True
+TEC-156,File-swappers ready new network,tech,tech,1.0,True
+TEC-157,Online games play with politics,tech,tech,1.0,True
+TEC-160,Halo 2 sells five million copies,tech,tech,1.0,True
+TEC-167,Europe backs digital TV lifestyle,tech,tech,1.0,True
+TEC-177,Microsoft debuts security tools,tech,tech,1.0,True
+TEC-183,Consumers 'snub portable video',tech,tech,1.0,True
+TEC-197,Smartphones suffer Skulls attack,tech,tech,1.0,True
+TEC-201,How to make a gigapixel picture,tech,tech,1.0,True
+TEC-204,British Library gets wireless net,tech,tech,1.0,True
+TEC-206,Row brewing over peer-to-peer ads,tech,tech,1.0,True
+TEC-207,How to smash a home computer,tech,tech,1.0,True
+TEC-216,TV future in the hands of viewers,tech,tech,1.0,True
+TEC-218,Gritty return for Prince of Persia,tech,tech,1.0,True
+TEC-219,Disney backs Sony DVD technology,tech,tech,1.0,True
+TEC-223,Satellite mapping aids Darfur relief,tech,tech,1.0,True
+TEC-238,Gamers snap up new Sony PSP,tech,tech,1.0,True
+TEC-240,Set your television to wow,tech,tech,1.0,True
+TEC-243,PC photo printers challenge pros,tech,tech,1.0,True
+TEC-246,Humanoid robot learns how to run,tech,tech,1.0,True
+TEC-251,Video phone help for deaf people,tech,tech,1.0,True
+TEC-255,Hollywood campaign hits websites,tech,tech,1.0,True
+TEC-269,Yahoo moves into desktop search,tech,tech,1.0,True
+TEC-282,Dublin hi-tech labs to shut down,tech,tech,1.0,True
+TEC-290,Fast moving phone viruses appear,tech,tech,1.0,True
+TEC-298,Napster offers rented music to go,tech,tech,1.0,True
+TEC-309,What's next for next-gen consoles?,tech,tech,1.0,True
+TEC-315,Warning over tsunami aid website,tech,tech,1.0,True
+TEC-321,Consumer concern over RFID tags,tech,tech,1.0,True
+TEC-323,Blind student 'hears in colour',tech,tech,1.0,True
+TEC-335,Mobile networks seek turbo boost,tech,tech,1.0,True
+TEC-336,Mac Mini heralds mini revolution,tech,tech,1.0,True
+TEC-337,Can Yahoo dominate next decade?,tech,tech,1.0,True
+TEC-342,'No re-draft' for EU patent law,tech,tech,1.0,True
+TEC-350,Chip maker backs net phone calls,tech,tech,1.0,True
+TEC-351,Nintendo DS makes its Euro debut,tech,tech,1.0,True
+TEC-353,Anti-tremor mouse stops PC shakes,tech,tech,1.0,True
+TEC-354,The pirates with no profit motive,tech,tech,1.0,True
+TEC-359,Gizmondo gadget hits the shelves,tech,tech,1.0,True
+TEC-362,Bad e-mail habits sustains spam,tech,tech,1.0,True
+TEC-365,Local net TV takes off in Austria,tech,tech,1.0,True
+TEC-369,Microsoft plans 'safer ID' system,tech,tech,1.0,True
+TEC-372,Text message record smashed again,tech,tech,1.0,True
+TEC-381,Kenyan school turns to handhelds,tech,tech,1.0,True
+TEC-387,Progress on new internet domains,tech,tech,1.0,True
+TEC-398,Spam e-mails tempt net shoppers,tech,tech,1.0,True
+TEC-400,US cyber security chief resigns,tech,tech,1.0,True
