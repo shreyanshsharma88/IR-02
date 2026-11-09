@@ -211,3 +211,7 @@ Encoding bug fixed (raw files UTF-8; `£` was showing as `Â£`).
 * Test suite: **248 tests, all passing** (`./run_tests.sh`). See `docs/05_TESTING.md`.
 * Detailed docs in `docs/01..05`. README links to all of them.
 * Code on GitHub: https://github.com/shreyanshsharma88/IR-02 (the zip for the portal is still built with `./make_zip.sh G<id>`).
+
+## 10. Team + group set (9 Nov 2026)
+
+Group **G35**. Members (5) set in README, `report/build_report.py`, `G35_Contribution.xlsx` (100% each - adjust if needed). Zip: `./make_zip.sh G35`.

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Usage: ./make_zip.sh G07     -> builds G07_Assignment2.zip (rename Gxx_Contribution.xlsx first)
+# Usage: ./make_zip.sh [G35]   -> builds dist/G35_Assignment2.zip
 set -euo pipefail
-GID="${1:-Gxx}"
+GID="${1:-G35}"
 cd "$(dirname "$0")"
 OUT="${GID}_Assignment2"
 rm -rf "dist/$OUT" "dist/$OUT.zip"; mkdir -p "dist/$OUT/data"

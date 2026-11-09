@@ -22,12 +22,13 @@ from reportlab.platypus import (BaseDocTemplate, CondPageBreak, Frame, Image, Ke
 
 # ---------------------------------------------------------------- EDIT ME: group details
 # Fill in your group number and the four members before submitting, then re-run this script.
-GROUP_ID = "Gxx"
+GROUP_ID = "G35"
 MEMBERS = [  # (registration number, name)
-    ("20XXXXXXXXX", "Member 1 name"),
-    ("20XXXXXXXXX", "Member 2 name"),
-    ("20XXXXXXXXX", "Member 3 name"),
-    ("20XXXXXXXXX", "Member 4 name"),
+    ("2025AG05062", "LAKSHYA KANCHAN"),
+    ("2025AG05772", "SHREYANSH SHARMA"),
+    ("2025AG05689", "VINAY PRATAP SINGH BHADAURIA"),
+    ("2025AG05914", "NAIR ABHIJITH VIJAYAKUMAR"),
+    ("2025AG05076", "ABHISHEK GHOSH"),
 ]
 COURSE = "Information Retrieval (AIMLCZG537/DSECLZG537) S1-26 - Assignment 2"
 TITLE = "Text Mining and Document Intelligence System for News Analytics"

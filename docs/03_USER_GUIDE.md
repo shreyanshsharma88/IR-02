@@ -73,7 +73,7 @@ Before submitting, set the group ID and member names in the `GROUP_ID` / `MEMBER
    page, because the report embeds it in §8. Make sure the lab desktop or URL bar is visible, as proof it ran in the lab.
 4. Record a 2–4 minute screen video following the script below. Save it as `demo.mp4` (or `.mov`) in the project root.
 5. Create an empty file **`screenshots/VIRTUAL_LAB.txt`**. Only then does the report say it was run in the Virtual Lab.
-6. `python report/build_report.py` and then `./make_zip.sh G<id>`.
+6. `python report/build_report.py` and then `./make_zip.sh G35`.
 
 ### Suggested demo script (about 3 min)
 1. Dashboard: "2,225 BBC articles, 5 desks, 5 MB, 137 duplicate pairs."
@@ -88,8 +88,8 @@ Before submitting, set the group ID and member names in the `GROUP_ID` / `MEMBER
 ## 3.8 Packaging for submission
 
 ```bash
-mv Gxx_Contribution.xlsx G07_Contribution.xlsx     # use your group id; fill in reg no / name / %
-./make_zip.sh G07                                   # → dist/G07_Assignment2.zip
+# check G35_Contribution.xlsx (reg no / name / %)
+./make_zip.sh G35                                   # → dist/G35_Assignment2.zip
 ```
 
 The zip contains the code, `data/` (CSVs plus the original raw zip), the report and figures, screenshots, the

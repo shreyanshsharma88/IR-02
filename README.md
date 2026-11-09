@@ -1,6 +1,6 @@
 # Text Mining & Document Intelligence System — News Intelligence
 
-Information Retrieval (AIMLCZG537/DSECLZG537) S1-26 — Assignment 2 · Group **Gxx** · Repository: <https://github.com/shreyanshsharma88/IR-02>
+Information Retrieval (AIMLCZG537/DSECLZG537) S1-26 — Assignment 2 · Group **G35** · Repository: <https://github.com/shreyanshsharma88/IR-02>
 
 An end-to-end Streamlit application for a **media-monitoring / business-research firm**: it ingests a
 collection of news articles, preprocesses them with a configurable pipeline, builds an inverted index and
@@ -12,6 +12,23 @@ content-based recommendation).
 > similarity, Multinomial Naive Bayes, K-Means, Purity and Rand Index are written from scratch in the
 > `textmining/` package. scikit-learn is **not** used anywhere (and is not in `requirements.txt`). numpy is
 > only an array container; NLTK only provides the Porter stemmer, WordNet lemmatiser and stop-word list.
+
+## Team members
+
+| # | Name | Registration number | Email |
+|---|---|---|---|
+| 1 | LAKSHYA KANCHAN | 2025AG05062 | 2025ag05062@wilp.bits-pilani.ac.in |
+| 2 | SHREYANSH SHARMA | 2025AG05772 | 2025ag05772@wilp.bits-pilani.ac.in |
+| 3 | VINAY PRATAP SINGH BHADAURIA | 2025AG05689 | 2025ag05689@wilp.bits-pilani.ac.in |
+| 4 | NAIR ABHIJITH VIJAYAKUMAR | 2025AG05914 | 2025ag05914@wilp.bits-pilani.ac.in |
+| 5 | ABHISHEK GHOSH | 2025AG05076 | 2025ag05076@wilp.bits-pilani.ac.in |
+
+## ⚠️ BEFORE SUBMISSION (DEADLINE: 9 NOV 2026, 23:59)
+
+1. **CHECK `G35_Contribution.xlsx` (REGISTRATION NUMBERS, NAMES AND PERCENTAGES - CURRENTLY 100% FOR EVERY MEMBER). GROUP ID (`G35`) AND MEMBERS ARE ALREADY SET AT THE TOP OF `report/build_report.py`.**
+2. **RUN THE APP IN THE BITS VIRTUAL LAB AND SAVE SCREENSHOTS INTO `screenshots/`, KEEPING THE NAME `recommendation.png` FOR THAT PAGE. RECORD A SHORT VIDEO, THEN CREATE AN EMPTY `screenshots/VIRTUAL_LAB.txt`; ONLY THEN DOES THE REPORT SAY IT RAN IN THE LAB.**
+3. **RUN `python report/build_report.py`, THEN `./make_zip.sh G35`, AND UPLOAD `dist/G35_Assignment2.zip` TO THE COURSE PORTAL.**
+4. **OPTIONALLY COMMIT AND PUSH THE FINAL VERSION.**
 
 ## Documentation
 
@@ -83,9 +100,9 @@ The app also accepts uploads: CSV, JSON, or a ZIP of `.txt` files (one folder pe
 ├── docs/                     # detailed documentation (see table above)
 ├── tests/                    # pytest suite: unit, integration, end-to-end, compliance
 ├── run_tests.sh              # run the test suite (--fast skips slow tests)
-├── make_zip.sh               # build dist/G<id>_Assignment2.zip
+├── make_zip.sh               # build dist/G35_Assignment2.zip
 ├── requirements.txt
-└── Gxx_Contribution.xlsx
+└── G35_Contribution.xlsx
 ```
 
 ## Setup

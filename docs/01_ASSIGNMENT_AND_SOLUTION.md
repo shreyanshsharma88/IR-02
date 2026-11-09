@@ -118,8 +118,8 @@ experiments. The app's **Inferences & Discussion** page answers them again with 
 | Report (PDF) | `report/Report.pdf` |
 | Virtual Lab evidence | `screenshots/` + screen recording (**student action**) |
 | README | `README.md` |
-| Contribution sheet | `Gxx_Contribution.xlsx` → rename to `G<id>_Contribution.xlsx` |
-| Zip | `./make_zip.sh G<id>` → `dist/G<id>_Assignment2.zip` |
+| Contribution sheet | `G35_Contribution.xlsx` |
+| Zip | `./make_zip.sh G35` → `dist/G35_Assignment2.zip` |
 
 ## 1.4 Results at a glance
 
