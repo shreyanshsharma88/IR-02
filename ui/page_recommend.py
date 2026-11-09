@@ -1,4 +1,4 @@
-"""Page 5 - Content-based document recommendation."""
+"""Recommendation page."""
 from __future__ import annotations
 
 import pandas as pd

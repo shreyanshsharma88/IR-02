@@ -1,5 +1,4 @@
-"""Ingestion: CSV, JSON, or a ZIP of .txt files (folder-per-category or flat).
-Returns (documents_df[doc_id, text], metadata_df[doc_id, ...])."""
+"""Load the corpus from CSV, JSON or a ZIP of .txt files."""
 from __future__ import annotations
 
 import io
@@ -35,7 +34,7 @@ def split_frame(df: pd.DataFrame, text_col: str | None = None, id_col: str | Non
     if label_col and label_col != "category":
         df = df.rename(columns={label_col: "category"})
     df["doc_id"] = df["doc_id"].astype(str)
-    if df["doc_id"].duplicated().any():  # enforce unique ids
+    if df["doc_id"].duplicated().any():
         df["doc_id"] = df["doc_id"] + "_" + df.groupby("doc_id").cumcount().astype(str)
     df["text"] = df["text"].fillna("").astype(str)
     docs = df[["doc_id", "text"]]

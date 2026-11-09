@@ -1,4 +1,3 @@
-# Test-only dependencies (the app itself only needs requirements.txt).
-# scikit-learn is deliberately NOT listed - the assignment forbids it.
 -r requirements.txt
 pytest>=8
+openpyxl>=3.1

@@ -1,4 +1,4 @@
-"""Page 2 - Data ingestion, separate text/metadata views, corpus statistics, noise."""
+"""Data ingestion page."""
 from __future__ import annotations
 
 import re

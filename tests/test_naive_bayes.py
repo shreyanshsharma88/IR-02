@@ -86,7 +86,6 @@ def test_top_features():
     assert {t for t, _ in tf["business"]} == {"bank", "shares"}
 
 
-# ------------------------------------------------------------------ split
 LABELS = ["a"] * 50 + ["b"] * 30 + ["c"] * 20
 
 

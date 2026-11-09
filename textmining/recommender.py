@@ -1,8 +1,4 @@
-"""Content-based Top-K document recommender (vector-space model).
-
-score(q, d) = cos(v_q, v_d) = v_q . v_d   (both L2-normalised TF-IDF vectors)
-Optionally skips near-duplicates of the query so the analyst sees *new* information.
-"""
+"""Content-based Top-K recommendation using cosine similarity."""
 from __future__ import annotations
 
 import numpy as np

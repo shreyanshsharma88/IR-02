@@ -1,9 +1,8 @@
-"""Page 6 - Performance analytics: stage timings, preprocessing ablation, K-Means seed stability."""
+"""Performance analytics page."""
 from __future__ import annotations
 
 import time
 
-import numpy as np
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -31,7 +30,7 @@ def _run_ablation(p: Pipeline) -> pd.DataFrame:
     tp, prm = p.tfidf_params, p.km_params
     rows = []
     prog = st.progress(0.0, text="Running ablation ...")
-    # reuse the session's cached tokens when the baseline config is the active one
+    # reuse cached tokens when the baseline config is active
     baseline_tokens = p.tokens_all if p.cfg == PreprocessConfig() else None
     for n, (name, change, dedup) in enumerate(ABLATIONS):
         prog.progress(n / len(ABLATIONS), text=f"Running '{name}' ({n + 1}/{len(ABLATIONS)}) ...")

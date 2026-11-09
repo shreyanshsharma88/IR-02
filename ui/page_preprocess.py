@@ -1,4 +1,4 @@
-"""Page 3 - Preprocessing, inverted index, TF-IDF, cosine similarity, duplicates."""
+"""Preprocessing and feature engineering page."""
 from __future__ import annotations
 
 import math
@@ -15,7 +15,6 @@ from .common import AFTER_COLOR, BEFORE_COLOR, header, heatmap, kpi_row, section
 from .state import Pipeline, persist
 
 
-# ------------------------------------------------------------------ config form
 def _config_form(p: Pipeline):
     cfg, tp = p.cfg, p.tfidf_params
     with st.form("pp_form"):
@@ -52,7 +51,6 @@ def _config_form(p: Pipeline):
         st.rerun()
 
 
-# ------------------------------------------------------------------ before / after
 def _zipf_points(tf_counter, n_points=400):
     freqs = np.array(sorted(tf_counter.values(), reverse=True), dtype=float)
     if len(freqs) == 0:
@@ -132,7 +130,6 @@ def _live_demo(p: Pipeline):
     c3.code(" | ".join(proc[:90]), language=None, wrap_lines=True)
 
 
-# ------------------------------------------------------------------ TF-IDF
 def _tfidf_section(p: Pipeline):
     m = p.tfidf
     st.latex(r"w_{t,d} = \underbrace{(1+\log_{10} tf_{t,d})}_{\text{sublinear tf}} \times "

@@ -1,9 +1,7 @@
-"""End-to-end experiment runner shared by the Streamlit app and experiments.py."""
+"""One end-to-end run, used by the app and experiments.py."""
 from __future__ import annotations
 
 import time
-
-import numpy as np
 
 from . import metrics as M
 from .duplicates import duplicate_report

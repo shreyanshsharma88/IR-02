@@ -1,9 +1,4 @@
-"""Exact and near-duplicate detection.
-
-* Exact duplicates: MD5 hash of whitespace/case-normalised text.
-* Near duplicates : cosine similarity of L2-normalised TF-IDF vectors >= threshold
-                    (cross-checked with word 5-shingle Jaccard similarity).
-"""
+"""Exact (MD5) and near-duplicate (TF-IDF cosine) detection."""
 from __future__ import annotations
 
 import hashlib
@@ -56,7 +51,7 @@ def duplicate_report(texts, tfidf_matrix, threshold=0.9):
         rows.append({"i": i, "j": j, "cosine": cos,
                      "jaccard_5shingle": jaccard(shingles(texts[i]), shingles(texts[j])),
                      "type": "exact" if (i, j) in exact_pairs else "near"})
-    # docs to drop = all but the first of each connected component of the duplicate graph
+    # keep the first doc of each duplicate group, drop the rest
     parent = list(range(len(texts)))
 
     def find(x):

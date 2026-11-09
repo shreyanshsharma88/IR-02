@@ -1,12 +1,4 @@
-"""Session state + cached pipeline shared by every page.
-
-The pipeline is lazy: each page asks the `Pipeline` context for what it needs
-(tokens, TF-IDF, duplicates, Naive Bayes, K-Means, ...).  Every expensive step
-is cached with `st.cache_resource`, keyed on (dataset key, JSON of the
-relevant configuration).  Large inputs are passed as underscore-prefixed
-arguments so Streamlit does not hash them.  On first load the defaults are
-used, so every page works immediately.
-"""
+"""Cached pipeline shared by all pages."""
 from __future__ import annotations
 
 import hashlib
@@ -26,7 +18,7 @@ from textmining.data_loader import load_default, load_uploaded
 from textmining.duplicates import duplicate_report, exact_duplicate_groups
 from textmining.kmeans import KMeans
 from textmining.naive_bayes import MultinomialNaiveBayes, stratified_split
-from textmining.pca import pca_2d
+from textmining.kmeans import pca_2d
 from textmining.pipeline import leakage
 from textmining.preprocessing import PreprocessConfig, corpus_stats, preprocess_corpus, raw_tokens
 from textmining.recommender import ContentRecommender, precision_at_k
@@ -42,7 +34,6 @@ def _j(obj) -> str:
     return json.dumps(obj, sort_keys=True, default=str)
 
 
-# ===================================================================== dataset
 def _ensure_meta(docs: pd.DataFrame, meta: pd.DataFrame) -> pd.DataFrame:
     meta = meta.copy()
     if "category" not in meta.columns:
@@ -108,7 +99,6 @@ def persist(src: str, dst: str):
     st.session_state[dst] = st.session_state[src]
 
 
-# ===================================================================== cached steps
 @st.cache_resource(show_spinner="Tokenising raw text ...", max_entries=3)
 def _raw_tokens(ds_key, _texts):
     return [raw_tokens(t) for t in _texts]
@@ -185,7 +175,6 @@ def _p_at_k(ds_key, cfg_json, tfidf_json, subset_key, k, dup_threshold, _rec, _l
     return val, len(sample), time.perf_counter() - t
 
 
-# ===================================================================== pipeline context
 class Pipeline:
     """Lazy view of the whole pipeline for the current session configuration."""
 
@@ -205,7 +194,6 @@ class Pipeline:
         self.km_params = ss.km_params
         self.subset_key = f"dedup@{self.dup_threshold:.3f}" if self.dedup else "all"
 
-    # ------------------------------------------------------------ raw
     @cached_property
     def texts_all(self) -> list[str]:
         return self.docs["text"].tolist()
@@ -226,7 +214,6 @@ class Pipeline:
     def exact_groups(self):
         return _exact_groups(self.key, self.texts_all)
 
-    # ------------------------------------------------------------ preprocessing (all docs)
     @cached_property
     def _tok_res(self):
         return _tokens(self.key, self.cfg_json, self.texts_all)
@@ -256,7 +243,6 @@ class Pipeline:
     def dups(self) -> dict:
         return self._dup_res[0]
 
-    # ------------------------------------------------------------ working set
     @cached_property
     def work_idx(self) -> list[int]:
         if not self.dedup:
@@ -300,7 +286,6 @@ class Pipeline:
     def n_classes(self) -> int:
         return len(set(self.labels))
 
-    # ------------------------------------------------------------ models
     @cached_property
     def nb(self) -> dict:
         return _nb(self.key, self.cfg_json, self.subset_key, _j(self.nb_params), self.tokens, self.labels, self.texts)
@@ -337,7 +322,6 @@ class Pipeline:
         return _p_at_k(self.key, self.cfg_json, self.tfidf_json, self.subset_key, int(k), thr,
                        self.recommender, self.labels)
 
-    # ------------------------------------------------------------ misc
     def timings(self) -> dict:
         """Elapsed seconds of each stage (as measured when it was computed)."""
         out = {"Preprocessing": self._tok_res[1], "Inverted index + TF-IDF": self._tfidf_res[1]}

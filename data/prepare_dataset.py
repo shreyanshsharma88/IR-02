@@ -1,11 +1,6 @@
-"""Convert the raw BBC News folder (bbc/<category>/<nnn>.txt) into two logically
-separate files:
-  data/documents.csv  -> doc_id, text            (content)
-  data/metadata.csv   -> doc_id, title, category, source, period, filename, n_chars, n_words
+"""Convert the raw BBC folder into data/documents.csv and data/metadata.csv.
 
-Usage:  python data/prepare_dataset.py [path/to/bbc]
-Raw data: http://mlg.ucd.ie/datasets/bbc.html (bbc-fulltext.zip)
-"""
+Usage: python data/prepare_dataset.py [path/to/bbc]"""
 import csv
 import os
 import sys

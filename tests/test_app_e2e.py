@@ -17,7 +17,6 @@ import sys
 import time
 import urllib.request
 
-import pandas as pd
 import pytest
 
 pytest.importorskip("streamlit")
@@ -31,7 +30,6 @@ PAGES = ["Dashboard", "Data Ingestion", "Preprocessing & Features", "Text Mining
 pytestmark = pytest.mark.e2e
 
 
-# ------------------------------------------------------------------ helpers
 def new_app(timeout: int = 300) -> AppTest:
     at = AppTest.from_file(APP, default_timeout=timeout)
     at.run()
@@ -74,7 +72,6 @@ def app() -> AppTest:
     return new_app()
 
 
-# ------------------------------------------------------------------ navigation
 def test_sidebar_navigation_options(app):
     assert list(app.radio(key="nav").options) == PAGES
     assert app.radio(key="nav").value == "Dashboard"
@@ -94,7 +91,6 @@ def test_dashboard_kpis(app):
         str(c.value) for c in app.caption)
 
 
-# ------------------------------------------------------------------ Text Mining Hub
 def test_train_naive_bayes_form(app):
     goto(app, "Text Mining Hub")
     alpha = next(n for n in app.number_input if n.label == "Laplace α")
@@ -150,7 +146,6 @@ def test_elbow_button(app):
     assert sse[0] > sse[-1]
 
 
-# ------------------------------------------------------------------ Preprocessing / dedup
 def test_dedup_toggle_then_all_pages(app):
     goto(app, "Preprocessing & Features")
     app.checkbox(key="w_dedup").check().run()
@@ -187,7 +182,6 @@ def test_apply_preprocessing_form_lemma(app):
         goto(app, page)
 
 
-# ------------------------------------------------------------------ Recommendation
 def test_recommend_pick_document_k_and_hide(app):
     goto(app, "Recommendation")
     assert app.radio(key="rec_mode").value == "Pick a document"
@@ -239,7 +233,6 @@ def test_recommend_free_text_mode(app):
     assert any("No recommendations" in str(w.value) for w in app.warning)
 
 
-# ------------------------------------------------------------------ Performance / Inferences
 def test_seed_stability_button(app):
     goto(app, "Performance Analytics")
     app.button(key="run_seeds").click().run()
@@ -271,7 +264,6 @@ def test_inferences_run_ablation_button(app):
     assert len(app.session_state["ablation"]) == 7
 
 
-# ------------------------------------------------------------------ uploads
 def _upload(app: AppTest, name: str, data: bytes):
     """The file_uploader widget cannot be driven by AppTest; inject the dataset exactly as the
     'Ingest uploaded file' button does (ui.state.load_upload -> set_dataset)."""
@@ -331,7 +323,6 @@ def test_upload_source_radio_shows_uploader(app):
     assert_ok(app)
 
 
-# ------------------------------------------------------------------ live server
 def _free_port(preferred: int = 8611) -> int:
     with socket.socket() as s:
         try:

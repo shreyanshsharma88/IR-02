@@ -463,7 +463,7 @@
     "higher"
    ]
   },
-  "time_s": 2.33,
+  "time_s": 2.35,
   "steps": [
    {
     "step": "0. Raw tokens (no normalisation)",
@@ -730,7 +730,7 @@
     "note": "different category"
    }
   ],
-  "time_s": 0.12
+  "time_s": 0.13
  },
  "naive_bayes": {
   "split": {
@@ -2079,7 +2079,7 @@
     "cluster_majority": "business"
    }
   ],
-  "time_s": 1.02,
+  "time_s": 1.05,
   "label_permutation_note": "cluster ids are arbitrary; majority label used only to name clusters",
   "elbow": [
    [
@@ -3271,10 +3271,10 @@
    "km_iterations": 31,
    "precision_at_5": 0.9333,
    "timings": {
-    "preprocess_s": 2.34,
+    "preprocess_s": 2.36,
     "tfidf_s": 0.16,
     "naive_bayes_s": 0.04,
-    "kmeans_s": 1.01,
+    "kmeans_s": 1.03,
     "recommend_eval_s": 0.25
    },
    "name": "Baseline",
@@ -3302,10 +3302,10 @@
    "km_iterations": 17,
    "precision_at_5": 0.9169,
    "timings": {
-    "preprocess_s": 2.34,
+    "preprocess_s": 2.36,
     "tfidf_s": 0.09,
     "naive_bayes_s": 0.04,
-    "kmeans_s": 0.8,
+    "kmeans_s": 0.81,
     "recommend_eval_s": 0.25
    },
    "name": "Baseline + dedup",
@@ -3333,10 +3333,10 @@
    "km_iterations": 10,
    "precision_at_5": 0.9358,
    "timings": {
-    "preprocess_s": 3.2,
+    "preprocess_s": 3.24,
     "tfidf_s": 0.18,
-    "naive_bayes_s": 0.06,
-    "kmeans_s": 0.77,
+    "naive_bayes_s": 0.07,
+    "kmeans_s": 0.8,
     "recommend_eval_s": 0.25
    },
    "name": "No stop-word removal",
@@ -3364,10 +3364,10 @@
    "km_iterations": 11,
    "precision_at_5": 0.9186,
    "timings": {
-    "preprocess_s": 3.2,
+    "preprocess_s": 3.24,
     "tfidf_s": 0.11,
     "naive_bayes_s": 0.06,
-    "kmeans_s": 0.63,
+    "kmeans_s": 0.55,
     "recommend_eval_s": 0.25
    },
    "name": "No stop-word removal + dedup",
@@ -3398,7 +3398,7 @@
     "preprocess_s": 1.99,
     "tfidf_s": 0.1,
     "naive_bayes_s": 0.05,
-    "kmeans_s": 0.81,
+    "kmeans_s": 0.83,
     "recommend_eval_s": 0.25
    },
    "name": "Lemmatization",
@@ -3430,7 +3430,7 @@
     "tfidf_s": 0.09,
     "naive_bayes_s": 0.05,
     "kmeans_s": 0.59,
-    "recommend_eval_s": 0.24
+    "recommend_eval_s": 0.25
    },
    "name": "Lemmatization + dedup",
    "base_name": "Lemmatization",
@@ -3459,9 +3459,9 @@
    "timings": {
     "preprocess_s": 0.5,
     "tfidf_s": 0.11,
-    "naive_bayes_s": 0.05,
-    "kmeans_s": 0.83,
-    "recommend_eval_s": 0.24
+    "naive_bayes_s": 0.06,
+    "kmeans_s": 0.82,
+    "recommend_eval_s": 0.25
    },
    "name": "No normalizer",
    "base_name": "No normalizer",
@@ -3519,10 +3519,10 @@
    "km_iterations": 16,
    "precision_at_5": 0.9459,
    "timings": {
-    "preprocess_s": 2.4,
+    "preprocess_s": 2.42,
     "tfidf_s": 0.48,
-    "naive_bayes_s": 0.14,
-    "kmeans_s": 0.72,
+    "naive_bayes_s": 0.13,
+    "kmeans_s": 0.74,
     "recommend_eval_s": 0.25
    },
    "name": "Uni+bigram",
@@ -3550,10 +3550,10 @@
    "km_iterations": 10,
    "precision_at_5": 0.9244,
    "timings": {
-    "preprocess_s": 2.4,
-    "tfidf_s": 0.37,
+    "preprocess_s": 2.42,
+    "tfidf_s": 0.36,
     "naive_bayes_s": 0.13,
-    "kmeans_s": 0.68,
+    "kmeans_s": 0.69,
     "recommend_eval_s": 0.25
    },
    "name": "Uni+bigram + dedup",
@@ -3581,10 +3581,10 @@
    "km_iterations": 31,
    "precision_at_5": 0.9333,
    "timings": {
-    "preprocess_s": 2.34,
+    "preprocess_s": 2.38,
     "tfidf_s": 0.1,
     "naive_bayes_s": 0.05,
-    "kmeans_s": 1.02,
+    "kmeans_s": 1.04,
     "recommend_eval_s": 0.25
    },
    "name": "No lowercasing",
@@ -3612,10 +3612,10 @@
    "km_iterations": 17,
    "precision_at_5": 0.9169,
    "timings": {
-    "preprocess_s": 2.34,
+    "preprocess_s": 2.38,
     "tfidf_s": 0.08,
     "naive_bayes_s": 0.04,
-    "kmeans_s": 0.79,
+    "kmeans_s": 0.81,
     "recommend_eval_s": 0.25
    },
    "name": "No lowercasing + dedup",
@@ -3643,10 +3643,10 @@
    "km_iterations": 14,
    "precision_at_5": 0.9491,
    "timings": {
-    "preprocess_s": 0.5,
+    "preprocess_s": 0.51,
     "tfidf_s": 0.11,
-    "naive_bayes_s": 0.05,
-    "kmeans_s": 0.71,
+    "naive_bayes_s": 0.06,
+    "kmeans_s": 0.72,
     "recommend_eval_s": 0.25
    },
    "name": "No lowercasing, no stemming",
@@ -3674,10 +3674,10 @@
    "km_iterations": 12,
    "precision_at_5": 0.9302,
    "timings": {
-    "preprocess_s": 0.5,
-    "tfidf_s": 0.18,
+    "preprocess_s": 0.51,
+    "tfidf_s": 0.19,
     "naive_bayes_s": 0.05,
-    "kmeans_s": 0.57,
+    "kmeans_s": 0.59,
     "recommend_eval_s": 0.25
    },
    "name": "No lowercasing, no stemming + dedup",
@@ -3688,10 +3688,10 @@
   }
  ],
  "timings_s": {
-  "preprocess": 2.33,
-  "tfidf": 0.12,
+  "preprocess": 2.35,
+  "tfidf": 0.13,
   "naive_bayes": 0.04,
-  "kmeans": 1.02
+  "kmeans": 1.05
  },
  "figures": [
   "01_category_distribution.png",

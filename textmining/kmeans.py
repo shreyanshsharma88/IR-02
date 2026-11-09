@@ -1,14 +1,4 @@
-"""K-Means implemented from scratch with a full step log.
-
-Steps:
- 1. Initialisation   - 'random' (k distinct documents) or 'kmeans++' (D^2 sampling)
- 2. Assignment       - each document -> nearest centroid (squared Euclidean on
-                       L2-normalised TF-IDF rows; ||x-c||^2 = 1 - 2 x.c + ||c||^2)
- 3. Update           - centroid = mean of its member documents
- 4. Stopping         - stop when (a) no document changes cluster, or
-                       (b) max centroid shift < tol, or (c) max_iter reached
-Best of n_init restarts (lowest SSE / RSS) is kept.
-"""
+"""K-Means from scratch, logging every iteration."""
 from __future__ import annotations
 
 import numpy as np
@@ -35,19 +25,17 @@ class KMeans:
         self.centroids: np.ndarray | None = None
         self.labels_: np.ndarray | None = None
         self.sse_: float = float("inf")
-        self.history: list[dict] = []       # per-iteration log of the best run
-        self.init_indices: list[int] = []   # documents chosen as initial centroids
+        self.history: list[dict] = []
+        self.init_indices: list[int] = []
         self.stop_reason: str = ""
         self.n_iter_: int = 0
         self.run_summary: list[dict] = []
 
-    # ---------------------------------------------------------- init
     def _init_centroids(self, X: np.ndarray, rng: np.random.Generator):
         n = X.shape[0]
         if self.init == "random":
             idx = rng.choice(n, size=self.k, replace=False).tolist()
             return X[idx].copy(), idx
-        # k-means++
         idx = [int(rng.integers(n))]
         d2 = _sq_dists(X, X[idx]).min(axis=1)
         for _ in range(1, self.k):
@@ -58,7 +46,6 @@ class KMeans:
             d2 = np.minimum(d2, _sq_dists(X, X[[nxt]])[:, 0])
         return X[idx].copy(), idx
 
-    # ---------------------------------------------------------- one run
     def _single_run(self, X: np.ndarray, rng: np.random.Generator):
         C, init_idx = self._init_centroids(X, rng)
         labels = np.full(X.shape[0], -1)
@@ -66,12 +53,10 @@ class KMeans:
         reason = f"max_iter ({self.max_iter}) reached"
         it = 0
         for it in range(1, self.max_iter + 1):
-            # --- assignment step
             D = _sq_dists(X, C)
             new_labels = D.argmin(axis=1)
             changed = int((new_labels != labels).sum())
             labels = new_labels
-            # --- update step
             newC = C.copy()
             for j in range(self.k):
                 members = X[labels == j]
@@ -116,3 +101,12 @@ class KMeans:
 
 def elbow(X: np.ndarray, ks, seed: int = 42, init: str = "kmeans++", n_init: int = 2):
     return [(k, KMeans(k=k, seed=seed, init=init, n_init=n_init, max_iter=50).fit(X).sse_) for k in ks]
+
+
+def pca_2d(X: np.ndarray) -> np.ndarray:
+    """2-D PCA projection, used only to plot the clusters."""
+    Xc = X - X.mean(axis=0, keepdims=True)
+    G = Xc @ Xc.T
+    vals, vecs = np.linalg.eigh(G.astype(np.float64))
+    order = np.argsort(vals)[::-1][:2]
+    return vecs[:, order] * np.sqrt(np.maximum(vals[order], 0))

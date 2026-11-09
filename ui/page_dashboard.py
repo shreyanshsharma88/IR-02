@@ -1,11 +1,10 @@
-"""Page 1 - Dashboard & corpus overview."""
+"""Dashboard page."""
 from __future__ import annotations
 
-import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-from .common import PALETTE, cat_colors, header, kpi_row, section, show, style, truncate
+from .common import cat_colors, header, kpi_row, section, show, style, truncate
 from .state import Pipeline
 
 

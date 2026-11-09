@@ -53,7 +53,6 @@ def test_fast_rand_index_equals_bruteforce(seed):
     assert c["TP"] + c["FP"] + c["FN"] + c["TN"] == n * (n - 1) // 2
 
 
-# ------------------------------------------------------------------ classification
 Y_TRUE = ["a", "a", "a", "b", "b", "c"]
 Y_PRED = ["a", "a", "b", "b", "c", "c"]
 

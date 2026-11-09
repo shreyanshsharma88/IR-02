@@ -1,12 +1,4 @@
-"""Multinomial Naive Bayes implemented from scratch (IIR ch. 13).
-
-    P(c)        = N_c / N
-    P(t | c)    = (T_ct + alpha) / (sum_t' T_ct' + alpha * |V|)       (Laplace / add-alpha)
-    c_map(d)    = argmax_c  log P(c) + sum_{t in d} log P(t | c)
-
-The vocabulary is built from the TRAINING documents only, so no test
-information leaks into the model.
-"""
+"""Multinomial Naive Bayes with Laplace smoothing."""
 from __future__ import annotations
 
 import math
@@ -46,7 +38,7 @@ class MultinomialNaiveBayes:
         return self
 
     def class_scores(self, tokens: list[str]) -> dict[str, float]:
-        counts = Counter(t for t in tokens if t in self.vocab)  # unknown terms ignored
+        counts = Counter(t for t in tokens if t in self.vocab)
         scores = {}
         for c in self.classes:
             ll = self.log_likelihood[c]

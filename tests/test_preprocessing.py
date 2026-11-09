@@ -16,7 +16,6 @@ def cfg(**kw) -> PreprocessConfig:
     return PreprocessConfig(**{**OFF, **kw})
 
 
-# ------------------------------------------------------------------ defaults
 def test_default_config_values():
     c = PreprocessConfig()
     assert (c.strip_markup, c.lowercase, c.remove_numbers, c.remove_punctuation, c.remove_stopwords) == (True,) * 5
@@ -35,7 +34,6 @@ def test_non_string_input():
     assert preprocess(12345, cfg()) == ["12345"]
 
 
-# ------------------------------------------------------------------ toggles
 def test_lowercase_toggle():
     assert preprocess("Apple Banana", cfg(lowercase=True)) == ["apple", "banana"]
     assert preprocess("Apple Banana", cfg(lowercase=False)) == ["Apple", "Banana"]
@@ -151,7 +149,6 @@ def test_min_token_length():
     assert preprocess(text, cfg(min_token_len=5)) == ["horse"]
 
 
-# ------------------------------------------------------------------ n-grams
 def test_make_ngrams():
     toks = ["a", "b", "c"]
     assert make_ngrams(toks, 1, 1) == toks
@@ -178,7 +175,6 @@ def test_full_default_pipeline():
     assert preprocess(text, PreprocessConfig()) == ["bank", "england", "rais", "rate", "thursday", "king"]
 
 
-# ------------------------------------------------------------------ corpus stats
 def test_corpus_stats_values():
     tl = [["a", "b", "a"], ["b", "c"], []]
     st = corpus_stats(tl)
@@ -207,5 +203,5 @@ def test_preprocess_corpus_matches_single():
 def test_baseline_on_real_corpus(baseline_tokens):
     st = corpus_stats(baseline_tokens)
     assert st["documents"] == 2225
-    assert st["vocabulary_size"] == 21238       # PLAN.md / report baseline
+    assert st["vocabulary_size"] == 21238
     assert st["avg_tokens_per_doc"] == 203.0

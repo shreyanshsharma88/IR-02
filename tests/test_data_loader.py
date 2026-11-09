@@ -11,7 +11,6 @@ import pytest
 from textmining.data_loader import load_default, load_uploaded, split_frame
 
 
-# ------------------------------------------------------------------ default dataset
 def test_load_default_shapes(dataset):
     docs, meta = dataset
     assert docs.shape == (2225, 2)
@@ -44,7 +43,6 @@ def test_no_empty_documents(dataset):
     assert (dataset[0]["text"].fillna("").str.strip().str.len() > 0).all()
 
 
-# ------------------------------------------------------------------ uploads
 def test_csv_upload_with_id_and_label():
     df = pd.DataFrame({"id": [10, 11], "content": ["first doc text", "second doc"], "label": ["x", "y"]})
     docs, meta = load_uploaded("my.csv", df.to_csv(index=False).encode())

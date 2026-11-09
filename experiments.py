@@ -1,14 +1,4 @@
-"""Reproducible experiment runner for the report.
-
-    python experiments.py            # ~ a few minutes on a laptop
-
-Writes  report/results.json  (every number quoted in the report)
-        report/figures/*.png (every figure embedded in the report)
-        report/nb_test_predictions.csv, report/kmeans_membership.csv (full tables)
-
-All algorithms (TF-IDF, cosine, Naive Bayes, K-Means, Purity, Rand Index) come from the
-hand-written `textmining` package. No scikit-learn is used anywhere. Seed = 42.
-"""
+"""Run all experiments and write report/results.json and report/figures/."""
 from __future__ import annotations
 
 import json
@@ -28,10 +18,10 @@ import pandas as pd  # noqa: E402
 
 from textmining import metrics as M  # noqa: E402
 from textmining.data_loader import load_default  # noqa: E402
-from textmining.duplicates import duplicate_report, jaccard, shingles  # noqa: E402
+from textmining.duplicates import duplicate_report  # noqa: E402
 from textmining.kmeans import KMeans, elbow  # noqa: E402
 from textmining.naive_bayes import MultinomialNaiveBayes, stratified_split  # noqa: E402
-from textmining.pca import pca_2d  # noqa: E402
+from textmining.kmeans import pca_2d  # noqa: E402
 from textmining.pipeline import leakage, run_experiment  # noqa: E402
 from textmining.preprocessing import (PreprocessConfig, corpus_stats, preprocess,  # noqa: E402
                                       preprocess_corpus, raw_tokens)
@@ -49,7 +39,6 @@ np.random.seed(SEED)
 
 TFIDF_KW = dict(min_df=2, max_df_ratio=0.9, max_features=5000, sublinear_tf=True)
 
-# ------------------------------------------------------------------ plot style
 COLORS = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#6250d6", "#e34948"]
 MARKERS = ["o", "s", "^", "D", "v", "P", "X", "*"]
 INK, INK2, GRID = "#0b0b0b", "#52514e", "#e4e3df"
@@ -80,7 +69,6 @@ def log(msg):
     print(f"[{time.strftime('%H:%M:%S')}] {msg}", flush=True)
 
 
-# ================================================================== data
 log("loading data")
 docs, meta = load_default()
 assert (docs["doc_id"] == meta["doc_id"]).all()
@@ -93,7 +81,6 @@ CCOL = {c: COLORS[i] for i, c in enumerate(CATS)}
 N = len(texts)
 R: dict = {"seed": SEED, "categories": CATS}
 
-# ================================================================== baseline preprocessing + tf-idf
 BASE = PreprocessConfig()
 log("preprocessing (baseline)")
 t0 = time.perf_counter()
@@ -104,7 +91,6 @@ tf = TfidfModel(**TFIDF_KW).fit(toks)
 t_tfidf = time.perf_counter() - t0
 X = tf.matrix
 
-# ================================================================== 1. dataset statistics
 log("dataset stats")
 n_chars = [len(t) for t in texts]
 n_words = [len(t.split()) for t in texts]
@@ -139,7 +125,6 @@ ax.set_ylabel("documents"); ax.set_title("Documents per category (N = %d)" % N)
 ax.grid(axis="x", visible=False)
 save(fig, "01_category_distribution.png")
 
-# ---------- duplicates
 log("duplicate analysis")
 dup = duplicate_report(texts, X, 0.9)
 pairs = dup["pairs"]
@@ -149,7 +134,6 @@ near_only = [p for p in pairs if p["type"] == "near"]
 exact_docs_extra = sum(len(g) - 1 for g in exact_groups)
 cross_cat_pairs = [p for p in pairs if labels[p["i"]] != labels[p["j"]]]
 group_sizes = Counter(len(g) for g in exact_groups)
-# exact pairs not caught by cosine (should be none) - each exact group is cosine 1.0
 exact_pair_total = sum(len(g) * (len(g) - 1) // 2 for g in exact_groups)
 
 
@@ -191,7 +175,6 @@ ax.set_xlabel("cosine similarity of TF-IDF vectors"); ax.set_ylabel("5-shingle J
 ax.set_title("Duplicate pairs with cosine >= 0.9 (%d pairs)" % len(pairs)); ax.legend(loc="lower right")
 save(fig, "02_duplicate_pairs.png")
 
-# ================================================================== 2. preprocessing before / after
 log("preprocessing before/after")
 raw_toks = [raw_tokens(t) for t in texts]
 st_raw = corpus_stats(raw_toks)
@@ -213,7 +196,6 @@ R["preprocessing"] = {
     "example": {"doc_id": ids[0], "raw_first_tokens": raw_toks[0][:30], "processed_first_tokens": toks[0][:22]},
     "time_s": round(t_pre, 2),
 }
-# cumulative effect of each preprocessing step on the vocabulary
 STEP_CFGS = [
     ("1. Lowercase + drop punctuation", PreprocessConfig(remove_stopwords=False, normalizer="none", remove_numbers=False, min_token_len=1)),
     ("2. + drop numbers, min length 2", PreprocessConfig(remove_stopwords=False, normalizer="none")),
@@ -252,14 +234,12 @@ ax.set_xlabel("length"); ax.set_ylabel("documents"); ax.set_title("Document leng
 ax.set_xlim(0, np.percentile(n_words, 99.5))
 save(fig, "05_doc_length_hist.png")
 
-# ================================================================== 3. TF-IDF
 log("tf-idf analysis")
 idf_vals = np.array([tf.idf[t] for t in tf.vocab])
 ex_term = "elect" if "elect" in tf.term_to_col else tf.vocab[len(tf.vocab) // 2]
 ex_df = tf.index.df(ex_term)
 d0 = 0
 row_raw = Counter(toks[d0])
-# manual walk-through for the top term of doc 0
 weights_unnorm = {t: (1 + math.log10(c)) * tf.idf[t] for t, c in row_raw.items() if t in tf.term_to_col}
 length0 = math.sqrt(sum(w * w for w in weights_unnorm.values()))
 top_t = max(weights_unnorm, key=weights_unnorm.get)
@@ -267,7 +247,6 @@ walk = {"doc_id": ids[d0], "term": top_t, "tf": row_raw[top_t], "tf_weight": r4(
         "df": tf.index.df(top_t), "idf": r4(tf.idf[top_t]), "w_unnormalised": r4(weights_unnorm[top_t]),
         "doc_vector_length": r4(length0), "w_normalised": r4(weights_unnorm[top_t] / length0),
         "w_in_matrix": r4(X[d0, tf.term_to_col[top_t]])}
-# cosine examples
 S0 = X @ X[d0]
 S0[d0] = -1
 nn = int(np.argmax(S0))
@@ -302,7 +281,6 @@ ax.hist(idf_vals, bins=40, color=COLORS[0])
 ax.set_xlabel("idf = log10(N / df)"); ax.set_ylabel("terms"); ax.set_title("IDF distribution of the 5,000 retained terms")
 save(fig, "06_idf_hist.png")
 
-# ================================================================== 4. Naive Bayes
 log("naive bayes")
 tr, te = stratified_split(labels, 0.2, SEED)
 t0 = time.perf_counter()
@@ -374,7 +352,6 @@ ax.set_xticks(xs, CATS); ax.set_ylim(0.8, 1.01); ax.set_ylabel("score"); ax.grid
 ax.set_title("NB per-class precision / recall / F1"); ax.legend(ncol=3, loc="upper center", bbox_to_anchor=(0.5, -0.12))
 save(fig, "09_nb_per_class_metrics.png")
 
-# ================================================================== 5. K-Means
 log("k-means baseline")
 t0 = time.perf_counter()
 km = KMeans(k=5, init="kmeans++", n_init=5, seed=SEED, max_iter=100, tol=1e-4).fit(X)
@@ -476,7 +453,6 @@ axes[1].axvline(5, color=INK2, ls="--", lw=1); axes[1].set_xlabel("k"); axes[1].
 axes[1].legend()
 save(fig, "14_kmeans_elbow.png")
 
-# ================================================================== 6. seed stability
 log("seed stability")
 keep = [i for i in range(N) if i not in set(dup["drop_indices"])]
 toks_d = [toks[i] for i in keep]; lab_d = [labels[i] for i in keep]
@@ -494,7 +470,6 @@ for name, Xs, ls_ in [("full", X, labels), ("dedup", tf_d.matrix, lab_d)]:
         stab[f"{name}_ninit{ninit}"] = {"runs": runs, "purity_mean": r4(np.mean(pu)), "purity_std": r4(np.std(pu)),
                                         "ri_mean": r4(np.mean(ri)), "ri_std": r4(np.std(ri)),
                                         "purity_min": r4(min(pu)), "purity_max": r4(max(pu))}
-# NB over split seeds (full vs dedup)
 nb_stab = {}
 for name, T_, L_, TX in [("full", toks, labels, texts), ("dedup", toks_d, lab_d, [texts[i] for i in keep])]:
     accs, f1s, leaks = [], [], []
@@ -521,7 +496,6 @@ for ax, key, ttl in [(axes[0], "ninit5", "K-Means purity, n_init = 5"), (axes[1]
 axes[0].set_ylabel("purity"); axes[0].legend(loc="lower left")
 save(fig, "15_seed_stability.png")
 
-# ================================================================== 7. comparison
 fig, ax = plt.subplots(figsize=(6.6, 3.0))
 names = ["NB accuracy", "NB macro-P", "NB macro-R", "NB macro-F1", "KM purity", "KM Rand index",
          "KM purity\n(5-seed mean)", "KM RI\n(5-seed mean)"]
@@ -535,7 +509,6 @@ ax.set_title("Supervised NB (blue) vs unsupervised K-Means (orange: seed 42, gre
 save(fig, "16_nb_vs_kmeans.png")
 R["comparison"] = dict(zip([n.replace("\n", " ") for n in names], [r4(v) for v in vals]))
 
-# ================================================================== 8. recommendation
 log("recommendation")
 rec = ContentRecommender(tf, meta)
 dup_partner = {}
@@ -578,9 +551,7 @@ for k_ in (5, 10):
 rec_d = ContentRecommender(tf_d, meta.iloc[keep])
 pk["P@5_dedup_corpus"] = r4(precision_at_k(rec_d, lab_d, 5))
 pk["P@10_dedup_corpus"] = r4(precision_at_k(rec_d, lab_d, 10))
-# how many top-5 lists contain at least one near-duplicate of the query
 flood = sum(1 for i in range(N) if any(s >= 0.9 for _, s in rec.similar_to_doc(i, 5)))
-# per-category P@5
 pc = {}
 for c in CATS:
     idx = [i for i in range(N) if labels[i] == c]
@@ -597,7 +568,6 @@ for ax, qd in zip(axes.ravel(), rec_q):
     ax.tick_params(axis="y", labelsize=7); ax.set_xlabel("cosine")
 save(fig, "17_recommendation_scores.png")
 
-# ================================================================== 9. ablation
 log("ablation (this is the slow part)")
 CONFIGS = [
     ("Baseline", PreprocessConfig()),
@@ -658,7 +628,6 @@ h, l_ = axes[3].get_legend_handles_labels()
 fig.legend(h, l_, loc="lower center", ncol=2, fontsize=8, bbox_to_anchor=(0.5, -0.04))
 save(fig, "18_ablation.png")
 
-# ================================================================== write
 R["timings_s"] = {"preprocess": round(t_pre, 2), "tfidf": round(t_tfidf, 2), "naive_bayes": round(t_nb, 2),
                   "kmeans": round(t_km, 2)}
 R["figures"] = FIGURES

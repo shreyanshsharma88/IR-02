@@ -1,13 +1,4 @@
-"""Configurable text-preprocessing pipeline.
-
-Steps (each switchable): markup stripping, lowercasing, tokenization (regex),
-number / punctuation removal, stop-word removal, stemming OR lemmatization,
-minimum token length, and n-gram generation.
-
-NLTK is used only for the Porter stemmer, the WordNet lemmatizer and its
-stop-word list; everything has an offline fallback so the app runs even if
-NLTK data cannot be downloaded (e.g. restricted lab machines).
-"""
+"""Configurable text preprocessing."""
 from __future__ import annotations
 
 import html
@@ -15,7 +6,6 @@ import re
 from collections import Counter
 from dataclasses import dataclass, asdict, field
 
-# ---------------------------------------------------------------- resources
 _FALLBACK_STOPWORDS = set("""
 a about above after again against all am an and any are aren't as at be because been before being below
 between both but by can can't cannot could couldn't did didn't do does doesn't doing don't down during each
@@ -83,14 +73,13 @@ def _get_lemmatizer():
     return lem
 
 
-def _simple_stem(tok: str) -> str:  # fallback suffix stripper
+def _simple_stem(tok: str) -> str:
     for suf in ("ational", "ization", "fulness", "ousness", "iveness", "ing", "edly", "ed", "ies", "es", "ly", "s"):
         if tok.endswith(suf) and len(tok) - len(suf) >= 3:
             return tok[: -len(suf)]
     return tok
 
 
-# ---------------------------------------------------------------- config
 @dataclass
 class PreprocessConfig:
     strip_markup: bool = True

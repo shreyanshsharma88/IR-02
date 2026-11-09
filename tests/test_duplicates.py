@@ -81,7 +81,6 @@ def test_exact_dups_dropped_even_below_threshold():
     assert rep["drop_indices"] == [1]
 
 
-# ------------------------------------------------------------------ real corpus
 def test_real_dataset_exact_duplicates(texts):
     groups = exact_duplicate_groups(texts)
     assert len(groups) == 137

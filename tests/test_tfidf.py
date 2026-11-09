@@ -24,7 +24,6 @@ def full_model(**kw):
     return TfidfModel(**params).fit(DOCS)
 
 
-# ------------------------------------------------------------------ inverted index
 def test_inverted_index_postings_exact():
     ix = InvertedIndex().build(DOCS)
     assert dict(ix.postings) == {"a": {0: 2, 2: 1}, "b": {0: 1, 1: 1}, "c": {1: 1}, "d": {2: 3}}
@@ -40,7 +39,6 @@ def test_inverted_index_df_and_lookup():
     assert ix.lookup("d") == {2: 3}
 
 
-# ------------------------------------------------------------------ weights
 def test_vocab_sorted_and_idf_formula():
     m = full_model()
     assert m.vocab == ["a", "b", "c", "d"]
@@ -90,7 +88,6 @@ def test_tf_weight_zero():
     assert TfidfModel()._tf_weight(0) == 0.0
 
 
-# ------------------------------------------------------------------ pruning
 def test_min_df_pruning():
     m = TfidfModel(min_df=2, max_df_ratio=1.0, max_features=None).fit(DOCS)
     assert m.vocab == ["a", "b"]
@@ -119,7 +116,6 @@ def test_real_data_pruning(baseline_tfidf):
     assert baseline_tfidf.matrix.shape == (2225, 5000)
 
 
-# ------------------------------------------------------------------ transform
 def test_transform_training_doc_equals_matrix_row():
     m = full_model()
     for i, d in enumerate(DOCS):
@@ -147,7 +143,6 @@ def test_top_terms_and_idf_table():
     assert {t: df for t, df, _ in tbl} == {"a": 2, "b": 2, "c": 1, "d": 1}
 
 
-# ------------------------------------------------------------------ cosine
 def test_cosine_identical_and_disjoint():
     a = np.array([1.0, 2.0, 0.0])
     assert cosine_similarity(a, a)[0, 0] == pytest.approx(1.0, abs=1e-6)

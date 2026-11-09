@@ -1,14 +1,4 @@
-"""Manual inverted index + TF-IDF with length (L2/cosine) normalisation.
-
-No sklearn / gensim. numpy is used only as an array container and for the
-dot-product arithmetic of cosine similarity.
-
-Weighting (SMART notation  'ltc'):
-    tf-weight   w_tf  = 1 + log10(tf)          (or raw tf when sublinear_tf=False)
-    idf         idf   = log10(N / df)          (or smooth: log10((1+N)/(1+df)) + 1)
-    weight      w     = w_tf * idf
-    normalised  w'    = w / sqrt(sum_t w_t^2)  (cosine length normalisation)
-"""
+"""Inverted index, TF-IDF (ltc + L2 normalisation) and cosine similarity."""
 from __future__ import annotations
 
 import math
@@ -59,10 +49,9 @@ class TfidfModel:
         self.vocab: list[str] = []
         self.term_to_col: dict[str, int] = {}
         self.idf: dict[str, float] = {}
-        self.matrix: np.ndarray | None = None   # n_docs x |V|, L2-normalised rows
+        self.matrix: np.ndarray | None = None
         self.pruned_stats: dict = {}
 
-    # -------------------------------------------------- weighting helpers
     def _tf_weight(self, tf: int) -> float:
         if tf <= 0:
             return 0.0
@@ -73,7 +62,6 @@ class TfidfModel:
             return math.log10((1 + n) / (1 + df)) + 1.0
         return math.log10(n / df) if df else 0.0
 
-    # -------------------------------------------------- fit
     def fit(self, token_lists: list[list[str]]) -> "TfidfModel":
         self.index = InvertedIndex().build(token_lists)
         n = self.index.n_docs
@@ -94,7 +82,6 @@ class TfidfModel:
         self.pruned_stats = {"raw_terms": len(self.index), "removed_rare(<min_df)": removed_rare,
                              "removed_common(>max_df)": removed_common, "kept_terms": len(self.vocab)}
 
-        # term-at-a-time accumulation straight from the postings lists
         mat = np.zeros((n, len(self.vocab)), dtype=np.float32)
         for t, col in self.term_to_col.items():
             idf = self.idf[t]
@@ -107,12 +94,10 @@ class TfidfModel:
 
     @staticmethod
     def _l2_normalize(mat: np.ndarray) -> np.ndarray:
-        # explicit Euclidean length per document: sqrt(sum w^2)
         lengths = np.sqrt((mat * mat).sum(axis=1))
         lengths[lengths == 0] = 1.0
         return mat / lengths[:, None]
 
-    # -------------------------------------------------- transform new text
     def transform(self, token_lists: list[list[str]]) -> np.ndarray:
         out = np.zeros((len(token_lists), len(self.vocab)), dtype=np.float32)
         for i, toks in enumerate(token_lists):
@@ -131,7 +116,6 @@ class TfidfModel:
         return sorted(((t, self.index.df(t), self.idf[t]) for t in self.vocab), key=lambda x: -x[2])
 
 
-# ------------------------------------------------------------------ cosine
 def cosine_similarity(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     """cos(a,b) = a.b / (|a||b|).  Works for vectors or row-matrices."""
     a = np.atleast_2d(a).astype(np.float32)

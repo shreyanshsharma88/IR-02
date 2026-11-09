@@ -1,10 +1,4 @@
-"""Build report/Report.pdf from report/results.json + report/figures/*.png + screenshots/*.png.
-
-    python experiments.py && python report/build_report.py
-
-Every number in the report is read from results.json; nothing numeric is typed in by hand.
-Section order and names follow the assignment's "Report - PDF format" specification.
-"""
+"""Build report/Report.pdf from results.json, figures and screenshots."""
 from __future__ import annotations
 
 import glob
@@ -20,8 +14,7 @@ from reportlab.lib.units import cm
 from reportlab.platypus import (BaseDocTemplate, CondPageBreak, Frame, Image, KeepTogether, PageBreak,
                                 PageTemplate, Paragraph, Spacer, Table, TableStyle)
 
-# ---------------------------------------------------------------- EDIT ME: group details
-# Fill in your group number and the four members before submitting, then re-run this script.
+# group details shown on page 1
 GROUP_ID = "G35"
 MEMBERS = [  # (registration number, name)
     ("2025AG05062", "LAKSHYA KANCHAN"),
@@ -47,7 +40,6 @@ KS = ST["kmeans"]
 PK = REC["precision"]
 A = {a["name"]: a for a in R["ablation"]}
 
-# ---------------------------------------------------------------- styles
 ACCENT = colors.HexColor("#1c4f8f")
 LIGHT = colors.HexColor("#eef3fa")
 GRID = colors.HexColor("#c6ccd6")
@@ -63,7 +55,6 @@ H2 = ParagraphStyle("h2", fontName="Helvetica-Bold", fontSize=11, leading=14, te
 CAP = ParagraphStyle("cap", parent=BODY, fontName="Helvetica-Oblique", fontSize=8.5, leading=11, alignment=TA_CENTER,
                      textColor=GREY, spaceBefore=3, spaceAfter=9)
 CELL = ParagraphStyle("cell", fontName="Helvetica", fontSize=8.6, leading=10.8)
-CELLH = ParagraphStyle("cellh", parent=CELL, fontName="Helvetica-Bold", textColor=colors.white)
 MONO = ParagraphStyle("mono", fontName="Courier", fontSize=8.6, leading=11.5, backColor=colors.HexColor("#f4f4f2"),
                       borderPadding=5, spaceBefore=3, spaceAfter=8)
 FCELL = ParagraphStyle("fcell", parent=CELL, fontName="Courier", fontSize=8.3, leading=10.6)
@@ -109,7 +100,6 @@ def code(s):
     return f"<font face='Courier'>{s}</font>"
 
 
-# ---------------------------------------------------------------- document + numbering helpers
 class ReportDoc(BaseDocTemplate):
     def __init__(self, path):
         super().__init__(path, pagesize=A4, leftMargin=2.1 * cm, rightMargin=2.1 * cm, topMargin=1.9 * cm,
@@ -222,7 +212,6 @@ def pair(left, right, cap, widths=(8.3 * cm, 8.3 * cm), kind="Figure"):
     story.append(KeepTogether([t, caption(kind, cap)]))
 
 
-# ================================================================ title block (page 1)
 story.append(P(esc(TITLE), ParagraphStyle("t", fontName="Helvetica-Bold", fontSize=18, leading=22, textColor=ACCENT,
                                           alignment=TA_CENTER, spaceAfter=4)))
 story.append(P(COURSE, ParagraphStyle("st", parent=BODY, alignment=TA_CENTER, fontSize=10.5, spaceAfter=2)))
@@ -237,7 +226,6 @@ story += [mt, Spacer(1, 4)]
 story.append(Table([[""]], colWidths=[16.8 * cm], rowHeights=[2],
                    style=[("LINEBELOW", (0, 0), (-1, -1), 1, ACCENT)]))
 
-# ================================================================ 1 business context
 h1("Selected business context",
    "We play the text-mining team of a media-monitoring and business-research firm that must make sense of a "
    "continuous stream of news articles.")
@@ -252,7 +240,6 @@ story += bullets([
 story.append(P("The system is a Streamlit application (dashboard, data ingestion, preprocessing configuration, text-mining "
                "hub, recommendation panel, performance analytics, inferences) backed by a hand-written Python package."))
 
-# ================================================================ 2 dataset
 h1("Dataset description",
    f"Real BBC News articles: {n(D['n_docs'])} documents, {D['total_mb']} MB of raw text, five labelled desks, with "
    f"genuine duplicates and noise.")
@@ -275,7 +262,6 @@ pair("01_category_distribution.png", "05_doc_length_hist.png",
      "Left: documents per category. Right: document length before (raw words) and after preprocessing (tokens) - "
      "preprocessing roughly halves each document.")
 
-# ================================================================ 3 implementation
 h1("Implementation approach",
    "All core IR algorithms are written by hand in the textmining/ package; the Streamlit app and the experiment "
    "script call the same code, so the app and this report agree.")
@@ -304,7 +290,6 @@ story.append(P(f"<b>Evaluation protocol.</b> Naive Bayes uses a stratified 80/20
                "documents only. Clustering, recommendation and duplicate detection never see labels; labels are used only "
                "afterwards to compute Purity, Rand Index and Precision@K."))
 
-# ================================================================ 4 preprocessing
 h1("Preprocessing and feature choices",
    f"Lowercasing, punctuation/number removal, stop-word removal and Porter stemming cut the vocabulary by "
    f"{PRE['vocab_reduction_pct']}% and the token count by {PRE['token_reduction_pct']}%, leaving a compact, topical "
@@ -333,7 +318,6 @@ story += bullets([
 figure("03_top20_before_after.png", "Top-20 terms before (raw tokens) and after the baseline pipeline: function words "
        "and punctuation give way to content stems such as 'year', 'peopl', 'game' and 'govern'.", 15.5 * cm)
 
-# ================================================================ 5 classification
 h1("Classification results (Naive Bayes)", newpage=True, lead=
    f"The hand-written multinomial Naive Bayes classifier labels {pct(NB['accuracy'])} of the {NB['split']['test']} test "
    f"articles correctly ({NB['n_correct']} right, {NB['n_wrong']} wrong), with macro-F1 {f3(NB['macro']['f1'])}.")
@@ -366,7 +350,6 @@ story.append(P(f"Errors are mostly cross-desk stories (e.g. a salary scandal lab
                f"articles have an exact copy in the training set and are all classified correctly "
                f"({f3(LK['acc_on_leaked'])} vs {f3(LK['acc_on_non_leaked'])} on the rest) - see Q2."))
 
-# ================================================================ 6 clustering
 h1("Clustering results (K-Means)", newpage=True, lead=
    f"Hand-written K-Means (k = {KM['params']['k']}) recovers the five desks without seeing any label: purity "
    f"{f3(KM['purity'])}, Rand Index {f3(KM['rand_index'])}.")
@@ -413,7 +396,6 @@ pair("12_kmeans_cluster_sizes.png", ct,
      f"Left: documents per cluster. Right: cluster assignments vs true labels (majority label names the cluster; "
      f"full membership in {code('report/kmeans_membership.csv')}).", widths=(8.0 * cm, 9.0 * cm))
 
-# ================================================================ 7 comparison
 h1("Comparison of classification and clustering results",
    "Both methods agree with the editorial desks about 96% of the time, but they answer different questions and their "
    "numbers are not directly interchangeable.")
@@ -439,7 +421,6 @@ story.append(P("Naive Bayes is <b>supervised</b>: it learns the desk boundaries 
                "and several restarts to be stable, whereas NB varies only with the split. That an unsupervised method "
                "almost matches the supervised one shows that the five desks are lexically well separated."))
 
-# ================================================================ 8 recommendation
 h1("Recommendation results", lead=
    f"Content-based Top-K recommendation by TF-IDF cosine similarity: on average {pct(PK['P@5'])} of the top-5 "
    "results share the query's desk.")
@@ -474,7 +455,6 @@ story += bullets([
     "No user interaction data exists, so there is no personalisation, popularity or recency signal.",
 ])
 
-# ================================================================ 9 inferences
 h1("Inferences and limitations", newpage=True, lead=
    "Answers to the five compulsory questions, using the ablation below (each configuration re-runs the full pipeline "
    "with and without de-duplication).")
@@ -532,7 +512,7 @@ story += bullets([
 ])
 
 h2("Q3. Recommendation approach: content-based vs collaborative")
-story.append(P(f"We use <b>content-based</b> recommendation (TF-IDF cosine, Section 8) because the corpus has rich text "
+story.append(P("We use <b>content-based</b> recommendation (TF-IDF cosine, Section 8) because the corpus has rich text "
                "but no user-document interaction data, so collaborative filtering would have nothing to learn from."))
 story += bullets([
     "<b>Content-based</b> needs only item content (text, metadata). It works for brand-new articles and new users, is "
@@ -578,9 +558,8 @@ story += bullets([
     "collapsing, diversity (MMR), recency and collaborative signals.",
 ])
 
-# ================================================================ 10 evidence of execution
 h1("Evidence of execution in the BITS Virtual Lab", newpage=True)
-# Only claim Virtual Lab execution once screenshots/VIRTUAL_LAB.txt exists (created after capturing in the lab).
+# only claim Virtual Lab execution once screenshots/VIRTUAL_LAB.txt exists
 videos = [os.path.basename(v) for ext in ("mp4", "mov", "MP4", "MOV") for v in glob.glob(os.path.join(ROOT, f"*.{ext}"))]
 rec_txt = (f" A screen recording ({code(', '.join(sorted(set(videos))))}) is included in the submission." if videos else "")
 if os.path.exists(os.path.join(SHOTS, "VIRTUAL_LAB.txt")):
@@ -614,7 +593,6 @@ for row in grid:
 if not grid:
     story.append(P("(Add PNG screenshots to the screenshots/ folder and re-run this script.)"))
 
-# ================================================================ appendix
 h1("Appendix: how to run and references", numbered=False)
 story.append(Paragraph("pip install -r requirements.txt<br/>streamlit run app.py<br/>"
                        "python experiments.py            # regenerates report/results.json and figures (seed 42)<br/>"

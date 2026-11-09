@@ -1,16 +1,10 @@
-"""Evaluation metrics implemented from scratch (no sklearn).
-
-Classification: confusion matrix, accuracy, per-class precision / recall / F1,
-macro and weighted averages.
-Clustering: Purity and Rand Index (IIR ch. 16.3).
-"""
+"""Classification metrics, Purity and Rand Index."""
 from __future__ import annotations
 
 from collections import Counter
 from itertools import combinations
 
 
-# ------------------------------------------------------------ classification
 def confusion_matrix(y_true, y_pred, labels=None):
     labels = labels or sorted(set(y_true) | set(y_pred))
     pos = {l: i for i, l in enumerate(labels)}
@@ -39,7 +33,6 @@ def classification_report(y_true, y_pred, labels=None) -> dict:
             "confusion_matrix": m, "labels": labels}
 
 
-# ------------------------------------------------------------ clustering
 def contingency(clusters, classes):
     """{cluster: Counter(class -> count)}"""
     table = {}
@@ -60,14 +53,7 @@ def _c2(x: int) -> int:
 
 
 def rand_index_counts(clusters, classes) -> dict:
-    """Pair-counting via the contingency table (exact, O(N + K*J)).
-
-    TP = Σ_ij C(n_ij, 2)            same cluster & same class
-    TP+FP = Σ_k C(|ω_k|, 2)         pairs placed in the same cluster
-    TP+FN = Σ_j C(|c_j|, 2)         pairs that share a class
-    TN = C(N,2) - TP - FP - FN
-    RI = (TP + TN) / C(N, 2)
-    """
+    """Rand Index from the contingency table: TP = sum C(n_kj, 2), TP+FP = sum C(|w_k|, 2), TP+FN = sum C(|c_j|, 2)."""
     n = len(classes)
     table = contingency(clusters, classes)
     tp = sum(_c2(v) for cnt in table.values() for v in cnt.values())

@@ -1,4 +1,4 @@
-"""Page 4 - Text Mining Hub: Naive Bayes, K-Means, evaluation, corpus analytics."""
+"""Text mining hub: Naive Bayes, K-Means, evaluation, analytics."""
 from __future__ import annotations
 
 import random
@@ -14,11 +14,10 @@ from textmining import metrics as M
 from textmining.kmeans import elbow
 from textmining.preprocessing import preprocess
 
-from .common import PALETTE, cat_colors, fmt_pct, header, heatmap, kpi_row, section, show, style, truncate
+from .common import PALETTE, cat_colors, header, heatmap, kpi_row, section, show, style
 from .state import Pipeline
 
 
-# ====================================================================== Naive Bayes
 def _nb_tab(p: Pipeline):
     prm = p.nb_params
     with st.form("nb_form"):
@@ -112,7 +111,6 @@ def _nb_tab(p: Pipeline):
         st.info("No tokens left after preprocessing.")
 
 
-# ====================================================================== K-Means
 def _km_tab(p: Pipeline):
     prm = p.km_params
     with st.form("km_form"):
@@ -234,7 +232,6 @@ def _km_tab(p: Pipeline):
              "SSE always falls as k grows; look for the bend where extra clusters stop paying off.")
 
 
-# ====================================================================== Evaluation
 def interpretation(p: Pipeline) -> str:
     rep, ev = p.nb["report"], p.km_eval
     acc, f1 = rep["accuracy"], rep["macro"]["f1"]
@@ -335,7 +332,6 @@ def _eval_tab(p: Pipeline):
     st.markdown(interpretation(p))
 
 
-# ====================================================================== Corpus analytics
 @st.cache_resource(show_spinner=False, max_entries=6)
 def _cat_terms(key, cfg_json, tfidf_json, subset_key, _X, _labels, _vocab, n=15):
     labels = np.array(_labels)

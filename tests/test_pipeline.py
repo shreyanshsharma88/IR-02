@@ -75,7 +75,6 @@ def test_leakage_function():
     assert leakage([2], [3], texts) == 0
 
 
-# ------------------------------------------------------------------ data/prepare_dataset.py
 RAW = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "raw_download", "bbc")
 
 

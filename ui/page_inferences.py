@@ -1,4 +1,4 @@
-"""Page 7 - Inferences & discussion: the five compulsory questions, answered with live numbers."""
+"""Inferences & discussion page."""
 from __future__ import annotations
 
 import pandas as pd
@@ -47,7 +47,7 @@ def _q1(p: Pipeline, ab):
         parts.append(f"- **{r['run']}** — NB {r['nb_accuracy']:.3f} / {r['nb_macro_f1']:.3f} · KM "
                      f"{r['km_purity']:.3f} / {r['km_rand_index']:.3f} · P@5 {r['precision_at_5']:.3f} · "
                      f"vocab {int(r['vocab_raw']):,} → {int(r['vocab_tfidf']):,}")
-    pp = ab[ab["run"] != "Baseline+dedup"]  # preprocessing-only variants (same document set)
+    pp = ab[ab["run"] != "Baseline+dedup"]
     if b is not None and len(pp) > 1:
         best_nb = pp.loc[pp["nb_accuracy"].idxmax()]
         best_km = pp.loc[pp["km_purity"].idxmax()]
