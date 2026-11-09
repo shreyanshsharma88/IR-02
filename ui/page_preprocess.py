@@ -89,9 +89,9 @@ def _before_after(p: Pipeline):
         fig = px.bar(top, x="frequency", y="term", orientation="h", color_discrete_sequence=[color])
         fig.update_yaxes(autorange="reversed", title="")
         with col:
-            show(style(fig, 470, f"Top-20 terms — {name}", legend=False))
-    st.caption("Before: dominated by punctuation and function words (the, ',', '.', to, of). After: content-bearing "
-               "stems (year, market, govern, game ...) — exactly what TF-IDF and the classifiers need.")
+            show(style(fig, 470, f"Top-20 terms: {name}", legend=False))
+    st.caption("Before preprocessing, punctuation and function words (the, ',', '.', to, of) dominate. Afterwards, "
+               "content stems (year, market, govern, game ...) provide features for TF-IDF and classification.")
 
     c1, c2 = st.columns(2)
     with c1:
@@ -111,7 +111,7 @@ def _before_after(p: Pipeline):
         fig = px.histogram(dl, x="tokens per document", color="stage", nbins=80, barmode="overlay", opacity=0.7,
                            color_discrete_map={"before": BEFORE_COLOR, "after": AFTER_COLOR})
         show(style(fig, 380, "Document length before vs after"),
-             "Preprocessing roughly halves document length — less noise per document, faster indexing.")
+             "Preprocessing roughly halves document length, reducing noise and indexing time.")
 
 
 def _live_demo(p: Pipeline):
@@ -174,7 +174,7 @@ def _index_explorer(p: Pipeline):
                              "w = (1+log tf)·idf": round((1 + math.log10(tf)) * idf, 4),
                              "tf-idf (normalised)": round(float(m.matrix[d, col]), 4) if col is not None else None})
             tbl = pd.DataFrame(rows).sort_values(["tf", "doc_id"], ascending=[False, True])
-            st.markdown(f"**Postings list** — {df_t:,} documents")
+            st.markdown(f"**Postings list**: {df_t:,} documents")
             st.dataframe(tbl, hide_index=True, height=300)
 
 
@@ -231,7 +231,7 @@ def _cosine(p: Pipeline):
         if len(shared):
             st.dataframe(shared, hide_index=True, height=280)
         else:
-            st.info("No shared terms — the documents are orthogonal (cosine 0).")
+            st.info("No shared terms. The document vectors are orthogonal (cosine 0).")
 
     sample = p.sample_balanced(4)
     S = X[sample] @ X[sample].T
@@ -239,7 +239,7 @@ def _cosine(p: Pipeline):
     fig = heatmap(np.round(S, 2).tolist(), labels, labels, height=620, fmt=".2f", colorscale="Blues")
     fig.update_xaxes(tickangle=45)
     show(fig, "Cosine heatmap of 20 sampled articles (4 per category, grouped). Bright diagonal blocks show that "
-              "articles from the same desk share vocabulary — the signal that NB, K-Means and the recommender exploit.")
+              "articles from the same desk share vocabulary, which NB, K-Means and the recommender use.")
 
 
 def _duplicates(p: Pipeline):

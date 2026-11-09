@@ -62,9 +62,8 @@ def _seed_stability(p: Pipeline) -> pd.DataFrame:
 
 
 def render(p: Pipeline):
-    header("Performance Analytics", "Where the time goes, how preprocessing choices change quality, and how "
-                                    "stable K-Means is across random seeds.")
-    section("Stage timings — current run")
+    header("Performance Analytics", "Stage timings, preprocessing comparisons and K-Means seed stability.")
+    section("Stage timings for the current run")
     t = p.timings()
     tdf = pd.DataFrame({"stage": list(t), "seconds": list(t.values())})
     kpi_row([("Total pipeline", f"{tdf['seconds'].sum():.2f} s"), ("Documents", f"{len(p.work_idx):,}"),
@@ -73,8 +72,8 @@ def render(p: Pipeline):
     fig = px.bar(tdf, x="seconds", y="stage", orientation="h", text=tdf["seconds"].map(lambda v: f"{v:.2f}s"),
                  color_discrete_sequence=["#2E5EAA"])
     fig.update_yaxes(autorange="reversed", title="")
-    show(style(fig, 320, legend=False), "Wall-clock time of each stage when it was last computed (results are cached "
-                                        "per configuration, so revisiting a page is instant).")
+    show(style(fig, 320, legend=False), "Elapsed time for each stage's latest computation. Results are cached per "
+                                        "configuration and reused when you revisit a page.")
 
     section("Preprocessing ablation", "Runs the full pipeline (preprocess → TF-IDF → NB → K-Means → P@5) for each "
             "configuration with the current TF-IDF / model settings. Takes about a minute.")
@@ -130,9 +129,9 @@ def render(p: Pipeline):
         fig.update_yaxes(range=[0, 1.02])
         with c2:
             show(style(fig, 300, "Purity / RI per seed"),
-                 "Single-restart K-Means can land in poor local optima — the app uses n_init restarts and keeps "
-                 "the lowest SSE to counter this.")
+                 "A single K-Means run can converge to a poor local optimum. The app uses n_init restarts and keeps "
+                 "the run with the lowest SSE.")
         st.download_button("Download seed-stability results (CSV)", ss_df.to_csv(index=False).encode(),
                            "kmeans_seed_stability.csv", "text/csv", key="dl_seeds")
     if st.session_state.get("ablation") is None and "seed_stability" not in st.session_state:
-        st.caption("Tip: results of both studies are also used on the Inferences page.")
+        st.caption("Results from both studies are also used on the Inferences page.")

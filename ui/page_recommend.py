@@ -13,7 +13,7 @@ from .state import Pipeline
 
 def render(p: Pipeline):
     header("Document Recommendation",
-           "“Analysts who are reading this story should also read …” — content-based Top-K via cosine similarity.")
+            "Related articles ranked by TF-IDF cosine similarity.")
     rec = p.recommender
     meta = p.meta_w
     c1, c2, c3 = st.columns([1.1, 1, 1])
@@ -47,7 +47,7 @@ def render(p: Pipeline):
         st.caption(f"Query after preprocessing: `{' '.join(toks[:40])}`")
 
     if not results:
-        st.warning("No recommendations — the query shares no terms with the indexed vocabulary.")
+        st.warning("No recommendations found. The query shares no terms with the indexed vocabulary.")
         return
 
     rows = []
@@ -102,33 +102,33 @@ def render(p: Pipeline):
         st.markdown(
             "Documents are ranked by score and the Top-K returned (excluding the query itself and, optionally, "
             "near-duplicates with score ≥ threshold). **Why recommended** lists the terms with the largest "
-            "contribution ŵ(t,q)·ŵ(t,d) to the dot product — a built-in explanation.")
+            "contribution ŵ(t,q)·ŵ(t,d) to the dot product, explaining the ranking.")
     with st.expander("Limitations"):
         st.markdown(
-            "- **Vocabulary mismatch** — synonyms (`mobile` vs `cellphone`) get zero similarity; bag-of-words has no "
+            "- Synonyms (`mobile` vs `cellphone`) get zero similarity; bag-of-words has no "
             "semantics or word order.\n"
-            "- **No understanding of meaning / stance** — two articles with opposite conclusions on the same topic "
+            "- Two articles with opposite conclusions on the same topic "
             "score high.\n"
-            "- **Duplicate flooding** — syndicated copies score ≈1.0 and crowd out new information (hence the "
+            "- Syndicated copies score ≈1.0 and take up slots without adding information (hence the "
             "near-duplicate filter).\n"
-            "- **Popularity- and recency-blind** — ignores what analysts actually read or how fresh a story is.\n"
-            "- **Over-specialisation** — recommends more of the same topic; little serendipity.\n"
-            "- **Proxy evaluation** — Precision@K uses same-category as relevance, which is only a rough stand-in for "
+            "- Rankings ignore what analysts read and how recent a story is.\n"
+            "- Results tend to stay on the same topic, with few unexpected recommendations.\n"
+            "- Precision@K uses same-category as relevance, which is only a rough stand-in for "
             "real analyst judgements.")
     with st.expander("Content-based vs collaborative filtering"):
         st.dataframe(pd.DataFrame([
             {"aspect": "Input data", "content-based (this system)": "Document text only",
-             "collaborative filtering": "User–item interaction logs (reads, clicks, ratings)"},
+             "collaborative filtering": "User-item interaction logs (reads, clicks, ratings)"},
             {"aspect": "New / cold-start documents", "content-based (this system)": "Recommendable immediately",
              "collaborative filtering": "Cannot recommend until users interact with it"},
             {"aspect": "New users", "content-based (this system)": "Works from a single query document",
              "collaborative filtering": "Needs a usage history"},
-            {"aspect": "Explainability", "content-based (this system)": "High — shared terms",
-             "collaborative filtering": "Low — 'similar users read this'"},
-            {"aspect": "Serendipity", "content-based (this system)": "Low — same topic",
-             "collaborative filtering": "High — cross-topic discovery"},
+            {"aspect": "Explainability", "content-based (this system)": "High: shared terms",
+             "collaborative filtering": "Low: 'similar users read this'"},
+            {"aspect": "Serendipity", "content-based (this system)": "Low: same topic",
+             "collaborative filtering": "High: cross-topic discovery"},
             {"aspect": "Feasible here?", "content-based (this system)": "Yes",
-             "collaborative filtering": "No — the corpus has no user interaction data"},
+             "collaborative filtering": "No: the corpus has no user interaction data"},
         ]), hide_index=True)
-        st.caption("In production a hybrid (content-based for cold start + collaborative once logs accumulate) "
+        st.caption("In production, a hybrid approach (content-based for cold start, collaborative once reading logs are available) "
                    "usually works best.")

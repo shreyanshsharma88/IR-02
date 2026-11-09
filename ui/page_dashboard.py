@@ -10,15 +10,15 @@ from .state import Pipeline
 
 def render(p: Pipeline):
     header("News Intelligence Dashboard",
-           "Text mining & document intelligence for a news-monitoring firm — corpus overview and pipeline status.")
+            "News corpus overview and pipeline status.")
 
     st.markdown(
         """<div class='context-box'><b>Business context.</b> A media-monitoring / business-research firm ingests a
-        continuous stream of unstructured news articles. Analysts need to (1) <b>auto-route</b> each article to the
-        right desk (business, politics, tech, ...), (2) <b>discover themes</b> without labels, (3) <b>spot duplicate</b>
-        syndicated copies so they are not double-counted, and (4) <b>find related coverage</b> for a story under
-        research. This system implements the full pipeline from scratch — inverted index, TF-IDF, cosine similarity,
-        Multinomial Naive Bayes, K-Means, Purity / Rand Index and a content-based recommender — on the public
+        continuous stream of unstructured news articles. Analysts route articles to desks (business, politics,
+        tech, ...), find themes without labels, identify syndicated copies to avoid double-counting, and look up
+        related coverage while researching a story. The system uses hand-written implementations of an inverted
+        index, TF-IDF, cosine similarity, Multinomial Naive Bayes, K-Means, Purity / Rand Index and a content-based
+        recommender on the public
         BBC News corpus (Greene &amp; Cunningham, 2006).</div>""", unsafe_allow_html=True)
 
     meta, docs = p.meta, p.docs
@@ -41,15 +41,15 @@ def render(p: Pipeline):
         cc = p.category_counts().rename_axis("category").reset_index(name="documents")
         fig = px.bar(cc, x="category", y="documents", color="category", text="documents",
                      color_discrete_map=cat_colors(cc["category"]))
-        show(style(fig, 340, legend=False), "Articles per desk. Classes are reasonably balanced (sport and business "
-             "largest), so accuracy is a meaningful headline metric.")
+        show(style(fig, 340, legend=False), "Articles per desk. Classes are reasonably balanced, with sport and business "
+             "the largest, so accuracy is a useful overall metric.")
     with c2:
         section("Document length")
         fig = px.histogram(meta, x="n_words", color="category", nbins=60, barmode="stack",
                            color_discrete_map=cat_colors(meta["category"]))
         fig.update_layout(xaxis_title="words per article", yaxis_title="documents")
-        show(style(fig, 340), "Long-tailed length distribution: most articles have 200–600 words, a few exceed 2,000 "
-             "(motivates TF-IDF length normalisation).")
+        show(style(fig, 340), "Most articles have 200-600 words; a few exceed 2,000. This variation is why TF-IDF "
+             "vectors are length-normalised.")
 
     section("Pipeline status", "All stages auto-run with default settings on first load; change them on the "
             "Preprocessing and Text Mining pages.")

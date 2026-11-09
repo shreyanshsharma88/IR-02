@@ -227,8 +227,8 @@ story.append(Table([[""]], colWidths=[16.8 * cm], rowHeights=[2],
                    style=[("LINEBELOW", (0, 0), (-1, -1), 1, ACCENT)]))
 
 h1("Selected business context",
-   "We play the text-mining team of a media-monitoring and business-research firm that must make sense of a "
-   "continuous stream of news articles.")
+    "We take the role of a text-mining team at a media-monitoring and business-research firm that processes a "
+    "continuous stream of news articles.")
 story.append(P("Analysts at such a firm (and the communications, investor-relations and policy teams who buy its "
                "services) need to:"))
 story += bullets([
@@ -241,8 +241,8 @@ story.append(P("The system is a Streamlit application (dashboard, data ingestion
                "hub, recommendation panel, performance analytics, inferences) backed by a hand-written Python package."))
 
 h1("Dataset description",
-   f"Real BBC News articles: {n(D['n_docs'])} documents, {D['total_mb']} MB of raw text, five labelled desks, with "
-   f"genuine duplicates and noise.")
+    f"The BBC News corpus contains {n(D['n_docs'])} documents and {D['total_mb']} MB of raw text across five labelled "
+    f"desks, including duplicates and noise.")
 story += bullets([
     "<b>Source:</b> BBC News full-text corpus, 2004-2005 (Greene and Cunningham, ICML 2006; mlg.ucd.ie/datasets/bbc.html). "
     "The first line of each file is the headline.",
@@ -264,14 +264,14 @@ pair("01_category_distribution.png", "05_doc_length_hist.png",
 
 h1("Implementation approach",
    "All core IR algorithms are written by hand in the textmining/ package; the Streamlit app and the experiment "
-   "script call the same code, so the app and this report agree.")
+    "script use the same implementation for the app and report results.")
 story.append(P(f"<b>Pipeline.</b> ingest (CSV / JSON / ZIP of .txt) -> preprocess -> inverted index -> TF-IDF -> "
                "{ Naive Bayes | K-Means + Purity/RI | cosine Top-K recommender | duplicate detector } -> Streamlit "
                f"visualisations. {code('experiments.py')} (seed 42) writes every number in this report to "
                f"{code('report/results.json')}."))
 story.append(P("<b>No built-in implementations.</b> The inverted index, TF-IDF, cosine similarity, Naive Bayes, K-Means, "
                "Purity and Rand Index are hand-implemented; scikit-learn is not used (not even in requirements.txt). "
-               "numpy serves only as an array container, NLTK only supplies the Porter stemmer, WordNet lemmatiser and "
+               "numpy is used only as an array container, NLTK only supplies the Porter stemmer, WordNet lemmatiser and "
                "stop-word list, and PCA is used only to draw the 2-D scatter plot."))
 fx = lambda s: Paragraph(esc(s), FCELL)  # noqa: E731
 story.append(table([
@@ -291,9 +291,9 @@ story.append(P(f"<b>Evaluation protocol.</b> Naive Bayes uses a stratified 80/20
                "afterwards to compute Purity, Rand Index and Precision@K."))
 
 h1("Preprocessing and feature choices",
-   f"Lowercasing, punctuation/number removal, stop-word removal and Porter stemming cut the vocabulary by "
-   f"{PRE['vocab_reduction_pct']}% and the token count by {PRE['token_reduction_pct']}%, leaving a compact, topical "
-   "feature space.")
+    f"Lowercasing, punctuation/number removal, stop-word removal and Porter stemming reduce the vocabulary by "
+    f"{PRE['vocab_reduction_pct']}% and the token count by {PRE['token_reduction_pct']}%, leaving fewer features "
+    "focused on article content.")
 steps = PRE["steps"]
 story.append(table(
     [["Cumulative step", "Tokens", "Vocabulary", "Avg tokens / doc"]] +
@@ -316,7 +316,7 @@ story += bullets([
     f"{TF['walkthrough']['w_normalised']} (identical to the matrix entry).",
 ])
 figure("03_top20_before_after.png", "Top-20 terms before (raw tokens) and after the baseline pipeline: function words "
-       "and punctuation give way to content stems such as 'year', 'peopl', 'game' and 'govern'.", 15.5 * cm)
+    "and punctuation are replaced by content stems such as 'year', 'peopl', 'game' and 'govern'.", 15.5 * cm)
 
 h1("Classification results (Naive Bayes)", newpage=True, lead=
    f"The hand-written multinomial Naive Bayes classifier labels {pct(NB['accuracy'])} of the {NB['split']['test']} test "
@@ -351,7 +351,7 @@ story.append(P(f"Errors are mostly cross-desk stories (e.g. a salary scandal lab
                f"({f3(LK['acc_on_leaked'])} vs {f3(LK['acc_on_non_leaked'])} on the rest) - see Q2."))
 
 h1("Clustering results (K-Means)", newpage=True, lead=
-   f"Hand-written K-Means (k = {KM['params']['k']}) recovers the five desks without seeing any label: purity "
+    f"Hand-written K-Means (k = {KM['params']['k']}) groups articles by the five desks without using labels: purity "
    f"{f3(KM['purity'])}, Rand Index {f3(KM['rand_index'])}.")
 p = KM["params"]
 story.append(P(f"<b>Configuration.</b> k = {p['k']}, k-means++ initialisation, {p['n_init']} restarts (best SSE kept), "
@@ -368,8 +368,8 @@ for h in H:
                         " / ".join(str(x) for x in h["cluster_sizes"])])
 story.append(table(it_rows, [1.8 * cm, 2.2 * cm, 3.2 * cm, 2.4 * cm, 5.2 * cm],
                    f"Condensed iteration log of the best run ({KM['n_iter']} iterations; the full log is shown in the app). "
-                   f"SSE falls monotonically; the late burst around iteration {late['iteration']} is an oversized "
-                   "cluster being broken up before convergence.", right_from=1))
+                   f"SSE falls monotonically; the increase in document moves around iteration {late['iteration']} "
+                   "occurs as an oversized cluster splits before convergence.", right_from=1))
 pc = KM["pair_counts"]
 story.append(table([["Metric", "Value", "Pair counts", "Value"],
                     ["Purity", f3(KM["purity"]), "TP (same cluster, same class)", n(pc["TP"])],
@@ -379,7 +379,7 @@ story.append(table([["Metric", "Value", "Pair counts", "Value"],
                    [2.6 * cm, 2.0 * cm, 6.4 * cm, 2.4 * cm], "Clustering evaluation against the true desks.", right_cols={1, 3}, font=9))
 bf = KM["bruteforce_check"]
 fs = KS["full_ninit5"]
-story.append(P(f"<b>Verification.</b> The fast contingency-table Rand Index equals a literal O(N^2) pair loop on a "
+story.append(P(f"<b>Verification.</b> The fast contingency-table Rand Index equals an explicit O(N^2) pair loop on a "
                f"{bf['sample']}-document sample ({bf['fast']} vs {bf['bruteforce']}). <b>Seed stability:</b> over 5 seeds "
                f"purity is {f3(fs['purity_mean'])} +/- {f3(fs['purity_std'])} with 5 restarts, but ranges "
                f"{f3(KS['full_ninit1']['purity_min'])}-{f3(KS['full_ninit1']['purity_max'])} with a single initialisation."))
@@ -413,13 +413,13 @@ story.append(table([
 ], [3.0 * cm, 6.9 * cm, 6.9 * cm], "Naive Bayes vs K-Means."))
 tn_share = pc["TN"] / pc["pairs"]
 story.append(P("Naive Bayes is <b>supervised</b>: it learns the desk boundaries from labelled examples and is judged on "
-               "unseen documents, so its accuracy is a genuine generalisation estimate and it can route new articles "
+               "unseen documents, so its accuracy estimates generalisation and it can route new articles "
                f"directly. K-Means is <b>unsupervised</b>: it only groups similar documents, and purity "
                f"({f3(KM['purity'])}) equals the accuracy of mapping each cluster to its majority class - computed on the "
                "same data that was clustered, after looking at the labels. The Rand Index is inflated by true negatives "
                f"({pct(tn_share)} of all pairs are 'different cluster, different class'). K-Means also needs k in advance "
-               "and several restarts to be stable, whereas NB varies only with the split. That an unsupervised method "
-               "almost matches the supervised one shows that the five desks are lexically well separated."))
+               "and several restarts to be stable, whereas NB varies only with the split. The similar results suggest "
+               "that vocabulary separates the five desks well."))
 
 h1("Recommendation results", lead=
    f"Content-based Top-K recommendation by TF-IDF cosine similarity: on average {pct(PK['P@5'])} of the top-5 "
@@ -448,15 +448,15 @@ story += bullets([
     f"Results are explainable: shared stems such as {', '.join(qx['top5'][0]['shared_terms'][:3])} show why "
     f"{qx['top5'][0]['doc_id']} is ranked first; the cross-desk hit {next((r['doc_id'] for r in qx['top5'] if not r['same_category']), '-')} "
     "is still topically relevant (employment policy), so the category proxy understates quality.",
-    f"Duplicates flood lists: {n(REC['lists_with_dup_in_top5'])} documents have a near-copy in their top-5 "
-    "(e.g. BUS-007's #1 result is a verbatim copy, score 1.000) - hence the hide-duplicates option.",
+    f"Duplicates occupy recommendation slots: {n(REC['lists_with_dup_in_top5'])} documents have a near-copy in their top-5 "
+    "(e.g. BUS-007's #1 result is a verbatim copy, score 1.000). The hide-duplicates option removes these results.",
     "Bag-of-words cannot match synonyms or paraphrases, and short or generic queries (e.g. TEC-001 on election ink) drift "
     "to other desks because a few rare shared words dominate.",
     "No user interaction data exists, so there is no personalisation, popularity or recency signal.",
 ])
 
 h1("Inferences and limitations", newpage=True, lead=
-   "Answers to the five compulsory questions, using the ablation below (each configuration re-runs the full pipeline "
+    "We answer the five compulsory questions using ablation tests (each configuration re-runs the full pipeline "
    "with and without de-duplication).")
 abl_names = ["Baseline", "Baseline + dedup", "No stop-word removal", "Lemmatization", "No normalizer", "Uni+bigram",
              "No lowercasing, no stemming"]
@@ -479,14 +479,14 @@ nb_vals = [A[x]["nb_accuracy"] for x in abl_names if "dedup" not in x]
 story += bullets([
     f"<b>Vocabulary:</b> the baseline has {n(base['vocab_raw'])} types; dropping stemming raises it to "
     f"{n(nonorm['vocab_raw'])}, lemmatisation gives {n(lem['vocab_raw'])}, no lowercasing and no stemming "
-    f"{n(nolns['vocab_raw'])}, and bigrams explode it to {n(bi['vocab_raw'])}. (Disabling lowercasing alone changes "
+    f"{n(nolns['vocab_raw'])}, and bigrams increase it to {n(bi['vocab_raw'])}. (Disabling lowercasing alone changes "
     "nothing because the Porter stemmer lowercases its output.)",
-    f"<b>Classification</b> is robust: NB accuracy stays within {f3(min(nb_vals))}-{f3(max(nb_vals))}, smaller than the "
+    f"<b>Classification</b> changes little: NB accuracy stays within {f3(min(nb_vals))}-{f3(max(nb_vals))}, smaller than the "
     f"spread across random splits ({f3(nbs['acc_mean'])} +/- {f3(nbs['acc_std'])}). Keeping stop-words is slightly worse "
     f"({f3(nsw['nb_accuracy'])}); the benefit of the baseline is a much smaller model.",
     f"<b>Clustering</b> is sensitive: the baseline has the highest seed-averaged purity ({f3(base['km_purity_seedmean'])} +/- "
     f"{base['km_purity_seedstd']:.3f}) versus {f3(nsw['km_purity_seedmean'])} without stop-word removal, "
-    f"{f3(nonorm['km_purity_seedmean'])} without stemming and {f3(bi['km_purity_seedmean'])} with bigrams - richer "
+    f"{f3(nonorm['km_purity_seedmean'])} without stemming and {f3(bi['km_purity_seedmean'])} with bigrams. Larger "
     "vocabularies spread the 5,000 features over redundant variants and create more local optima.",
     f"<b>Recommendation</b> prefers specific features: P@5 rises from {f3(base['precision_at_5'])} (baseline) to "
     f"{f3(bi['precision_at_5'])} with bigrams and {f3(nolns['precision_at_5'])} with case-sensitive unstemmed tokens, "
@@ -500,9 +500,9 @@ story += bullets([
     f"{DUP['near_only_jaccard_mean']}). Union-find merges pairs; {DUP['docs_dropped_by_dedup']} redundant documents "
     "can be dropped, or just flagged/hidden in the app.",
     f"<b>Classification:</b> {LK['leaked_docs']} of {NB['split']['test']} test documents have a copy in training and score "
-    f"{f3(LK['acc_on_leaked'])} accuracy (vs {f3(LK['acc_on_non_leaked'])}) - memorisation, not generalisation. After "
+    f"{f3(LK['acc_on_leaked'])} accuracy (vs {f3(LK['acc_on_non_leaked'])}); this reflects memorisation of copies. After "
     f"de-duplication leakage is 0 and accuracy is {f3(based['nb_accuracy'])} (5 splits: "
-    f"{f3(ST['naive_bayes']['dedup']['acc_mean'])}); only this figure is an honest estimate.",
+    f"{f3(ST['naive_bayes']['dedup']['acc_mean'])}). Only the de-duplicated result estimates accuracy without copy leakage.",
     f"<b>Clustering:</b> copies have distance 0, always share a cluster and add guaranteed TP pairs and double weight to "
     f"centroids. Removing them made K-Means less stable: seed-42 purity {f3(base['km_purity'])} -> {f3(based['km_purity'])}; "
     f"5-seed mean {f3(KS['full_ninit5']['purity_mean'])} -> {f3(KS['dedup_ninit5']['purity_mean'])}. With 20 restarts it "
@@ -512,14 +512,14 @@ story += bullets([
 ])
 
 h2("Q3. Recommendation approach: content-based vs collaborative")
-story.append(P("We use <b>content-based</b> recommendation (TF-IDF cosine, Section 8) because the corpus has rich text "
+story.append(P("We use <b>content-based</b> recommendation (TF-IDF cosine, Section 8) because the corpus has full article text "
                "but no user-document interaction data, so collaborative filtering would have nothing to learn from."))
 story += bullets([
     "<b>Content-based</b> needs only item content (text, metadata). It works for brand-new articles and new users, is "
     "explainable through shared terms, but over-specialises and cannot judge quality. Preferable when the catalogue changes "
     "fast (news), users are few, or transparency is required.",
     "<b>Collaborative</b> needs a user-item interaction matrix (reads, clicks, ratings, saves) from many users. It finds "
-    "non-obvious, co-read items and captures taste, but suffers from cold start and sparsity. Preferable with many active "
+    "co-read items that may not be obvious from content and captures preferences, but has cold-start and sparsity problems. Preferable with many active "
     "users and a stable catalogue.",
     "A production system would be <b>hybrid</b>: content-based for fresh stories, blended with collaborative signals once "
     "analyst reading logs exist.",
@@ -527,22 +527,22 @@ story += bullets([
 
 h2("Q4. How the techniques help domain experts decide")
 story += bullets([
-    f"<b>Text mining</b> quantifies the feed (volume per desk, key vocabulary) and exposes {DUP['docs_dropped_by_dedup']} "
-    f"redundant copies ({pct(DUP['docs_dropped_by_dedup'] / D['n_docs'])}), so coverage reports count stories, not copies.",
+    f"<b>Text mining</b> measures the feed (volume per desk, key vocabulary) and identifies {DUP['docs_dropped_by_dedup']} "
+    f"redundant copies ({pct(DUP['docs_dropped_by_dedup'] / D['n_docs'])}), so coverage reports avoid counting the same story twice.",
     f"<b>Classification</b> routes articles to desks with {pct(NB['accuracy'])} accuracy; low-confidence or cross-desk "
     "predictions can go to a human review queue.",
     f"<b>Clustering</b> finds groupings without labels (purity {f3(KM['purity'])}) - useful for an unlabelled client archive or "
     "for spotting emerging sub-themes with a larger k.",
-    "<b>Recommendation</b> turns any story into a research starting point with explained, de-duplicated related coverage. "
-    "Together: ingest -> de-duplicate -> route -> explore themes -> brief, with each step measured so analysts know how far to trust it.",
+    "<b>Recommendation</b> provides related coverage for a story, with duplicates removed and shared terms explaining each result. "
+    "The workflow is ingest -> de-duplicate -> route -> explore themes -> brief. Measurements at each step help analysts assess reliability.",
 ])
 
 h2("Q5. Naive Bayes vs K-Means: findings, limitations, improvements")
 story.append(P(f"NB reaches accuracy {f3(NB['accuracy'])} and macro-F1 {f3(NB['macro']['f1'])} on held-out data; K-Means "
                f"reaches purity {f3(KM['purity'])} and RI {f3(KM['rand_index'])} without labels (5-seed mean purity "
-               f"{f3(fs['purity_mean'])}). <b>Key findings:</b> the desks are lexically well separated; preprocessing changes "
+               f"{f3(fs['purity_mean'])}). Vocabulary separates the desks well; preprocessing changes "
                "the feature space more than NB accuracy; duplicates inflate NB accuracy through leakage and inflate P@5; "
-               "single-seed K-Means results are unreliable without restarts. Limitations and improvements follow."))
+               "single-seed K-Means results are unreliable without restarts."))
 
 h2("Limitations and improvements for real-world deployment")
 story += bullets([
